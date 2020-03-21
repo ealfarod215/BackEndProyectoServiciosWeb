@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ListaUnidadesMedida.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista Unidades de Medida</title>
+</head>
+
+<body>
+
+
+    <div id="SeccionPrincipalUniMed" class="container d-flex border">
+        <div id="LSectionUniMed" class="">
+            <img class="LogoUniMed" src="/images/balanza.svg" alt="">
+        </div>
+        <div id="RSectionUniMed" class="border">
+            <div id="headerListSection" class="d-flex border">
+                <div class="displayGrid headerSideSize">
+                    <div class="marginL">
+                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/recargar.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/escoba.svg" alt=""></button>
+                    </div>
+                    <div class="marginL">
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/error.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/confirmacion.svg" alt=""></button>
+                    </div>
+                </div>
+                <div id="littleForm">
+                    <form class="form-inline container displayGrid headerMidleSize">
+                        <div class="d-flex headerMidleSize">
+                            <div class="marginIconos">
+
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputCodUniMed"
+                                        placeholder="Codigo Unidad de Medida">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNomUniMed"
+                                        placeholder="Nombre Unidad de Medida">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+                <div class="displayGrid ">
+                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
+                            alt=""></button>
+                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
+                            alt=""></button>
+                </div>
+            </div>
+            <div id="bodyListSection">
+
+
+                <div class="row">
+                    <div class="col">Codígo</div>
+                    <div class="col">Unidad de Medida</div>
+                    <div class="col">Escala</div>
+                    <div class="col">Detalle</div>
+                    <div class="col">Simbología</div>
+
+                </div>
+                <div id="listViewUniMed" class="border">
+                    <div id="mostrarContenidoUniMed"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

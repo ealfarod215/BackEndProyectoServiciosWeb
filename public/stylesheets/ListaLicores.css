@@ -1,0 +1,65 @@
+/*Se establece una seccion principal*/
+#SeccionPrincipalLicor {
+    width : 100%;
+    height: 100%;
+}
+
+/*Se sub-divide y se trabaja en dos secciones*/
+/*Seccion Izquierda encargada de una imagen */
+#LSectionLicor {
+    width        : 20%;
+    height       : 100%;
+    display      : flex;
+    align-items  : center;
+    padding-left : 2rem;
+    padding-right: 2rem;
+}
+
+.LogoLicor {
+    width : 100%;
+    height: 20%;
+}
+
+
+/*Seccion derecha donde se va a mostrar toda la informacion*/
+#RSectionLicor {
+    width : 80%;
+    height: 100%;
+}
+
+#headerListSection {
+    width : 100%;
+    height: 12%;
+}
+
+.headerMidleSize {
+    width       : 90%;
+    height      : 100%;
+    margin-right: 1rem;
+    align-items : center;
+}
+
+.headerSideSize {
+    width          : 100%;
+    justify-content: center;
+}
+
+.marginIconos {
+    margin: 0.1rem;
+}
+
+#bodyListSection {
+    width : 100%;
+    height: 85%;
+}
+
+#listViewLicores {
+    width : 100%;
+    height: 100%;
+}
+
+#mostrarContenidoBG {
+    width           : 100%;
+    height          : 100%;
+    background-color: cornsilk;
+}

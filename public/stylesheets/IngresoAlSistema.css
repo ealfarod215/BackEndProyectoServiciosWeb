@@ -1,0 +1,14 @@
+#contenedorLogin {
+    width : 60%;
+    height: 40%;
+}
+
+#imagenLogin {
+    width           : 40%;
+    height          : 100%;   
+}
+
+#botonesLogin{
+   width: 100%;
+   justify-content: center;
+}

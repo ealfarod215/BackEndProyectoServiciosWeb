@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ClientesMesas.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Mesas Clientes</title>
+</head>
+
+<body>
+
+
+    <div id="SeccionPrincipalLR" class="container d-flex border">
+        <div id="LSectionListaComidaBufet" class="">
+            <img class="LogoCEB" src="/images/menu.svg" alt="">
+        </div>
+        <div id="RSectionListaComidaBufet" class="border d-flex">
+            <div id="mitadUno" class="d-block">
+                <div id="datosCliente" class="d-block border">
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputCodCliente"
+                                placeholder="Codigo del Cliente">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputNomCliente"
+                                placeholder="Nombre del Cliente">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputSelectNomMesa">
+                                <option selected>Nombre de la Mesa</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputMontoPago" placeholder="Monto de Pago">
+                        </div>
+                    </div>
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputRestaurante" placeholder="Restaurante">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputHoraEntrada" placeholder="Hora de Entrada">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputHoraSalida" placeholder="Hora de Salida">
+                        </div>
+
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputDuracionMesa"
+                                placeholder="Monto en la Mesa">
+                        </div>
+                    </div>
+
+                </div>
+                <div id="informacionPedido" class="d-flex border">
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                            <label for="">Información del Pedido</label>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputNumMesa" placeholder="Número de Mesa">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputPedidoSillaUno">
+                                <option selected>Pedido silla 1</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputPedidoSillaDos">
+                                <option selected>Pedido silla 2</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputPedidoSillaTres">
+                                <option selected>Pedido silla 3</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputPedidoSillaCuatro">
+                                <option selected>Pedido silla 4</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+
+                            <label for="">Precio</label>
+
+                        </div>
+                        <div class="input-group input-group-sm mb-3 d-flex">
+
+                            <input type="checkbox" name="" id="inputPreSUno">
+                            Buffet
+                            <input type="text" class="form-control" id="inputPrecioSUno" placeholder="$">
+
+
+                        </div>
+                        <div class="input-group input-group-sm mb-3 d-flex">
+                            <input type="checkbox" name="" id="inputPrecioSDos">
+                            Buffet
+                            <input type="text" class="form-control" id="inputHoraEntrada" placeholder="$">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 d-flex">
+                            <input type="checkbox" name="" id="inputPrecioSTres">
+                            Buffet
+                            <input type="text" class="form-control" id="inputHoraSalida" placeholder="$">
+                        </div>
+
+                        <div class="input-group input-group-sm mb-3 d-flex">
+                            <input type="checkbox" name="" id="inputPrecioSCuatro">
+                            Buffet
+                            <input type="text" class="form-control" id="inputDuracionMesa" placeholder="$">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="mitadDos" class="d-block">
+                <div id="fechasCliente" class="tamanoFyF">
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <label for="">Fechas del Cliente</label>
+                    </div>
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <input type="checkbox" id="inputNumMesa"><label for="">Reservación</label>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control" id="inputFechaLlegada" placeholder="Fecha de Llegada">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <select class="custom-select" id="inputSFechaReservacion">
+                            <option selected>Fecha de Reservación</option>
+                            <option value="1">ejemplo</option>
+                            <option value="2">ejemplo 2</option>
+                            <option value="3">ejemplo 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="facturacion" class="tamanoFyF">
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <label for="">Facturación</label>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control" id="inputEstadoCuenta"
+                            placeholder="Estado de la Cuenta">
+                    </div>
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/impresion.svg" alt=""></button>
+                    </div>
+
+                </div>
+                <div id="botonesLogin" class="d-flex">
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/escoba.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/confirmacion.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/error.svg" alt=""></button></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!--Falta agregar la seccion de Comidas Buffet-->
+
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+/*Se define tamano para toda la pagina*/
+body {
+    width : 1920px;
+    height: 1005px;
+}
+
+/*barra de navegacion pricipal*/
+#navResOne {
+    width : 100%;
+    height: 5%;
+}
+
+/*Seccion sentral principal*/
+#seccionCentral {
+    width : 100%;
+    height: 90%;
+}
+
+/*Trabajo de la seccion central interna*/
+#cuerpoPrincipal {
+    width : 90%;
+    height: 100%;
+}
+
+#barraLateralIzquierda {
+    width : 5%;
+    height: 100%;
+}
+
+
+/*Seccion de barra lateral derecha*/
+#barraLateralDerecha {
+    width : 5%;
+    height: 100%;
+}
+
+#lateralUno{
+    width: 100%;
+    height: 25%;
+}
+
+#puertaSalida{
+    width: 100%;
+    height: 50%;
+}
+
+#cocina{
+    width: 100%;
+    height: 25%;
+
+}
+
+
+
+/*Fin de seccion*/
+
+#arriba {
+    width : 100%;
+    height: 100%;
+    justify-content: center;
+    
+}
+
+#mesas {
+    width : 100%;
+    height: 100%;
+}
+
+#mesas button{
+    margin: 2rem;
+}
+
+
+#abajo {
+    text-align: left;
+    justify-content: center;
+    width : 100%;
+    height: 100%;
+}
+
+#estadoDeLaBarra2{
+    text-align: left;
+    justify-content: center;
+    height: 25%;
+}
+
+/*pie de la pagina*/
+#footer {
+    width : 100%;
+    height: 3%;
+}
+
+#footer li{
+    padding-right: 10rem;
+    
+}

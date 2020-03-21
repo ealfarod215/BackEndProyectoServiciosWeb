@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/Especialidades.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Especialidades</title>
+</head>
+
+<body>
+    <div id="contenedorGTitulo" class="container d-flex">
+        <h1>Especialidades</h1>
+    </div>
+    <div id="contenedorGuno" class="container">
+
+        <div id="SeccionPrincipalLR" class="container d-flex border">
+
+            <div id="LSectionEspecialidades" class="">
+                <img class="LogoEspecialidades" src="/images/bufe.svg" alt="">
+            </div>
+            <div id="RSectionEsoecialidades" class="border">
+
+                <div id="headerESPRsection" class="d-flex border">
+                    <h5>Opciones:</h5>
+
+                    <div id="littleForm" class="">
+                        <form class="form-inline container displayGrid headerMidleSize">
+                            <div class="d-flex headerMidleSize">
+                                <div class="d-block">
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputBufet">
+                                            <label for="" class="">Bufet</label>
+                                        </div>
+                                    </div>
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputBebidas">
+                                            <label for="" class="">Bebidas</label>
+                                        </div>
+                                    </div>
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputEspecialidades">
+                                            <label for="" class="">Especialidades</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="displayGrid ">
+                        <a id="siguienteventana" href="">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/confirmacion.svg" alt=""></button>
+                        </a>
+
+                        <a href="/VentanaAdministracion">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/error.svg" alt=""></button>
+                        </a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var radioBufet = document.getElementById("inputBufet");
+        var radioBebidas = document.getElementById("inputBebidas");
+        var radioEspecialidades = document.getElementById("inputEspecialidades");
+
+
+        radioBufet.addEventListener('click', () => {
+            alert("Bufet");
+            document.getElementById("siguienteventana").setAttribute("href", "/Buffet/listarAllBufet");
+
+        });
+
+        radioBebidas.addEventListener('click', () => {
+            alert("Bebidas");
+            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+
+        });
+
+        radioEspecialidades.addEventListener('click', () => {
+            alert("Especialidades");
+            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+
+        });
+
+
+
+    </script>
+</body>

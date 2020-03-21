@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/RegistroLimpiezaeHigiene.css">
+    <title>RegistroLimpiezaeHigiene</title>
+</head>
+
+<body>
+    <div class="container navbar-expand-xl">
+        <h1 class="text-center align-content-center">Limpieza e Higiene</h1>
+    </div>
+    <div >
+        <div id="contenedorLogin" class="container border d-flex ">
+            <div id="imagenLogo">
+                <img style="width: 80%; height: 60%;" src="/images/escobaLimpieza.svg" alt="">
+            </div>
+            <form class="form-inline d-flex   height: 70%;">
+                <div id="BmenuUno" class="container border">
+                    <div class="displayGrid ">
+                        <div class="">
+                            <label class="smd-9 mb-4">Información de los Artículos</label>
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            
+                            <label class="align-content-center ">Código <input id="inputCodLimpieza" type="text" class="form-control " placeholder="Código"> </label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="align-content-center ">Restaurante<select class="custom-select" id="inputSelectRestaurante">
+                                <option selected>Restaurante</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select> </label>
+                        </div>  
+                        <div class="col-md-9 mb-3">
+                            <label class="align-content-center ">Nombre<input id="inputNombreEmpleado" type="text" class="form-control" placeholder="Nombre"> </label>
+                        </div>
+                        <div class="col-md-7 mb-3">
+                            <label class="align-content-center ">Marca<select class="custom-select" id="inputSelectMarca">
+                                <option selected>Marca</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select> </label>
+                        </div>  
+                        <div class="col-md-9 mb-3">
+                            
+                            <label class="align-content-center ">Cantidad<input id="inputCantidad" type="text" class="form-control " placeholder="Cantidad"> </label>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label class="align-content-center ">Descripción<textarea id="inputDescripcion" class="form-control" placeholder="Descripción"
+                                aria-label="With textarea"></textarea> </label>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="BmenuDos">
+                    <div class="col-md-8 mb-3">
+                        <label class="align-content-center ">Tipo<select class="custom-select" id="inputSelectTipo">
+                            <option selected>Tipo</option>
+                            <option value="1">ejemplo</option>
+                            <option value="2">ejemplo 2</option>
+                            <option value="3">ejemplo 3</option>
+                        </select> </label>
+                    </div>  
+                    <div class="col-md-8 mb-3">
+                        <label class="align-content-center ">Cantidad de Medida<input id="inputCantidad de Medida" type="text" class="form-control" placeholder="Cantidad de Medida"> </label>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="align-content-center ">Unidad de Medida<select class="custom-select" id="inputSelectUnidadDeMedida">
+                            <option selected>Unidad de Medida</option>
+                            <option value="1">ejemplo</option>
+                            <option value="2">ejemplo 2</option>
+                            <option value="3">ejemplo 3</option>
+                        </select> </label>
+                    </div>  
+                </div>
+                <div id="botonesLogin" class="d-flex">
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/escoba.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/confirmacion.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/error.svg" alt=""></button></div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultChecked2" >
+                                    <label class="custom-control-label" for="defaultChecked2">Artículo Líquido</label>
+                                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+
+</html>

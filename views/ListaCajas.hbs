@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ListaCajas.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista de Cajas</title>
+</head>
+
+<body>
+    <div id="SeccionPrincipalCajas" class="container d-flex border">
+        <div id="LSectionCajas" class="">
+            <img class="LogoCajas" src="/images/negocios-y-finanzas.svg" alt="">
+        </div>
+        <div id="RSectionCajas" class="border">
+            <div id="headerListSection" class="d-block border">
+                <div id="littleForm">
+                    <form class="form-inline container displayGrid ">
+                        <div class="d-flex MAXWandH">
+                            <div class="displayGrid ">
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control" id="inputCodRegistro"
+                                            placeholder="Codigo del Registro">
+                                    </div>
+                                </div>
+                                <div class="container">
+
+                                    <input id="fechaRegistro" class="form-control" placeholder="Fecha del Registro" />
+                                </div>
+
+                            </div>
+                            <div class="displayGrid headerEspacios">
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="text" class="form-control" id="inputNomRestaurante"
+                                            placeholder="Nombre del Restaurante">
+                                    </div>
+                                </div>
+
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="radio" class="" id="inputAperturaCaja">Apertura de Caja
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="radio" class="" id="inputAperturaCaja">Cierre de Caja
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex headerEspacios">
+                                <div class="displayGrid ">
+                                    <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/recargar.svg" alt=""></button>
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/escoba.svg" alt=""></button>
+                                </div>
+
+                                <div class=" displayGrid headerEspacios">
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/error.svg" alt=""></button>
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/confirmacion.svg" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div id="bodyListSection">
+
+
+                <div class="row">
+                    <div class="col">Codígo</div>
+                    <div class="col">Fecha</div>
+                    <div class="col">Descripcion</div>
+                    <div class="col">Entrada de Dinero</div>
+                    <div class="col">Apertura</div>
+                    <div class="col">Cierre</div>
+                    <div class="col">Restaurante</div>
+
+
+                </div>
+                <div id="listViewCajas" class="border">
+                    <div id="mostrarContenidoCajas"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+
+</html>

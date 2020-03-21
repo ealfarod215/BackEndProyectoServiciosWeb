@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/RegistroUnidadMedida.css">
+    <title>Registro Unidad de Medida</title>
+</head>
+
+<body>
+    <div class="container navbar-expand-xl">
+        <h1 class="text-center align-content-center">Registro Unidad de Medida</h1>
+    </div>
+    <div class="d-flex MAXWandH">
+        <div id="contenedorLogin" class="container border d-flex ">
+            <div id="imagenLogo">
+                <img style="width: 80%; height: 60%;" src="/images/balanza.svg" alt="">
+            </div>
+            <form class="form-inline d-flex ">
+                <div id="BmenuUno" class="border d-flex">
+                    <div class="displayGrid ">
+                        <div class="">
+                            <label>Información de Unidades de Medida</label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputCodUniMed" type="text" class="form-control" placeholder="Código">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputNombreUniMed" type="text" class="form-control" placeholder="Nombre">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <select class="custom-select" id="inputSelectEscala">
+                                <option selected>Escala</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <select class="custom-select" id="inputSelectDetalle">
+                                <option selected>Detalle</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputSimboloUniMed" type="text" class="form-control" placeholder="Simbolo">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputSimbologiaUniMed" type="text" class="form-control" placeholder="Simbología">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="botonesLogin" class="d-flex">
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/escoba.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/confirmacion.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/error.svg" alt=""></button></div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

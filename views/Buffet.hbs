@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/Buffet.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista de Comida Estilo Buffet</title>
+</head>
+
+<body>
+
+
+    <div id="SeccionPrincipalLR" class="container d-flex border">
+        <div id="LSectionListaComidaBufet" class="">
+            <img class="LogoCEB"
+                src="/images/restaurante-cubiertos-simbolo-circular-de-una-cuchara-y-un-tenedor-en-un-circulo.svg"
+                alt="">
+        </div>
+        <div id="RSectionListaComidaBufet" class="border">
+            <div id="headerListSection" class="d-flex border">
+                <div class="displayGrid headerSideSize">
+                    <div class="marginL">
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/Buffet/listarAllBufet"><button class="marginIconos "><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
+                                    alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+                    </div>
+                    <div class="marginL">
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg"
+                                alt=""></button>
+                        <a href="/RegistroComidaBuffet">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
+
+                    </div>
+                </div>
+                <div id="littleForm">
+                    <form id="frmBufete" method="post" action="/Buffet/filtrarLista"
+                        class="form-inline container displayGrid headerMidleSize">
+                        <div class="d-flex headerMidleSize">
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Codigo del la Comida</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputCodigo" name="inputCodigo"
+                                        placeholder="Digite el Codigo">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Nombre del la Comida</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNombre" name="inputNombre"
+                                        placeholder="Digite el Nombre">
+                                </div>
+                            </div>
+
+                            <div class="displayGrid">
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
+
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <div id="bodyListSection">
+
+                <div id="listViewComidaBufet" class="border">
+                    <div id="mostrarContenidoLR">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Tipo</th>
+                                    <th>Unidad de Medida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{precio}}</td>
+                                    <td>{{tipo}}</td>
+                                    <td>{{unidad}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var formulario = document.getElementById("frmBufete");
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodigo").value = "";
+            document.getElementById("inputNombre").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodigo").value == "" || document.getElementById("inputNombre").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../Buffet/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

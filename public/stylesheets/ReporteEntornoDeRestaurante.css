@@ -1,0 +1,18 @@
+#contenedorReporteEntornoRestaurante{
+    width: 90%;
+    height: 70%;
+    background-color: rgb(253, 196, 143);
+}
+#contenedorReporteEntornoRestauranteSuperior{
+    width: 80%;
+    height: 10%;
+}
+#imagenEntornoRestaurante {
+    width           : 30%;
+    height          : 100%;
+    background-color:rgb(110, 56, 21);
+}
+#contenedorReporteEntornoRestauranteInterno{
+    width: 100%;
+    height: 830%;
+}

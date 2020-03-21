@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/RegistroClientesBarra.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Registro Clientes en Barra</title>
+</head>
+
+<body>
+
+
+    <div id="SeccionPrincipalLR" class="container d-flex border">
+        <div id="LSectionListaComidaBufet" class="">
+            <img class="LogoCEB" src="/images/menu.svg" alt="">
+        </div>
+        <div id="RSectionListaComidaBufet" class="border d-flex">
+            <div id="mitadUno" class="d-block">
+                <div id="datosCliente" class="d-block border">
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputCodCliente"
+                                placeholder="Codigo del Cliente">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputNomCliente"
+                                placeholder="Nombre del Cliente">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputSelectNomMesa">
+                                <option selected>Nombre de la Mesa</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputMontoPago" placeholder="Monto de Pago">
+                        </div>
+                    </div>
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputRestaurante" placeholder="Restaurante">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputHoraEntrada" placeholder="Hora de Entrada">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputHoraSalida" placeholder="Hora de Salida">
+                        </div>
+
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputDuracionMesa"
+                                placeholder="Monto en la Mesa">
+                        </div>
+                    </div>
+
+                </div>
+                <div id="informacionPedido" class="d-flex border">
+                    <div class="tamanoMitad">
+                        <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                            <label for="">Información del Pedido</label>
+                        </div>
+                        
+                        <div class="input-group input-group-sm mb-3">
+                            <select class="custom-select" id="inputPedidoBarra">
+                                <option selected>Pedido</option>
+                                <option value="1">ejemplo</option>
+                                <option value="2">ejemplo 2</option>
+                                <option value="3">ejemplo 3</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputPrecio" placeholder="Precio">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" class="form-control" id="inputNumSilla" placeholder="Número de Silla">
+                        </div>
+                        
+                    </div>
+                   
+
+                </div>
+            </div>
+            <div id="mitadDos" class="d-block">
+                <div id="fechasCliente" class="tamanoFyF">
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <label for="">Pedidos Previos</label>
+                    </div>
+        
+                    <div class="input-group input-group-sm mb-3">
+                        <textarea id="inputPedidosPrevios" class="form-control" placeholder="Descripción"
+                            aria-label="With textarea"></textarea>
+                    </div>
+                   
+                </div>
+                <div id="facturacion" class="tamanoFyF">
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <label for="">Facturación</label>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="text" class="form-control" id="inputEstadoCuenta"
+                            placeholder="Estado de la Cuenta">
+                    </div>
+                    <div class="input-group input-group-sm mb-3 d-flex centrarFlex">
+                        <button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/impresion.svg" alt=""></button>
+                    </div>
+
+                </div>
+                <div id="botonesLogin" class="d-flex">
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/escoba.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/confirmacion.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/error.svg" alt=""></button></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

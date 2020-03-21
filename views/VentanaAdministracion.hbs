@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/VentanaAdministracion.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Ventana Administración</title>
+</head>
+
+<body>
+    <div id="contenedorGTitulo" class="container d-flex">
+        <h1>Ventana Administración</h1>
+    </div>
+    <div id="contenedorGuno" class="container">
+
+        <div id="SeccionPrincipalLR" class="container d-flex border">
+
+            <div id="LSectionVA" class="">
+                <img class="LogoVA" src="/images/ajustes.svg" alt="">
+            </div>
+            <div id="RSectionVA" class="border">
+
+                <div id="headerVARsection" class="d-flex border">
+                    <h5>Opciones:</h5>
+
+                    <div id="littleForm" class="">
+                        <form class="form-inline container displayGrid headerMidleSize">
+                            <div class="d-flex headerMidleSize">
+                                <div class="d-block">
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputEspeciales">
+                                            <label for="" class="">Especiales</label>
+                                        </div>
+                                    </div>
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputEmpleados">
+                                            <label for="" class="">Empleados</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-block marginL">
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputMesas">
+                                            <label for="" class="">Mesas</label>
+                                        </div>
+                                    </div>
+                                    <div class="marginIconos">
+                                        <div class="form-group  ">
+                                            <input type="radio" id="inputPuestos">
+                                            <label for="" class="">Puestos</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="displayGrid ">
+                        <a id="siguienteventana" href="">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/confirmacion.svg" alt=""></button>
+                        </a>
+                        <a href="/Funcionalidades">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/error.svg" alt=""></button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        var radioEspeciales = document.getElementById("inputEspeciales");
+        var radioEmpleados = document.getElementById("inputEmpleados");
+        var radioMesas = document.getElementById("inputMesas");
+        var radioPuestos = document.getElementById("inputPuestos");
+
+
+        radioEspeciales.addEventListener('click', () => {
+            alert("Especialidades");
+            document.getElementById("siguienteventana").setAttribute("href", "/Especialidades");
+
+        });
+
+        radioEmpleados.addEventListener('click', () => {
+            alert("Empleados");
+            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+
+        });
+
+        radioMesas.addEventListener('click', () => {
+            alert("Mesas");
+            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+
+        });
+
+        radioPuestos.addEventListener('click', () => {
+            alert("Puestos");
+            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+
+        });
+
+    </script>
+
+</body>
+
+</html>

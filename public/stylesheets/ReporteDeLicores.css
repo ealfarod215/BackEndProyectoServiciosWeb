@@ -1,0 +1,18 @@
+#contenedorReporteLicores{
+    width: 90%;
+    height: 70%;
+    background-color: rgb(253, 196, 143);
+}
+#contenedorReporteLicoresSuperior{
+    width: 80%;
+    height: 10%;
+}
+#imagenLicores {
+    width           : 30%;
+    height          : 100%;
+    background-color:rgb(110, 56, 21);
+}
+#contenedorReporteLicoresInterno{
+    width: 100%;
+    height: 830%;
+}

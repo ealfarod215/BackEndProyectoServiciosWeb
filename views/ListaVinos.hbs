@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ListaVinos.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista de Vinos</title>
+</head>
+
+<body>
+    <div id="SeccionPrincipalVinos" class="container d-flex border">
+        <div id="LSectionVinos" class="">
+            <img class="LogoVinos" src="/images/copa-de-vino.svg" alt="">
+        </div>
+        <div id="RSectionVinos" class="border">
+            <div id="headerListSection" class="d-block border">
+                <div id="littleForm">
+                    <form class="form-inline container displayGrid ">
+                        <div class="d-flex MAXWandH">
+                            <div class="displayGrid ">
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control" id="inputCodVino"
+                                            placeholder="Codigo del Vino">
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="text" class="form-control" id="inputNomVino"
+                                            placeholder="Nombre del Vino">
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="text" class="form-control" id="inputYearVino" placeholder="Año">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayGrid headerEspacios">
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="text" class="form-control" id="inputNacioalidadVino"
+                                            placeholder="Nacionalidad">
+                                    </div>
+                                </div>
+
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="text" class="form-control" id="inputRestauranteVino"
+                                            placeholder="Restaurante">
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+
+                                    <div class="input-group input-group-sm mb-3  ">
+                                        <input type="text" class="form-control" id="inputPrecioVino" placeholder="Precio">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex headerEspacios">
+                                <div class="displayGrid ">
+                                    <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/recargar.svg" alt=""></button>
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/escoba.svg" alt=""></button>
+                                </div>
+                                <div class="displayGrid headerEspacios">
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/mas.svg" alt=""></button>
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/menos.svg" alt=""></button>
+    
+                                </div>
+                                <div class=" displayGrid headerEspacios">
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/error.svg" alt=""></button>
+                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/confirmacion.svg" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+
+            </div>
+            <div id="bodyListSection">
+
+
+                <div class="row">
+                    <div class="col">Codígo</div>
+                    <div class="col">Nombre</div>
+                    <div class="col">Precio</div>
+                    <div class="col">Nacionalidad</div>
+                    <div class="col">Año</div>
+                    
+                    
+                </div>
+                <div id="listViewVinos" class="border">
+                    <div id="mostrarContenidoVinos"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

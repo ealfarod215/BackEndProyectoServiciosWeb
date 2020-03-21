@@ -1,0 +1,71 @@
+/*Se establece una seccion principal*/
+#SeccionPrincipalBC {
+    width : 100%;
+    height: 100%;
+}
+
+/*Se sub-divide y se trabaja en dos secciones*/
+/*Seccion Izquierda encargada de una imagen */
+#LSectionBC {
+    width        : 20%;
+    height       : 100%;
+    display      : flex;
+    align-items  : center;
+    padding-left : 2rem;
+    padding-right: 2rem;
+}
+
+.LogoBC {
+    width : 100%;
+    height: 20%;
+}
+
+
+/*Seccion derecha donde se va a mostrar toda la informacion*/
+#RSectionBC {
+    width : 80%;
+    height: 100%;
+}
+
+#headerListSection {
+    width : 100%;
+    height: 10%;
+}
+
+.headerMidleSize {
+    width       : 90%;
+    height      : 100%;
+    margin-right: 7rem;
+    align-items : center;
+}
+
+.headerSideSize {
+    width : 25%;
+    height: 100%;
+}
+
+.marginIconos {
+    margin: 0.1rem;
+}
+
+.marginL {
+    margin-left: 3rem;
+}
+
+#bodyListSection {
+    width : 100%;
+    height: 85%;
+}
+
+
+
+#listViewRest {
+    width : 100%;
+    height: 100%;
+}
+
+#mostrarContenidoBC {
+    width : 100%;
+    height: 100%;
+    background-color: cornsilk;
+}

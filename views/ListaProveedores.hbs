@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ListaProveedores.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista de Proveedores</title>
+</head>
+
+<body>
+
+     <h1 class="text-center align-content-center">Lista de Proveedores</h1> 
+    <div id="SeccionPrincipalBC" class=" d-flex " >
+        
+        <div id="LSectionBC" class=""  >
+            <img class="LogoBC img-fluid" alt="Responsive image" src="/images/puestos.svg" alt="">
+        </div>
+        <div id="RSectionBC" class="border" style="width: 100%;">
+            <div id="headerListSection" class="d-flex ">
+                <div class="displayGrid headerSideSize">
+                    <div class="marginL">
+                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/recargar.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/escoba.svg" alt=""></button>
+                    </div>
+                    <div class="marginL">
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/error.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/confirmacion.svg" alt=""></button>
+                    </div>
+                </div>
+                <div id="littleForm">
+                    <form class="form-inline container displayGrid headerMidleSize">
+                        <div class="d-flex headerMidleSize">
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Codigo del Proveedor</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputCodBC"
+                                        placeholder="Digite el Codigo">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Nombre del Proveedor</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNomBC"
+                                        placeholder="Digite el Nombre">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Dirección</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputDicBC"
+                                        placeholder="Digite la Dirección">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Cédula de Identidad</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputCelBC"
+                                        placeholder="Digite la cédula">
+                                </div>
+                            </div>
+                            
+                            <div class="displayGrid ">
+                                <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
+                                        alt=""></button>
+                                <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
+                                        alt=""></button>
+                            </div>
+                        </div>
+                        
+
+                        
+                    </form>
+                </div>
+                
+            </div>
+            <div id="bodyListSection">
+
+
+                <div class="row align-content-center" id="SubmenuBarra">
+                    <div class="col">Codigo</div>
+                    <div class="col">Nombre</div>
+                    <div class="col">Primer Apellido</div>
+                    <div class="col">Segundo Apellido</div>
+                    <div class="col">Teléfono Oficina</div>
+                    <div class="col">Fax</div>
+                    <div class="col">Célular</div>
+                </div>
+                <div id="listViewRest" class="border">
+                    <div id="mostrarContenidoBC"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

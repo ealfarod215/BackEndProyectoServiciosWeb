@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/RegistroUsuarios.css">
+    <title>Registro de Usuarios</title>
+</head>
+
+<body>
+    <div class="container navbar-expand-xl">
+        <h1 class="text-center align-content-center">Registro de Usuarios</h1>
+    </div>
+    <div class="d-flex MAXWandH">
+        <div id="contenedorLogin" class="container border d-flex ">
+            <div id="imagenLogo">
+                <img style="width: 80%; height: 60%;" src="/images/usuario.svg" alt="">
+            </div>
+            <form class="form-inline d-flex MAXWandH">
+                <div id="BmenuUno" class="border d-flex">
+                    <div class="displayGrid ">
+                        <div class="">
+                            <label>Información del Usuario</label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputCodUsuario" type="text" class="form-control" placeholder="Código">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputNombreUsuario" type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputApellidoUno" type="text" class="form-control" placeholder="Primer Apellido">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputApellidoDos" type="text" class="form-control"
+                                placeholder="Segundo Apellido">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputTelUno" type="text" class="form-control" placeholder="TelefonoUno">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputTelDos" type="text" class="form-control" placeholder="TelefonoDos">
+                        </div>
+
+                    </div>
+                </div>
+                <div id="BmenuDos" class="border d-flex">
+                    <div class="displayGrid ">
+                        <div class="">
+                            <label>Datos Tecnicos del Usuario</label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputLogin" type="text" class="form-control" placeholder="Login">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputClave" type="text" class="form-control" placeholder="Contrseña">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputConfirmarClave" type="text" class="form-control"
+                                placeholder="Confirmar Contrseña">
+                        </div>
+                        <div class="col-md-4 mb-3 d-flex">
+                            <input id="inputCambioClave" type="checkbox" class="form-control">
+                            <label for="">Cambio de Contraseña</label>
+                        </div>
+                        <div class="d-block ">
+                            <div><label for="">Privilegios</label></div>
+                            <div class="d-flex ">
+                                <div class="col-md-4 mb-3">
+                                    <input id="inputAdmSistema" type="checkbox" class="form-control">
+                                    <label for="">Administrador del Sistema</label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <input id="inputAdmSeguridad" type="checkbox" class="form-control">
+                                    <label for="">Administrador de Seguridad</label>
+                                </div>
+                            </div>
+                            <div class="d-flex ">
+                                <div class="col-md-4 mb-3">
+                                    <input id="inputAdmRestaurante" type="checkbox" class="form-control">
+                                    <label for="">Administrador del Restaurante</label>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <input id="inputAdmCuentas" type="checkbox" class="form-control">
+                                    <label for="">Administrador de Cuentas</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="botonesLogin" class="d-flex">
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/escoba.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/confirmacion.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/error.svg" alt=""></button></div>
+                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/flechaDerecha.svg" alt=""></button></div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/*Se establece una seccion principal*/
+#contenedorGuno {
+    display    : flex;
+    align-items: center;
+    width      : 100%;
+    height     : 100%;
+}
+
+#SeccionPrincipalLR {
+    width : 100%;
+    height: 50%;
+}
+
+/*Se sub-divide y se trabaja en dos secciones*/
+/*Seccion Izquierda encargada de una imagen */
+#LSectionVS {
+    width        : 20%;
+    height       : 100%;
+    display      : flex;
+    align-items  : center;
+    padding-left : 2rem;
+    padding-right: 2rem;
+}
+
+.LogoVS {
+    width : 100%;
+    height: 20%;
+
+}
+
+
+/*Seccion derecha donde se va a mostrar toda la informacion*/
+#RSectionVS {
+    width      : 80%;
+    height     : 100%;
+    display    : flex;
+    align-items: center;
+}
+
+#headerVSRsection {
+    width          : 100%;
+    height         : 20%;
+    align-items    : center;
+    justify-content: center;
+}
+
+.headerMidleSize {
+    width       : 90%;
+    height      : 100%;
+    margin-right: 7rem;
+    align-items : center;
+}
+
+.marginIconos {
+    margin: 0.1rem;
+}
+
+.marginL {
+    margin-left: 3rem;
+}
+
+#contenedorGTitulo {
+    width          : 100%;
+    height         : 10%;
+    align-items    : center;
+    text-align     : center;
+    justify-content: center;
+}

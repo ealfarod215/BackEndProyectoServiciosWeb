@@ -1,0 +1,38 @@
+#contenedorLogin {
+    width : 70%;
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#imagenLogo {
+    width      : 20%;
+    height     : 100%;
+    display    : flex;
+    align-items: center;
+}
+
+#botonesLogin {
+    width          : 100%;
+    justify-content: center;
+}
+
+label {
+    margin-left: 0.1rem;
+}
+
+form {
+    justify-content: center;
+}
+
+#BmenuUno {
+    width : 50%;
+    height: 80%;
+}
+
+#contenedorGDyE{
+    width: 80%;
+    height: 100%;
+}
+

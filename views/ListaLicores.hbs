@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ListaLicores.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista de Licores</title>
+</head>
+
+<body>
+    <div id="SeccionPrincipalLicor" class="container d-flex border">
+        <div id="LSectionLicor" class="">
+            <img class="LogoLicor" src="/images/licor.svg" alt="">
+        </div>
+        <div id="RSectionLicor" class="border">
+            <div id="headerListSection" class="d-block border">
+                <div id="littleForm">
+                    <form class="form-inline container displayGrid headerMidleSize">
+                        <div class="d-flex headerMidleSize">
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Codigo del Licor</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputCodLicor"
+                                        placeholder="Digite el Codigo">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Nombre del Licor</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNomLicor"
+                                        placeholder="Digite el Nombre">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Nacionalidad</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNacioLicor" placeholder="Nacionalidad">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="form-group  ">
+                                    <label for="" class="">Nombre del Restaurante</label>
+                                </div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNomRestLicor"
+                                        placeholder="Digite el Nombre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex headerSideSize">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button>
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/escoba.svg" alt=""></button>
+
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/menos.svg" alt=""></button>
+
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/error.svg" alt=""></button>
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/confirmacion.svg" alt=""></button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div id="bodyListSection">
+
+
+                <div class="row">
+                    <div class="col">Codígo</div>
+                    <div class="col">Nombre</div>
+                    <div class="col">Cantidad</div>
+                    <div class="col">Precio</div>
+                    <div class="col">Nacionalidad</div>
+                </div>
+                <div id="listViewLicores" class="border">
+                    <div id="mostrarContenidoBG"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

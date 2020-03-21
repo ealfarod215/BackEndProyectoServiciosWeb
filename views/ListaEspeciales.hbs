@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ListaEspeciales.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Lista de Especiales</title>
+</head>
+
+<body>
+
+
+    <div id="SeccionPrincipalEsp" class="container d-flex border">
+        <div id="LSectionEsp" class="">
+            <img class="LogoEsp" src="/images/plato-de-servir.svg" alt="">
+        </div>
+        <div id="RSectionEsp" class="border">
+            <div id="headerListSection" class="d-flex border">
+                <div class="displayGrid headerSideSize">
+                    <div class="marginL">
+                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/recargar.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/escoba.svg" alt=""></button>
+                    </div>
+                    <div class="marginL">
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/error.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/confirmacion.svg" alt=""></button>
+                    </div>
+                </div>
+                <div id="littleForm">
+                    <form class="form-inline container displayGrid headerMidleSize">
+                        <div class="d-flex headerMidleSize">
+                            <div class="marginIconos">
+                                
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputCodEsp"
+                                        placeholder="Codigo Especialidades">
+                                </div>
+                            </div>
+                            <div class="marginIconos">
+                                
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNomEsp"
+                                        placeholder="Nombre Especialidades">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+                <div class="displayGrid ">
+                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
+                            alt=""></button>
+                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
+                            alt=""></button>
+                </div>
+            </div>
+            <div id="bodyListSection">
+
+
+                <div class="row">
+                    <div class="col">Codígo</div>
+                    <div class="col">Nombre del Platillo</div>
+                    <div class="col">Ingredientes</div>
+                    <div class="col">Precio</div>
+                    <div class="col">Detalle</div>
+
+                </div>
+                <div id="listViewEsp" class="border">
+                    <div id="mostrarContenidoEsp"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
