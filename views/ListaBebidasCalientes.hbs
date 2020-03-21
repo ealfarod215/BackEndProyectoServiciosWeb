@@ -28,62 +28,114 @@
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
                     <div class="marginL">
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaBebidasCalientes/listarAllBebidasCalientes"><button class="marginIconos "><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
+                                    alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
+                        <a href="/TiposDeBebidas"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                        <a href="/RegistroBebidasCalientes">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
+                    <form class="form-inline container displayGrid headerMidleSize" method="post"
+                        action="/ListaBebidasCalientes/filtrarLista">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBC"
+                                    <input type="text" class="form-control" id="inputCodBC" name="inputCodBC"
                                         placeholder="Codigo Bebida Caliente">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomBC"
+                                    <input type="text" class="form-control" id="inputNomBC" name="inputNomBC"
                                         placeholder="Nombre de la Bebida">
                                 </div>
                             </div>
 
+                            <!--llama al post para realizar busqueda-->
+                            <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                    alt=""></button>
 
+                            <!--Cargar post para eliminar registro de buffet-->
+                            <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
+                                    alt=""></button>
                         </div>
                     </form>
                 </div>
-                <div class="displayGrid ">
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
-                            alt=""></button>
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                            alt=""></button>
-                </div>
+
             </div>
             <div id="bodyListSection">
 
-
-                <div class="row">
-                    <div class="col">Codígo</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Precio</div>
-                    <div class="col">Restaurante</div>
-                </div>
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC"></div>
+                    <div id="mostrarContenidoLR">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Restaurante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{precioUnitario}}</td>
+                                    <td>{{restaurante}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
+
+    <script>
+        var formulario = document.getElementById("frmBufete");
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodBC").value = "";
+            document.getElementById("inputNomBC").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodBC").value == "" || document.getElementById("inputNomBC").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaBebidasCalientes/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
