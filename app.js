@@ -12,6 +12,7 @@ var listaDeRestaurantesRouter = require("./routes/ListaDeRestaurantes");
 var restaurantesRegistroRouter = require("./routes/RestaurantesRegistro");
 var registroComidaBuffetRouter = require("./routes/RegistroComidaBuffet");
 var buffetRouter = require("./routes/Buffet");
+var ListaEspecialesRouter = require("./routes/ListaEspeciales");
 
 var app = express();
 
@@ -37,7 +38,7 @@ app.use('/ListaDeRestaurantes',listaDeRestaurantesRouter);
 app.use('/RestaurantesRegistro',restaurantesRegistroRouter);
 app.use('/Buffet',buffetRouter);
 app.use('/RegistroComidaBuffet',registroComidaBuffetRouter);
-
+app.use('/ListaEspeciales', ListaEspecialesRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
