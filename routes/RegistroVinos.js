@@ -5,20 +5,22 @@ var db = require('./DBconnection');
 
 router.post('/insertarVino', function (req, res, next) {
 
+    var nombre = req.body.inputNombreBebida;
+    var marca = req.body.inputSelectMarca;
+    var pais = req.body.inputSelectNacionalidad;
+    var precioUnitario = req.body.inputPrecioUnitario;
+    var precioBotella = req.body.inputPrecioBotella;
+    var cantidad = req.body.inputCantidad;
+    var cosecha = req.body.inputCosecha;
+    var restaurante = req.body.inputNombreRest;
+    var descripcion = req.body.inputDescripcion;
 
-    var codigo = req.body.inputCodVino;
-    var nombre = req.body.inputNomVino;
-    var pais = req.body.inputYearVino;
-    var restaurante = req.body.inputSelectNacionalidad;
-    var cosecha = req.body.inputNombreRest;
-    var precio = req.body.inputinputPrecioVinoNomVino;
-
-    db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precioU + "',@restaurante='" + restaurante + "',@ingredientes='Azucar',@descripcion='" + descripcion + "',@foto=' ',@marca='" + marca + "', @nacionalidad='" + pais + "', @cantidad='" + cantidad + "', @precioBotella='" + precioB + "', @yearCosecha=0, @tipo ='licor'", function (error, recordset) {
+    db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precioUnitario + "',@restaurante='" + restaurante + "',@ingredientes='Azucar',@descripcion='" + descripcion + "',@foto=' ',@marca='" + marca + "', @nacionalidad='" + pais + "', @cantidad='" + cantidad + "', @precioBotella='" + precioBotella + "', @yearCosecha='" + cosecha + "', @tipo ='vino'", function (error, recordset) {
         if (error) {
             console.log("wrong");
             return;
         } else {
-            res.render('RegistroLicores');
+            res.render('RegistroVinos');
         }
     });
 
