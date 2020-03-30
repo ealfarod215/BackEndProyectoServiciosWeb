@@ -39,13 +39,13 @@
                                 <div class="d-block">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputEspeciales">
+                                            <input type="radio" id="inputEspeciales" name="rdbuttom">
                                             <label for="" class="">Especiales</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputEmpleados">
+                                            <input type="radio" id="inputEmpleados" name="rdbuttom">
                                             <label for="" class="">Empleados</label>
                                         </div>
                                     </div>
@@ -53,13 +53,13 @@
                                 <div class="d-block marginL">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputMesas">
+                                            <input type="radio" id="inputMesas" name="rdbuttom">
                                             <label for="" class="">Mesas</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputPuestos">
+                                            <input type="radio" id="inputPuestos" name="rdbuttom">
                                             <label for="" class="">Puestos</label>
                                         </div>
                                     </div>
@@ -105,19 +105,19 @@
 
         radioEmpleados.addEventListener('click', () => {
             alert("Empleados");
-            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaEmpleados/listarAllEmpleados");
 
         });
 
         radioMesas.addEventListener('click', () => {
             alert("Mesas");
-            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaMesas/listarAllMesas");
 
         });
 
         radioPuestos.addEventListener('click', () => {
             alert("Puestos");
-            //document.getElementById("siguienteventana").setAttribute("href","/Especialidades");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaPuestos/listarAllPuestos");
 
         });
 

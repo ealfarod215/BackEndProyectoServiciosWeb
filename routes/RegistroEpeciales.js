@@ -4,6 +4,7 @@ var db = require('./DBconnection');
 
 
 router.post('/insertarEpeciales', function (req, res, next) {
+    
     var nombrePlatillo= req.body.inputNombreEsp;
     var ingredientes = req.body.inputIngredienteEsp;
     var precio = req.body.inputPrecioEsp;

@@ -29,68 +29,122 @@
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
                     <div class="marginL">
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaEmpleados/listarAllEmpleados"> <button class="marginIconos "><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
+                                    alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                        <a href="/VentanaAdministracion"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/error.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
+                                </a>
+                          <a href="/RegistroEmpleados">
+                         <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                                </a>
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
+                      <form id="frmEmpleados" method="post" action="/ListaEmpleados/filtrarLista"
+                      class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
-                                <div class="form-group  ">
+                                
                                     <label for="" class="">Codigo del Empleado</label>
-                                </div>
+                                
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBC"
-                                        placeholder="Digite el Codigo">
+                                    <input type="text" class="form-control" id="inputCodEmpl"
+                                    name="inputCodEmpl" placeholder="Codigo del Empleado">
                                 </div>
                             </div>
                             <div class="marginIconos">
-                                <div class="form-group  ">
                                     <label for="" class="">Nombre del Empleado</label>
-                                </div>
+                                
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomBC"
-                                        placeholder="Digite el Nombre">
+                                    <input type="text" class="form-control" id="inputNomEmpl"
+                                    name="inputNomEmpl"  placeholder="Nombre del Empleado">
                                 </div>
+                            </div>
+                             <div class="displayGrid">
+                               
+                                   <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda"  type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
+
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar"  type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+
+
                             </div>
 
 
                         </div>
                     </form>
                 </div>
-                <div class="displayGrid ">
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
-                            alt=""></button>
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                            alt=""></button>
                 </div>
-            </div>
             <div id="bodyListSection">
+                <div id="listViewEmpl" class="border">
+                    <div id="mostrarContenidoEmpl">
+                    <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Cédula</th>
+                                    <th>Nombre</th>
+                                    <th>Primer Apellido</th>
+                                    <th>Segundo Apellido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>{{cedula}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{apellidoUno}}</td>
+                                    <td>{{apellidoDos}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
 
-
-                <div class="row align-content-center" id="SubmenuBarra">
-                    <div class="col">Codigo</div>
-                    <div class="col">Cédula</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Primer Apellido</div>
-                    <div class="col">Segundo Apellido</div>
-                </div>
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC"></div>
                 </div>
 
             </div>
         </div>
     </div>
+</div>
+<script>
+        var formulario = document.getElementById("frmEmpleados");
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodEmpl").value = "";
+            document.getElementById("inputNomEmpl").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodEmpl").value == "" || document.getElementById("inputNomEmpl").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaEmpleados/eliminarEmpleados")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>

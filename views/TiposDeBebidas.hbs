@@ -39,19 +39,19 @@
                                 <div class="d-block">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputCalientes">
+                                            <input type="radio" id="inputCalientes" name="rdbuttom">
                                             <label for="" class="">Calientes</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputHeladas">
+                                            <input type="radio" id="inputHeladas" name="rdbuttom">
                                             <label for="" class="">Heladas</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputVinos">
+                                            <input type="radio" id="inputVinos" name="rdbuttom">
                                             <label for="" class="">Vinos</label>
                                         </div>
                                     </div>
@@ -59,13 +59,13 @@
                                 <div class="d-block marginL">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputGaseosas">
+                                            <input type="radio" id="inputGaseosas" name="rdbuttom">
                                             <label for="" class="">Gaseosas</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputLicores">
+                                            <input type="radio" id="inputLicores" name="rdbuttom">
                                             <label for="" class="">Licores</label>
                                         </div>
                                     </div>
@@ -75,13 +75,58 @@
                         </form>
                     </div>
                     <div class="displayGrid ">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
+                        <a id="siguienteventana" href="">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/confirmacion.svg" alt=""></button>
+                        </a>
+                        <a href="/Especialidades">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/error.svg" alt=""></button>
+                        </a>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        var radioCalientes = document.getElementById("inputCalientes");
+        var radioHeladas = document.getElementById("inputHeladas");
+        var radioVinos = document.getElementById("inputVinos");
+        var radioGaseosas = document.getElementById("inputGaseosas");
+        var radioLicores = document.getElementById("inputLicores");
+
+
+        radioCalientes.addEventListener('click', () => {
+            alert("Calientes");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaBebidasCalientes/listarAllBebidasCalientes");
+
+        });
+
+        radioHeladas.addEventListener('click', () => {
+            alert("Heladas");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaBebidasHeladas/listarAllBebidasHeladas");
+
+        });
+
+        radioVinos.addEventListener('click', () => {
+            alert("Vinos");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaVinos/listarAllVinos");
+
+        });
+
+        radioGaseosas.addEventListener('click', () => {
+            alert("Gaseosas");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaBebidasGaseosas/listarAllBebidasGaseosas");
+
+        });
+
+        radioLicores.addEventListener('click', () => {
+            alert("Licores");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaLicores/listarAllLicores");
+
+        });
+
+    </script>
+</body>

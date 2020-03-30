@@ -34,49 +34,54 @@
                             <label>Información del Vino</label>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCodBebida" type="text" class="form-control" placeholder="Código">
+                            <input id="inputNombreBebida" name="inputNombreBebida" type="text" class="form-control"
+                                placeholder="Nombre">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputNombreBebida" type="text" class="form-control" placeholder="Nombre">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectMarca">
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
                                 <option selected>Marca</option>
-                                <option value="1">ejemplo</option>
-                                <option value="2">ejemplo 2</option>
-                                <option value="3">ejemplo 3</option>
+                                <option value="1">Scott Brite</option>
+                                <option value="2">Lemon</option>
+                                <option value="3">LG</option>
+                                <option value="4">Samsung</option>
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectNacionalidad">
+                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
                                 <option selected>Nacionalidad</option>
-                                <option value="1">ejemplo</option>
-                                <option value="2">ejemplo 2</option>
-                                <option value="3">ejemplo 3</option>
+                                <option value="1">Costa Rica</option>
+                                <option value="2">China</option>
+                                <option value="3">Venezuela</option>
+                                <option value="4">Italia</option>
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioUnitario" type="text" class="form-control"
+                            <input id="inputPrecioUnitario" name="inputPrecioUnitario" type="text" class="form-control"
                                 placeholder="Precio Unitario">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioBotella" type="text" class="form-control"
+                            <input id="inputPrecioBotella" name="inputPrecioBotella" type="text" class="form-control"
                                 placeholder="Precio Botella">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioBotella" type="text" class="form-control"
+                            <input id="inputCosecha" name="inputCosecha" type="text" class="form-control"
                                 placeholder="Año de la Cosecha">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputRestauranteBebida" type="text" class="form-control"
-                                placeholder="Restaurante">
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
+                                <option selected>Restaurante</option>
+                                <option value="1">Piccola Stella</option>
+                                <option value="2">Turin Anivo</option>
+                                <option value="3">Notte di Fuoco</option>
+                            </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCantidadBebida" type="text" class="form-control" placeholder="Cantidad">
+                            <input id="inputCantidad" name="inputCantidad" type="text" class="form-control"
+                                placeholder="Cantidad">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputDescripcion" class="form-control" placeholder="Descripción"
-                                aria-label="With textarea"></textarea>
+                            <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
+                                placeholder="Descripción" aria-label="With textarea"></textarea>
                         </div>
                     </div>
                 </div>
@@ -89,19 +94,62 @@
                     </div>
                 </div>
                 <div id="botonesLogin" class="d-flex">
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/escoba.svg" alt=""></button></div>
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/confirmacion.svg" alt=""></button></div>
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/error.svg" alt=""></button></div>
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/Lupa.svg" alt=""></button></div>
+                    <!--llamar funcion para limpiar textbox-->
+                    <button id="btnLimpiarRegistroInputs" type="button" class="btn" onclick="limpiarInputs()"><img
+                            style="width: 3rem; height: 3rem;" src="/images/escoba.svg" alt=""></button>
+
+                    <!--llamar post para realizar el insert-->
+                    <button id="btnConfirmarInsertBufet" type="button" class="btn"
+                        onclick="llamadoInsertarFunction()"><img style="width: 3rem; height: 3rem;"
+                            src="/images/confirmacion.svg" alt=""></button>
+
+                    <!--llamar get para regresar a la pagina de listado-->
+                    <a href="/ListaLicores/listarAllLicores">
+                        <button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
+                                src="/images/error.svg" alt=""></button>
+                    </a>
+                    <button type="button" class="btn"><img style="width: 3rem; height: 3rem;" src="/images/Lupa.svg"
+                            alt=""></button>
                 </div>
             </form>
         </div>
     </div>
     </div>
+
+    <script>
+        var btnInsertar = document.getElementById("btnConfirmarInsertBufet");
+
+        function limpiarInputs() {
+            document.getElementById("inputNombreBebida").value = "";
+            document.getElementById("inputPrecioUnitario").value = "0";
+            document.getElementById("inputPrecioBotella").value = "0";
+            document.getElementById("inputCantidadBebida").value = "";
+            document.getElementById("inputDescripcion").value = "";
+            document.getElementById("inputDescripcion").value = "";
+            document.getElementById("inputDescripcion").value = "";
+            document.getElementById("inputDescripcion").value = "";
+            document.getElementById("inputDescripcion").value = "";
+            document.getElementById("inputDescripcion").value = "";
+
+
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoInsertarFunction() {
+
+            if (document.getElementById("inputNombreBebida").value == "" || document.getElementById("inputSelectMarca").value == ""
+                || document.getElementById("inputSelectNacionalidad").value == "" || document.getElementById("inputPrecioUnitario").value == ""
+                || document.getElementById("inputPrecioBotella").value == "" || document.getElementById("inputNombreRest").value == ""
+                || document.getElementById("inputCantidadBebida").value == "" || document.getElementById("inputDescripcion").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                alert("Realizo el post");
+                btnInsertar.setAttribute("formaction", "../RegistroLicores/insertarLicor")
+                btnInsertar.setAttribute("type", "submit");
+            }
+        }
+
+    </script>
 </body>
 
 </html>
