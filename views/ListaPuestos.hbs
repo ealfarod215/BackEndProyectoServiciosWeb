@@ -19,28 +19,28 @@
 
 <body>
 
-     <h1 class="text-center align-content-center">Lista de Puestos</h1> 
+    <h1 class="text-center align-content-center">Lista de Puestos</h1>
     <div id="SeccionPrincipalBC" class="container d-flex border">
-          <div id="LSectionBC" class="">
+        <div id="LSectionBC" class="">
             <img class="LogoBC" src="/images/puestos.svg" alt="">
         </div>
         <div id="RSectionBC" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
                     <div class="marginL">
-                       <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaPuestos/listarAllPuestos"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaPuestos/listarAllPuestos">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
-                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                          <a href="/VentanaAdministracion"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                    </a>
-                          <a href="/RegistroPuestos">
+                        <a href="/VentanaAdministracion"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                        <a href="/RegistroPuestos">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -48,35 +48,26 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmPuestos" method="post" action="/ListaPuestos/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
-                                    <label for="" class="">Codigo del Restaurante</label>
-                                
+                                <label for="" class="">Codigo del Restaurante</label>
+
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodRestPU"
-                                    name="inputCodRestPU" placeholder="Codigo del Restaurante">
+                                    <input type="text" class="form-control" id="inputCodRestPU" name="inputCodRestPU"
+                                        placeholder="Codigo del Restaurante">
                                 </div>
                             </div>
                             <div class="marginIconos">
-                                    <label for="" class="">Nombre del Restaurante</label>
-                                      <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomRestPU"
-                                        name="inputNomRestPU" placeholder="Nombre del Restaurante">
-                                </div>
-                            </div>
-                                <div class="marginIconos">
-                                    <div class="form-group  ">
-                                    <input type="radio" value="" id="InternoRest" name="InternoRest">
-                                    <label for="">Interno al Restaurante</label>
-            
-                                    <input type="radio" value="" id="ExternoRest" name="ExternoRest">
-                                    <label for="">Externo al Restaurante</label>
+                                <label for="" class="">Nombre del Restaurante</label>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="inputNomRestPU" name="inputNomRestPU"
+                                        placeholder="Nombre del Restaurante">
                                 </div>
                             </div>
                             
                             <div class="displayGrid ">
-                                 <!--llama al post para realizar busqueda-->
+                                <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
@@ -88,14 +79,14 @@
 
                             </div>
                         </div>
-                            
+
                     </form>
                 </div>
-                
+
             </div>
             <div id="bodyListSection">
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC"> 
+                    <div id="mostrarContenidoBC">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
@@ -109,7 +100,7 @@
                             <tbody>
                                 {{#each recordset}}
                                 <tr>
-                                    <td>{{cedula}} </td>
+                                    <td>{{codigo}} </td>
                                     <td>{{nombre}}</td>
                                     <td>{{rol}}</td>
                                     <td>{{internoalRestaurante}}</td>
@@ -128,7 +119,7 @@
             </div>
         </div>
     </div>
-     <script>
+    <script>
         var formulario = document.getElementById("frmPuestos");
         var btnEliminar = document.getElementById("btnEliminar");
 

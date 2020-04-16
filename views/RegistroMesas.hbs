@@ -27,35 +27,37 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/comedor.svg" alt="">
             </div>
-                <form class="form-inline d-flex " method="post" action="">
-                    <div id="BmenuUno" class="container border">
-                        <div class="displayGrid ">
-                            <div class="">
-                                <label>Información de las Mesas</label>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <input id="inputNombreMesa" name="inputNombreMesa" type="text" class="form-control" placeholder="Nombre">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <input id="inputNumMesa" name="inputNumMesa" type="text" class="form-control" placeholder="Numero">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <input id="inputCanSillas" name="inputCanSillas" type="text" class="form-control"
-                                    placeholder="Cantidad Sillas">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <select class="custom-select" id="inputSelectRest" name="inputSelectRest">
-                                    <option selected>Nombre del Restaurante</option>
-                                    <option value="1">Piccola Stella</option>
-                                    <option value="2">Turin Anivo</option>
-                                    <option value="3">Notte di Fuoco</option>
-                                </select>
-                            </div>
+            <form class="form-inline d-flex " method="post" action="">
+                <div id="BmenuUno" class="container border">
+                    <div class="displayGrid ">
+                        <div class="">
+                            <label>Información de las Mesas</label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputNombreMesa" name="inputNombreMesa" type="text" class="form-control"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputNumMesa" name="inputNumMesa" type="text" class="form-control"
+                                placeholder="Numero">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <input id="inputCanSillas" name="inputCanSillas" type="text" class="form-control"
+                                placeholder="Cantidad Sillas">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <select class="custom-select" id="inputSelectRest" name="inputSelectRest">
+                                <option selected>Nombre del Restaurante</option>
+                                <option value="1">Piccola Stella</option>
+                                <option value="2">Turin Anivo</option>
+                                <option value="3">Notte di Fuoco</option>
+                            </select>
                         </div>
                     </div>
+                </div>
 
-                    <div id="botonesLogin" class="d-flex">
-                        <!--llamar funcion para limpiar textbox-->
+                <div id="botonesLogin" class="d-flex">
+                    <!--llamar funcion para limpiar textbox-->
                     <button id="btnLimpiarRegistroInputs" type="button" class="btn" onclick="limpiarInputs()"><img
                             style="width: 3rem; height: 3rem;" src="/images/escoba.svg" alt=""></button>
 
@@ -68,12 +70,12 @@
                     <a href="/ListaMesas/listarAllMesas"><button type="button" class="btn"><img
                                 style="width: 3rem; height: 3rem;" src="/images/error.svg" alt=""></button>
                     </a>
-                    </div>
-                </form>
-            </div>
-
+                </div>
+            </form>
         </div>
-     <script>
+
+    </div>
+    <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertMesa");
 
         function limpiarInputs() {
@@ -87,8 +89,7 @@
 
 
             if (document.getElementById("inputNombreMesa").value == "" || document.getElementById("inputNumMesa").value == ""
-                || document.getElementById("inputCanSillas").value == "" 
-                ||  document.getElementById("inputSelectRest").value = "") {
+                || document.getElementById("inputCanSillas").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 btnInsertar.setAttribute("formaction", "../RegistroMesas/insertarMesas")

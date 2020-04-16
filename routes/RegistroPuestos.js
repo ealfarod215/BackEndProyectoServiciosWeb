@@ -6,8 +6,8 @@ var db = require('./DBconnection');
 router.post('/insertarPuestos', function (req, res, next) {
     
     var nombrePuesto= req.body.inputNombrePuesto;
-    var interno = req.body.inputInternoAlRestaurante;
-    var externo = req.body.inputExternoAlRestaurante;
+    var interno = req.body.adentro;
+    var externo = req.body.afuera;
     var rol = req.body.inputSelectRoles;
 
 

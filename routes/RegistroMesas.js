@@ -5,13 +5,13 @@ var db = require('./DBconnection');
 
 router.post('/insertarMesas', function (req, res, next) {
     
-    var nombrePlatillo= req.body.inputNombreMesa;
-    var ingredientes = req.body.inputNumMesa;
-    var precio = req.body.inputCanSillas;
-    var detalle = req.body.inputSelectRest;
+    var nombreMesa= req.body.inputNombreMesa;
+    var numeroMesa = req.body.inputNumMesa;
+    var cantidadSillas = req.body.inputCanSillas;
+    var idRestaurante = req.body.inputSelectRest;
 
 
-    db.query("exec sp_insertarMesa @nombrePlatillo='" + nombrePlatillo + "',@ingredientes='" + ingredientes + "',@precio='" + precio + "',@detalle='" + detalle + "',@foto=''", function (error, recordset) {
+    db.query("EXEC sp_insertarMesa @nombre = '"+nombreMesa+"',@numero='"+numeroMesa+"',@cantidadSillas='"+cantidadSillas+"',@restaurante='"+idRestaurante+"'", function (error, recordset) {
         if (error) {
             console.log("wrong");
             return;
