@@ -17,9 +17,9 @@
     <title>Lista de Clientes</title>
 </head>
 
-<body >
+<body class="container-fluid">
 
-    <div id="SeccionPrincipalBC" class="container d-flex border mw-100" >
+    <div id="SeccionPrincipalBC" class="container-fluid d-flex border mw-100" >
         
         <div id="LSectionBC" class="">
             <img class="LogoBC "src="/images/hombre.svg" >
@@ -74,20 +74,20 @@
                                        name="inputNomRe" placeholder="Digite el Nombre">
                                 </div>
                             </div>
-                            <div class="marginIconos">
+                            <div class="marginIconos" style="padding-right: 2rem;">
                                 <div class="form-group  ">
                                     <label for="" class="">Rango de Fechas</label>
-                                </div>
+                                
                                 <div class="form-group  ">
                                Inicio: <input type="date" id="startDate" name="startDate" width="276" />
                                </div>
                                <div class="form-group  ">
                                Final: <input type="date" id="endDate" name="endDate" width="276" />
                                 </div>
-                           
+                           </div>
                                 <div class="form-group  ">
                                     <label for="" class="">Rango de Fechas en Reservaciones</label>
-                                </div>
+                                
                                 <div class="form-group  ">
                                 Inicio: <input  type="date" id="startDateRe" name="startDateRe" width="276" />
                                 </div>
@@ -95,6 +95,8 @@
                                 Final: <input  type="date" id="endDateRe" name="endDateRe" width="276" />
                                 </div>
                             </div>
+                            </div>
+                            <div class="container-fluid">
                             <div class="marginIconos">
                             <div class="form-group  ">
                                 <input type="radio" value="" id="radioReser" name="radioReser">
@@ -105,7 +107,7 @@
                                 <label for="">Barra</label>
                             </div>
                             </div>
-                             
+                             </div>
                                
                            
                              <div class="displayGrid">
@@ -128,7 +130,7 @@
                     </form>
                 </div>
                 </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
                 <div id="listViewRest" class="border">
                     <div id="mostrarContenidoBC">
                          <table class="table table-hover" style="width:100%; height:auto;">
