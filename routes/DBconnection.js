@@ -16,7 +16,7 @@ var conn = new sql.ConnectionPool(config);
 
 conn.connect(function (err) {
     if (err) {
-        console.dir("wrong");
+        console.dir("wrongBase");
         console.dir(err);
     }
     else {

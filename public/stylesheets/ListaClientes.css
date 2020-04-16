@@ -14,7 +14,7 @@
     align-items  : center;
     padding-left : 2rem;
     padding-right: 2rem;
-    background-color: saddlebrown;
+    
 
 }
 
@@ -26,9 +26,9 @@
 
 /*Seccion derecha donde se va a mostrar toda la informacion*/
 #RSectionBC {
-    width : 200%;
+    width : 80%;
     height: 100%;
-    background-color: sandybrown;
+    
 }
 
 #headerListSection {
@@ -76,7 +76,7 @@
 
 #SubmenuBarra{
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.795);
+   
     margin-left: 0rem;
     border-style: ridge;
 }
