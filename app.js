@@ -31,6 +31,8 @@ var registroEmpleadosRouter = require("./routes/RegistroEmpleados");
 var ListaPuestosRouter= require("./routes/ListaPuestos");
 var registroPuestosRouter= require("./routes/RegistroPuestos");
 var ListaClientesRouter= require("./routes/ListaClientes");
+var listaMarcasRouter = require("./routes/ListaMarcas");
+var registroMarcasRouter = require("./routes/RegistroMarcas");
 var app = express();
 
 // view engine setup
@@ -74,6 +76,8 @@ app.use('/RegistroEmpleados', registroEmpleadosRouter);
 app.use('/ListaPuestos', ListaPuestosRouter);
 app.use('/RegistroPuestos', registroPuestosRouter); 
 app.use('/ListaClientes', ListaClientesRouter);
+app.use('/ListaMarcas',listaMarcasRouter);
+app.use('/RegistroMarcas',registroMarcasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

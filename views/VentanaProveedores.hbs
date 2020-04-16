@@ -39,13 +39,13 @@
                                 <div class="d-block">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputMarcas">
+                                            <input type="radio" id="inputMarcas" name="rdbuttom">
                                             <label for="" class="">Marcas</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputProductos">
+                                            <input type="radio" id="inputProductos" name="rdbuttom">
                                             <label for="" class="">Productos</label>
                                         </div>
                                     </div>
@@ -53,16 +53,11 @@
                                 <div class="d-block marginL">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputProveedores">
+                                            <input type="radio" id="inputProveedores" name="rdbuttom">
                                             <label for="" class="">Proveedores</label>
                                         </div>
                                     </div>
-                                    <div class="marginIconos">
-                                        <div class="form-group  ">
-                                            <input type="radio" id="inputPuestos">
-                                            <label for="" class="">Puestos</label>
-                                        </div>
-                                    </div>
+
                                 </div>
 
 
@@ -72,10 +67,14 @@
                         </form>
                     </div>
                     <div class="displayGrid ">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
+                        <a id="siguienteventana" href="">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/confirmacion.svg" alt=""></button>
+                        </a>
+                        <a href="/Funcionalidades">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/error.svg" alt=""></button>
+                        </a>
 
                     </div>
                 </div>
@@ -86,7 +85,33 @@
 
 
 
+    <script>
+        var radioMarcas = document.getElementById("inputMarcas");
+        var radioProductos = document.getElementById("inputProductos");
+        var radioProveedores = document.getElementById("inputProveedores");
 
+
+        radioMarcas.addEventListener('click', () => {
+            alert("Marcas");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaMarcas/listarAllMarcas");
+
+        });
+
+        radioProductos.addEventListener('click', () => {
+            alert("Productos");
+            //document.getElementById("siguienteventana").setAttribute("href", "/ListaEmpleados/listarAllEmpleados");
+
+        });
+
+        radioProveedores.addEventListener('click', () => {
+            alert("Proveedores");
+            //document.getElementById("siguienteventana").setAttribute("href", "/ListaMesas/listarAllMesas");
+
+        });
+
+
+
+    </script>
 
 </body>
 

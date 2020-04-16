@@ -24,21 +24,42 @@
         </div>
         <div id="RSectionMarcas" class="border">
             <div id="headerListSection" class="d-block border">
-                <div id="littleForm">
-                    <form class="form-inline container displayGrid ">
+                <div id="littleForm" class="d-flex">
+                    <div class="d-block">
+                        <a href="/RegistroMarcas">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
+
+                        <a href="/VentanaProveedores"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+
+                    </div>
+                    <div class="d-block">
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaMarcas/listarAllMarcas"><button class="marginIconos "><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
+                                    alt=""></button></a>
+
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+                    </div>
+                    <form class="form-inline container displayGrid" method="post" action="/ListaMarcas/filtrarLista">
                         <div class="d-flex MAXWandH">
                             <div class="displayGrid ">
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodMarca"
+                                        <input type="text" class="form-control" id="inputCodMarca" name="inputCodMarca"
                                             placeholder="Código de la Marca">
                                     </div>
                                 </div>
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputNomMarca"
+                                        <input type="text" class="form-control" id="inputNomMarca" name="inputNomMarca"
                                             placeholder="Nombre de la Marca">
                                     </div>
                                 </div>
@@ -46,67 +67,93 @@
                             </div>
                             <div class="displayGrid headerEspacios">
                                 <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputEmpresa"
-                                            placeholder="Empresa">
-                                    </div>
-                                </div>
-                                <div class="marginIconos">
-
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNacionalidad"
-                                            placeholder="Nacionalidad">
+                                            name="inputNacionalidad" placeholder="Nacionalidad">
                                     </div>
                                 </div>
-
-
                             </div>
 
                             <div class="d-flex headerEspacios">
-                                <div class="displayGrid ">
-                                    <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/recargar.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/escoba.svg" alt=""></button>
-                                </div>
-                                <div class="displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/mas.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                <div class=" displayGrid headerEspacios">
+
+                                    <!--Cargar post para eliminar registro de buffet-->
+                                    <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                        class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                             src="/images/menos.svg" alt=""></button>
 
-                                </div>
-                                <div class=" displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/error.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/confirmacion.svg" alt=""></button>
+                                    <!--llama al post para realizar busqueda-->
+                                    <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                            style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                            alt=""></button>
                                 </div>
                             </div>
                         </div>
 
                     </form>
+
                 </div>
 
             </div>
             <div id="bodyListSection">
 
-
-                <div class="row">
-                    <div class="col">Codígo</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Descripción</div>
-                    <div class="col">Nacionalidad</div>
-                    <div class="col">Empresa</div>
-                    <div class="col">Teléfono</div>
-                </div>
                 <div id="listViewMarcas" class="border">
-                    <div id="mostrarContenidoMarcas"></div>
+                    <div id="mostrarContenidoMarcas">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Consecutivo</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Nacionalidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>M-{{consecutivo}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{descripcion}}</td>
+                                    <td>{{pais}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodMarca").value = "";
+            document.getElementById("inputNomMarca").value = "";
+            document.getElementById("inputNacionalidad").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodMarca").value == "" || document.getElementById("inputNomMarca").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaMarcas/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
