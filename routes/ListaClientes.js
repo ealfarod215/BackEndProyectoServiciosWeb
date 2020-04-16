@@ -39,13 +39,12 @@ router.post('/filtrarLista', function (req, res, next) {
 router.post('/eliminarClientes', function (req, res, next) {
      var codigo = req.body.inputCodC;
     var nombre = req.body.inputNomC;
-    var restaurante = req.body.inputNomRe;
-    if (codigo == "" || nombre == "" || restaurante == "") {
+    if (codigo == "" || nombre == "" ) {
         console.log("Debe llenar todos los campos");
         res.render('ListaClientes', {mensaje:'Debe llenar toda la Información!!!'});
 
     } else {
-        db.query("EXEC sp_borrarClientes @codigo = '" + codigo + "', @nombre= '" + nombre + "', @restaurante= '" + restaurante +"'", function (error, recordset) {
+        db.query("EXEC sp_borrarClientes @codigo = '" + codigo + "', @nombre= '" + nombre +"'", function (error, recordset) {
             if (error) {
                 console.log("wrongborr");
                 return;
