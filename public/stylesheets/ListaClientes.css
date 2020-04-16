@@ -1,7 +1,7 @@
 /*Se establece una seccion principal*/
 
 #SeccionPrincipalBC {
-    width : 120%;
+    width : 130%;
     height: 160%;
 }
 
@@ -14,7 +14,7 @@
     align-items  : center;
     padding-left : 2rem;
     padding-right: 2rem;
-    background-color: saddlebrown;
+    
 
 }
 
@@ -26,14 +26,14 @@
 
 /*Seccion derecha donde se va a mostrar toda la informacion*/
 #RSectionBC {
-    width : 200%;
+    width : 110%;
     height: 100%;
-    background-color: sandybrown;
+    
 }
 
 #headerListSection {
     width : 100%;
-    height: 10%;
+    height: 14%;
 }
 
 .headerMidleSize {
@@ -76,7 +76,7 @@
 
 #SubmenuBarra{
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.795);
+   
     margin-left: 0rem;
     border-style: ridge;
 }
