@@ -25,63 +25,63 @@
         <div id="RSectionMesas" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize d-flex border">
-                               
-                  <div class="marginL">
-                         <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaMesas/listarAllMesas"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
-                        <!--boton que llama a la funcion limpiar-->
-                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
-                    </div>
-                   
+
                     <div class="marginL">
-                       <a href="/VentanaAdministracion"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                    </a>
-                          <a href="/RegistroMesas">
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaMesas/listarAllMesas">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+                    </div>
+
+                    <div class="marginL">
+                        <a href="/VentanaAdministracion"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                        <a href="/RegistroMesas">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
                     </div>
-                    </div>
-                    
+                </div>
+
                 <div id="littleForm">
                     <form id="frmMesas" method="post" action="/ListaMesas/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex MAXWandH">
-                                <div class="marginIconos">
-                                    <label for="" class="">Código de la Mesa</label>
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodMesa" 
-                                        name="inputCodMesa" placeholder="Codigo de la Mesa">
-                                    </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" class="form-control" id="inputCodMesa" name="inputCodMesa"
+                                        placeholder="Codigo de la Mesa">
                                 </div>
-                                <div class="marginIconos">
-                                    <label for="" class="">Nombre de la Mesa</label>
-                                    <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputNomMesa"
-                                         name="inputNomMesa" placeholder="Nombre de la Mesa">
-                                    </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3  ">
+                                    <input type="text" class="form-control" id="inputNomMesa" name="inputNomMesa"
+                                        placeholder="Nombre de la Mesa">
                                 </div>
-                                <div class="marginIconos">
-                                    <label for="" class="">Restaurante</label>
-                                    <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputRest" 
-                                        name="inputRest"  placeholder="Nombre del Restaurante">
-                                    </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3">
+                                    <select class="custom-select" id="inputRest" name="inputRest">
+                                        <option selected>Restaurante</option>
+                                        <option value="1">Piccola Stella</option>
+                                        <option value="2">Turin Anivo</option>
+                                        <option value="3">Notte di Fuoco</option>
+                                    </select>
                                 </div>
-                                <div class="marginIconos">
-                                     <label for="" class="">Cantidad de Sillas</label>
-                                    <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputCantSillasMesa"
-                                        name="inputCantSillasMesa"  placeholder="Cantidad Sillas">
-                                    </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3  ">
+                                    <input type="text" class="form-control" id="inputCantSillasMesa"
+                                        name="inputCantSillasMesa" placeholder="Cantidad Sillas">
                                 </div>
-                                    <div class="displayGrid">
-                               
-                                   <!--llama al post para realizar busqueda-->
+                            </div>
+                            <div class="displayGrid">
+
+                                <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
@@ -93,8 +93,8 @@
 
 
 
-                              </div>
                             </div>
+                        </div>
                     </form>
                 </div>
 
@@ -108,6 +108,7 @@
                             <thead>
                                 <tr>
                                     <th>Código</th>
+                                    <th>Consecutivo</th>
                                     <th>Nombre</th>
                                     <th>Número</th>
                                     <th>Cantidad de Sillas</th>
@@ -118,6 +119,7 @@
                                 {{#each recordset}}
                                 <tr>
                                     <td>{{codigo}} </td>
+                                    <td>ME-{{consecutivo}}</td>
                                     <td>{{nombre}}</td>
                                     <td>{{numero}}</td>
                                     <td>{{cantidadSillas}}</td>
@@ -134,9 +136,9 @@
             </div>
         </div>
     </div>
-    
 
-      <script>
+
+    <script>
         var formulario = document.getElementById("frmMesas");
         var btnEliminar = document.getElementById("btnEliminar");
 
@@ -152,7 +154,7 @@
 
 
             if (document.getElementById("inputCodMesa").value == "" || document.getElementById("inputNomMesa").value == ""
-            || document.getElementById("inputCantSillasMesa").value == "") {
+                || document.getElementById("inputCantSillasMesa").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 btnEliminar.setAttribute("formaction", "../ListaMesas/eliminarMesas")

@@ -42,12 +42,13 @@ router.post('/eliminarMesas', function (req, res, next) {
     var codigo = req.body.inputCodMesa;
     var nombre = req.body.inputNomMesa;
     var cantidadSillas= req.body.inputCantSillasMesa;
-    if (codigo == "" || nombre == "" || cantidadSillas== "") {
+    var restaurante = req.body.inputRest;
+    if (codigo == "" || nombre == "" || cantidadSillas== "" || restaurante =="") {
         console.log("Debe llenar todos los campos");
         res.render('ListaMesas', {mensaje:'Debe llenar toda la Información!!!'});
 
     } else {
-        db.query("EXEC sp_borrarMesas  @codigo = '" + codigo + "', @nombre = '" + nombre + "',@cantidadSillas = '" + cantidadSillas + "'",  function (error, recordset) {
+        db.query("EXEC sp_borrarMesas  @codigo = '" + codigo + "', @restaurante = '"+restaurante+"' ,@nombre = '" + nombre + "',@cantidadSillas = '" + cantidadSillas + "'",  function (error, recordset) {
             if (error) {
                 console.log("wrong");
                 return;

@@ -27,7 +27,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/copa-de-vino.svg" alt="">
             </div>
-            <form class="form-inline d-flex ">
+            <form class="form-inline d-flex " method="post" action="">
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -104,7 +104,7 @@
                             src="/images/confirmacion.svg" alt=""></button>
 
                     <!--llamar get para regresar a la pagina de listado-->
-                    <a href="/ListaLicores/listarAllLicores">
+                    <a href="/ListaVinos/listarAllVinos">
                         <button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
                                 src="/images/error.svg" alt=""></button>
                     </a>
@@ -121,16 +121,11 @@
 
         function limpiarInputs() {
             document.getElementById("inputNombreBebida").value = "";
-            document.getElementById("inputPrecioUnitario").value = "0";
-            document.getElementById("inputPrecioBotella").value = "0";
-            document.getElementById("inputCantidadBebida").value = "";
+            document.getElementById("inputPrecioUnitario").value = "";
+            document.getElementById("inputPrecioBotella").value = "";
+            document.getElementById("inputCantidad").value = "";
+            document.getElementById("inputCosecha").value = "";
             document.getElementById("inputDescripcion").value = "";
-            document.getElementById("inputDescripcion").value = "";
-            document.getElementById("inputDescripcion").value = "";
-            document.getElementById("inputDescripcion").value = "";
-            document.getElementById("inputDescripcion").value = "";
-            document.getElementById("inputDescripcion").value = "";
-
 
             alert("Cajas de Texto limpias.");
         }
@@ -140,11 +135,12 @@
             if (document.getElementById("inputNombreBebida").value == "" || document.getElementById("inputSelectMarca").value == ""
                 || document.getElementById("inputSelectNacionalidad").value == "" || document.getElementById("inputPrecioUnitario").value == ""
                 || document.getElementById("inputPrecioBotella").value == "" || document.getElementById("inputNombreRest").value == ""
-                || document.getElementById("inputCantidadBebida").value == "" || document.getElementById("inputDescripcion").value == "") {
+                || document.getElementById("inputCantidad").value == "" || document.getElementById("inputCosecha").value == ""
+                || document.getElementById("inputDescripcion").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroLicores/insertarLicor")
+                btnInsertar.setAttribute("formaction", "../RegistroVinos/insertarVino")
                 btnInsertar.setAttribute("type", "submit");
             }
         }

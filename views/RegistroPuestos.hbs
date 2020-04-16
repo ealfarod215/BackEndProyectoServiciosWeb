@@ -28,21 +28,29 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/escritoriopuesto.svg" alt="">
             </div>
-            <form class="form-inline d-flex "  method="post" action="">
+            <form class="form-inline d-flex " method="post" action="">
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
                             <label>Información del Puesto</label>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputNombrePuesto" name="inputNombrePuesto" type="text" class="form-control" placeholder="Nombre">
+                            <input id="inputNombrePuesto" name="inputNombrePuesto" type="text" class="form-control"
+                                placeholder="Nombre">
                         </div>
                         <div class="form-group  ">
-                            <input id="inputInternoAlRestaurante" name="inputInternoAlRestaurante"type="radio" value="">
+                            <input id="inputInternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
                             <label for="">Interno al Restaurante</label>
-    
-                            <input id="inputExternoAlRestaurante" name="inputExternoAlRestaurante" type="radio" value="">
+
+                            <input id="inputExternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
                             <label for="">Externo al Restaurante</label>
+
+                        </div>
+                        <div class="col-md-4 mb-3 d-flex">
+                            <input id="adentro" name="adentro" type="text" class="form-control" placeholder="Opcion"
+                                disabled="true">
+                            <input id="afuera" name="afuera" type="text" class="form-control" placeholder="Opcion"
+                                disabled="true">
                         </div>
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectRoles" name="inputSelectRoles">
@@ -74,19 +82,35 @@
             </form>
         </div>
     </div>
-     <script>
+    <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertPuestos");
+        var dentro = document.getElementById("inputInternoAlRestaurante");
+        var fuera = document.getElementById("inputExternoAlRestaurante");
+
+        dentro.addEventListener('click', () => {
+            document.getElementById("adentro").value = "Si";
+            document.getElementById("afuera").value = "No";
+        });
+
+        fuera.addEventListener('click', () => {
+            document.getElementById("adentro").value = "No";
+            document.getElementById("afuera").value = "Si";
+        });
+
         function limpiarInputs() {
             document.getElementById("inputNombrePuesto").value = "";
-
+            document.getElementById("adentro").value = "";
+            document.getElementById("afuera").value = "";
+            document.getElementById("inputInternoAlRestaurante").checked = false;
+            document.getElementById("inputExternoAlRestaurante").checked = false;
             alert("Caja de Texto limpia.");
         }
 
         function llamadoInsertarFunction() {
 
 
-            if (document.getElementById("inputNombrePuesto").value == "" || document.getElementById("inputInternoAlRestaurante").value == ""
-                || document.getElementById("inputExternoAlRestaurante").value == "" || document.getElementById("inputSelectRoles").value == "") {
+            if (document.getElementById("inputNombrePuesto").value == "" || document.getElementById("adentro").value == ""
+                || document.getElementById("afuera").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 btnInsertar.setAttribute("formaction", "../RegistroPuestos/insertarPuestos")
