@@ -75,26 +75,28 @@
                         <div class="d-block ">
                             <div><label for="">Privilegios</label></div>
                             <div class="d-flex ">
+                                <input id="inputprivilegios" name="inputprivilegios" 
+                                    type="hidden" class="form-control" >
                                 <div class="col-md-4 mb-3">
                                     <input id="inputAdmSistema" name="inputAdmSistema" 
-                                    type="checkbox" class="form-control" value="">
+                                    type="checkbox" class="form-control" >
                                     <label for="">Administrador del Sistema</label>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <input id="inputAdmSeguridad" name="inputAdmSeguridad"
-                                    type="checkbox" class="form-control" value="">
+                                    type="checkbox" class="form-control" >
                                     <label for="">Administrador de Seguridad</label>
                                 </div>
                             </div>
                             <div class="d-flex ">
                                 <div class="col-md-4 mb-3">
                                     <input id="inputAdmRestaurante" name="inputAdmRestaurante" 
-                                    type="checkbox" class="form-control" value="">
+                                    type="checkbox" class="form-control">
                                     <label for="">Administrador del Restaurante</label>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <input id="inputAdmCuentas" name="inputAdmCuentas"
-                                    type="checkbox" class="form-control" value="">
+                                    type="checkbox" class="form-control" >
                                     <label for="">Administrador de Cuentas</label>
                                 </div>
                             </div>
@@ -125,7 +127,41 @@
 
 <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertUsuarios");
+        var checkSistema= document.getElementById("inputAdmSistema");
+        var checkSeguridad= document.getElementById("inputAdmSeguridad");
+        var checkRestaurante= document.getElementById("inputAdmRestaurante");
+        var checkCuentas= document.getElementById("inputAdmCuentas");
 
+ 
+      checkCuentas.addEventListener('click', () =>  {
+        document.getElementById("inputprivilegios").value = 1;
+        checkSistema.checked = false;
+        checkSeguridad.checked = false;
+        checkRestaurante.checked = false;
+
+        });
+        checkSistema.addEventListener('click', () =>  {
+        document.getElementById("inputprivilegios").value = 2;
+        checkSeguridad.checked = false;
+        checkRestaurante.checked = false;
+        checkCuentas.checked = false;
+
+        });
+      checkSeguridad.addEventListener('click', () =>  {
+        document.getElementById("inputprivilegios").value = 3;
+        checkSistema.checked = false;
+        checkRestaurante.checked = false;
+        checkCuentas.checked = false;
+
+        });
+      checkRestaurante.addEventListener('click', () =>  {
+        document.getElementById("inputprivilegios").value = 4;
+        checkSistema.checked = false;
+        checkSeguridad.checked = false;
+        checkCuentas.checked = false;
+
+        });
+     
         function limpiarInputs() {
             document.getElementById("inputNombreUsuario").value = "";
             document.getElementById("inputApellidoUno").value = "";
