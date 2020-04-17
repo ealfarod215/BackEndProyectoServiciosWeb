@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('./DBconnection');
 
 router.get('/listarAllPaises', function (req, res, next) {
-    db.query('EXEC sp_allPaises', function (error, recordset) {
+    db.query('EXEC sp_allPais', function (error, recordset) {
         if (error) {
             console.log('error en el listado');
             return;
@@ -15,17 +15,15 @@ router.get('/listarAllPaises', function (req, res, next) {
 });
 
 router.post('/filtrarLista', function (req, res, next) {
-    var codigo = req.body.inputCodMesa;
-    var nombre = req.body.inputNomMesa;
-    var restaurante= req.body.inputRest;
-    var cantidadSillas= req.body.inputCantSillasMesa;
+    var codigo = req.body.inputCodPais;
+    var nombre = req.body.inputNomPais;
 
-    if (codigo == "" || nombre == "" || restaurante== "" || cantidadSillas=="") {
+    if (codigo == "" || nombre == "" ) {
         console.log("Debe llenar todos los campos");
         res.render('ListaPaises', {mensaje:'Debe llenar toda la Información!!!'});
 
     } else {
-        db.query("EXEC sp_listarMesas @codigo = '" + codigo + "', @nombre = '" + nombre + "', @restaurante = '" + restaurante + "', @cantidadSillas = '" + cantidadSillas + "'",  function (error, recordset) {
+        db.query("EXEC sp_listarPais @codigo = '" + codigo + "', @nombre = '" + nombre + "'",  function (error, recordset) {
             if (error) {
                 console.log("wrongselect");
                 return;
@@ -38,17 +36,16 @@ router.post('/filtrarLista', function (req, res, next) {
 
 });
 
-router.post('/eliminarMesas', function (req, res, next) {
-    var codigo = req.body.inputCodMesa;
-    var nombre = req.body.inputNomMesa;
-    var cantidadSillas= req.body.inputCantSillasMesa;
-    var restaurante = req.body.inputRest;
-    if (codigo == "" || nombre == "" || cantidadSillas== "" || restaurante =="") {
+router.post('/eliminarPaises', function (req, res, next) {
+    var codigo = req.body.inputCodPais;
+    var nombre = req.body.inputNomPais;
+
+    if (codigo == "" || nombre == "" ) {
         console.log("Debe llenar todos los campos");
         res.render('ListaPaises', {mensaje:'Debe llenar toda la Información!!!'});
 
     } else {
-        db.query("EXEC sp_borrarMesas  @codigo = '" + codigo + "', @restaurante = '"+restaurante+"' ,@nombre = '" + nombre + "',@cantidadSillas = '" + cantidadSillas + "'",  function (error, recordset) {
+        db.query("EXEC sp_borrarPais  @codigo = '" + codigo + "', @nombre = '"+nombre+ "'",  function (error, recordset) {
             if (error) {
                 console.log("wrongborr");
                 return;
