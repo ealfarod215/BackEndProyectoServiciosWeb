@@ -35,6 +35,8 @@ var listaMarcasRouter = require("./routes/ListaMarcas");
 var registroMarcasRouter = require("./routes/RegistroMarcas");
 var listaComestibesRouter = require("./routes/ListaComestibles");
 var registroComestiblesRouter = require("./routes/RegistroComestibles");
+var listaDesechablesEmpaques = require("./routes/ListaDesechablesEmpaques");
+var registroDesechablesEmpaques = require("./routes/RegistroDesechablesEmpaques");
 var app = express();
 
 // view engine setup
@@ -82,6 +84,8 @@ app.use('/ListaMarcas',listaMarcasRouter);
 app.use('/RegistroMarcas',registroMarcasRouter);
 app.use('/ListaComestibles',listaComestibesRouter);
 app.use('/RegistroComestibles',registroComestiblesRouter);
+app.use('/ListaDesechablesEmpaques',listaDesechablesEmpaques);
+app.use('/RegistroDesechablesEmpaques',registroDesechablesEmpaques);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

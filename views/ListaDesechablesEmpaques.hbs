@@ -24,22 +24,41 @@
         </div>
         <div id="RSectionDyE" class="border">
             <div id="headerListSection" class="d-block border">
-                <div id="littleForm">
-                    <form class="form-inline container displayGrid ">
+                <div id="littleForm" class="d-flex">
+                    <div class="displayGrid ">
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaDesechablesEmpaques/listarAllDesechablesEmpaques"><button
+                                class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+                    </div>
+                    <div class="displayGrid headerEspacios">
+                        <a href="/RegistroDesechablesEmpaques">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
+                        <a href="/VentanaProductos"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                    </div>
+                    <form class="form-inline container displayGrid " method="post"
+                        action="/ListaDesechablesEmpaques/filtrarLista">
                         <div class="d-flex MAXWandH">
                             <div class="displayGrid ">
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3">
                                         <input type="text" class="form-control" id="inputCodEmpaque"
-                                            placeholder="Codigo del Empaque">
+                                            name="inputCodEmpaque" placeholder="Codigo del Empaque">
                                     </div>
                                 </div>
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomEmpaque"
-                                            placeholder="Nombre del Empaque">
+                                            name="inputNomEmpaque" placeholder="Nombre del Empaque">
                                     </div>
                                 </div>
                             </div>
@@ -47,30 +66,24 @@
                                 <div class="marginIconos">
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomRestaurante"
-                                            placeholder="Nombre del Restaurante">
+                                            name="inputNomRestaurante" placeholder="Nombre del Restaurante">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="d-flex headerEspacios">
-                                <div class="displayGrid ">
-                                    <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/recargar.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/escoba.svg" alt=""></button>
-                                </div>
-                                <div class="displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/mas.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/menos.svg" alt=""></button>
 
-                                </div>
                                 <div class=" displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/error.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/confirmacion.svg" alt=""></button>
+
+                                    <!--llama al post para realizar busqueda-->
+                                    <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                            style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                            alt=""></button>
+
+                                    <!--Cargar post para eliminar registro de buffet-->
+                                    <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                        class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                            src="/images/menos.svg" alt=""></button>
                                 </div>
                             </div>
                         </div>
@@ -89,11 +102,61 @@
                     <div class="col">Restaurante</div>
                 </div>
                 <div id="listViewDyE" class="border">
-                    <div id="mostrarContenidoDyE"></div>
+                    <div id="mostrarContenidoDyE">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Consecutivo</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Restaurante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>DE-{{consecutivo}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{cantidad}}</td>
+                                    <td>{{restaurante}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodEmpaque").value = "";
+            document.getElementById("inputNomEmpaque").value = "";
+            document.getElementById("inputNomRestaurante").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodEmpaque").value == "" || document.getElementById("inputNomLicor").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaDesechablesEmpaques/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
