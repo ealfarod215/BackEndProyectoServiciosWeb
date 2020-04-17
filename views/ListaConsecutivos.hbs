@@ -27,8 +27,9 @@
         <div id="RSectionConsecutivo" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
+                    <div class="marginL">
                        <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaEspeciales/listarAllEspeciales"> 
+                        <a href="/ListaConsecutivos/listarAllConsecutivos"> 
                         <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
@@ -36,61 +37,104 @@
                                 src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                       <a href="/Especialidades"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                       <a href="/VentanaSeguridad"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/error.svg" alt=""></button>
                     </a>
-                          <a href="/RegistroEpeciales">
+                          <a href="/RegistroConsecutivos">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
                     </div>
-                </div>
+                    </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
+                    <form id="frmConsecutivos" method="post" action="/ListaConsecutivos/filtrarLista"
+                      class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
-                               
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputCodConsecutivo"
-                                        placeholder="Codigo del Consecutivo">
+                                       name="inputCodConsecutivo" placeholder="Digite el Codigo">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputDescripcionConsecutivo"
-                                        placeholder="Descripcion del Consecutivo">
+                                        name="inputDescripcionConsecutivo" placeholder="Digite Descripcion">
                                 </div>
                             </div>
+                                <div class="displayGrid">
+                               
+                                   <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
 
-
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+                            </div>
                         </div>
                     </form>
                 </div>
-                <div class="displayGrid ">
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
-                            alt=""></button>
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                            alt=""></button>
-                </div>
             </div>
-            <div id="bodyListSection">
-
-
-                <div class="row">
-                    <div class="col">Codígo</div>
-                    <div class="col">Tipo</div>
-                    <div class="col">Descripcion</div>
-                    <div class="col">Valor del Consecutivo</div>
-                    <div class="col">Contiene Prefijo</div>
-
-                </div>
+            <div id="bodyListSection" class="overflow-auto">
                 <div id="listViewConsecutivo" class="border">
-                    <div id="mostrarContenidoConsecutivo"></div>
-                </div>
+                    <div id="mostrarContenidoConsecutivo">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Tipo</th>
+                                    <th>Descripcion</th>
+                                    <th>Valor del Consecutivo</th>
+                                    <th>Contiene Prefijo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{idConsecutivos}} </td>
+                                    <td>{{tipoConsecutivo}}</td>
+                                    <td>{{descripcion}}</td>
+                                    <td>{{valor}}</td>
+                                    <td>{{poseeprefijo}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
 
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+     <script>
+        var formulario = document.getElementById("frmConsecutivos");
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodConsecutivo").value = "";
+            document.getElementById("inputDescripcionConsecutivo").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodConsecutivo").value == "" || document.getElementById("inputDescripcionConsecutivo").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaConsecutivos/eliminarConsecutivos")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
