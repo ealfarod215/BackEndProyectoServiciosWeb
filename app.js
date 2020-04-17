@@ -33,6 +33,8 @@ var registroPuestosRouter= require("./routes/RegistroPuestos");
 var ListaClientesRouter= require("./routes/ListaClientes");
 var listaMarcasRouter = require("./routes/ListaMarcas");
 var registroMarcasRouter = require("./routes/RegistroMarcas");
+var listaComestibesRouter = require("./routes/ListaComestibles");
+var registroComestiblesRouter = require("./routes/RegistroComestibles");
 var app = express();
 
 // view engine setup
@@ -78,6 +80,8 @@ app.use('/RegistroPuestos', registroPuestosRouter);
 app.use('/ListaClientes', ListaClientesRouter);
 app.use('/ListaMarcas',listaMarcasRouter);
 app.use('/RegistroMarcas',registroMarcasRouter);
+app.use('/ListaComestibles',listaComestibesRouter);
+app.use('/RegistroComestibles',registroComestiblesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

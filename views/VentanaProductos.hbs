@@ -39,19 +39,19 @@
                                 <div class="d-block">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputComestibles">
+                                            <input type="radio" id="inputComestibles" name="rdbuttom">
                                             <label for="" class="">Comestibles</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputDesechablesEmpaques">
+                                            <input type="radio" id="inputDesechablesEmpaques" name="rdbuttom">
                                             <label for="" class="">Desechables y Empaques</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputLimpiezaHigiene">
+                                            <input type="radio" id="inputLimpiezaHigiene" name="rdbuttom">
                                             <label for="" class="">Limpieza e Higiene</label>
                                         </div>
                                     </div>
@@ -60,13 +60,13 @@
 
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputTecnologia">
+                                            <input type="radio" id="inputTecnologia" name="rdbuttom">
                                             <label for="" class="">Tecnologia</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputEquipos">
+                                            <input type="radio" id="inputEquipos" name="rdbuttom">
                                             <label for="" class="">Equipos</label>
                                         </div>
                                     </div>
@@ -79,10 +79,14 @@
                         </form>
                     </div>
                     <div class="displayGrid ">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
+                        <a id="siguienteventana" href="">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/confirmacion.svg" alt=""></button>
+                        </a>
+                        <a href="/VentanaProveedores">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/error.svg" alt=""></button>
+                        </a>
 
                     </div>
                 </div>
@@ -93,7 +97,47 @@
 
 
 
+    <script>
+        var radioComestibles = document.getElementById("inputComestibles");
+        var radioDesyEmp = document.getElementById("inputDesechablesEmpaques");
+        var radioLimeHig = document.getElementById("inputLimpiezaHigiene");
+        var radioTecnologia = document.getElementById("inputTecnologia");
+        var radioEquipos = document.getElementById("inputEquipos");
 
+
+        radioComestibles.addEventListener('click', () => {
+            alert("Comestibles");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaComestibles/listarAllComestibles");
+
+        });
+
+        radioDesyEmp.addEventListener('click', () => {
+            alert("Desechables y Empaques");
+            document.getElementById("siguienteventana").setAttribute("href", "/VentanaProductos");
+
+        });
+
+        radioLimeHig.addEventListener('click', () => {
+            alert("Limpieza e Higiene");
+            //document.getElementById("siguienteventana").setAttribute("href", "/ListaMesas/listarAllMesas");
+
+        });
+
+        radioTecnologia.addEventListener('click', () => {
+            alert("Tecnologia");
+            //document.getElementById("siguienteventana").setAttribute("href", "/ListaMesas/listarAllMesas");
+
+        });
+
+        radioEquipos.addEventListener('click', () => {
+            alert("Equipos");
+            //document.getElementById("siguienteventana").setAttribute("href", "/ListaMesas/listarAllMesas");
+
+        });
+
+
+
+    </script>
 
 </body>
 
