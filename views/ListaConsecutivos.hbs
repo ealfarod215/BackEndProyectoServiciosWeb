@@ -17,7 +17,7 @@
     <title>Lista de Consecutivos</title>
 </head>
 
-<body>
+<body class="container-fluid">
 
 
     <div id="SeccionPrincipalConsecutivo" class="container d-flex border">
@@ -27,17 +27,22 @@
         <div id="RSectionConsecutivo" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
-                    <div class="marginL">
+                       <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaEspeciales/listarAllEspeciales"> 
                         <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                       <a href="/Especialidades"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/error.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
+                    </a>
+                          <a href="/RegistroEpeciales">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
                     </div>
                 </div>
                 <div id="littleForm">
