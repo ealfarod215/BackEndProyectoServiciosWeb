@@ -243,8 +243,8 @@ router.get('/RegistroMesas', function(req, res, next) {
 });
 
 /*RegistroPais*/
-router.get('/RegistroPais', function(req, res, next) {
-  res.render('RegistroPais', { title: 'RegistroPais' });
+router.get('/RegistroNacion', function(req, res, next) {
+  res.render('RegistroNacion', { title: 'RegistroNacion' });
 });
 
 /*RegistroProveedores*/
