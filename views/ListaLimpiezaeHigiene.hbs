@@ -19,85 +19,135 @@
 
 <body>
 
-     <h1 class="text-center align-content-center">Lista de Limpieza e Higiene</h1> 
+    <h1 class="text-center align-content-center">Lista de Limpieza e Higiene</h1>
     <div id="SeccionPrincipalBC" class="container d-flex ">
-        
+
         <div id="LSectionBC" class="">
             <img class="LogoBC" src="/images/escobaLimpieza.svg" alt="">
         </div>
         <div id="RSectionBC" class="border">
             <div id="headerListSection" class="d-flex border">
-                <div class="displayGrid headerSideSize">
-                    <div class="marginL d-flex">
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
-                    </div>
-                    <div class="marginL d-flex">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
-                    </div>
+                <div class="d-block">
+                    <!--llama al get para recargar la informacion de la tabla-->
+                    <a href="/ListaLimpiezaeHigiene/listarAllLimpHigiene"><button class="marginIconos "><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg" alt=""></button></a>
+                    <!--boton que llama a la funcion limpiar-->
+                    <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                            style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                 </div>
+
+
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
-                        <div class="d-flex headerMidleSize">
+                    <form class="form-inline container displayGrid headerMidleSize" method="post"
+                        action="/ListaLimpiezaeHigiene/filtrarLista">
+                        <div class="d-flex ">
                             <div class="marginIconos">
+
                                 <div class="form-group  ">
-                                    <label for="" class="">Codigo del Artículo</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBC"
+                                    <input type="text" class="form-control" id="inputCodLyH" name="inputCodLyH"
                                         placeholder="Digite el Codigo">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <label for="" class="">Nombre del Artículo</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomBC"
+                                    <input type="text" class="form-control" id="inputNomLyH" name="inputNomLyH"
                                         placeholder="Digite el Nombre">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <label for="" class="">Nombre del Restaurante</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomBC"
-                                        placeholder="Digite el Nombre">
+                                    <input type="text" class="form-control" id="inputNomLyHRest" name="inputNomLyHRest"
+                                        placeholder="Nombre Restaurante">
                                 </div>
                             </div>
+                            <div class=" d-block">
 
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
+
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+                            </div>
                         </div>
+
                     </form>
                 </div>
                 <div class="displayGrid ">
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
-                            alt=""></button>
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                            alt=""></button>
+                    <a href="/RegistroLimpiezaeHigiene">
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
+                                alt=""></button>
+                    </a>
+
+                    <a href="/VentanaProductos"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/error.svg" alt=""></button>
+                    </a>
+
                 </div>
             </div>
             <div id="bodyListSection">
 
-
-                <div class="row align-content-center" id="SubmenuBarra">
-                    <div class="col">Codigo</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Cantidad</div>
-                    <div class="col">Restaurante</div>
-                </div>
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC"></div>
+                    <div id="mostrarContenidoBC">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Consecutivo</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Restaurante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>LH-{{consecutivo}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{cantidad}}</td>
+                                    <td>{{restaurante}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
+
+    <script>
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodLyH").value = "";
+            document.getElementById("inputNomLyH").value = "";
+            document.getElementById("inputNomLyHRest").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodLyH").value == "" || document.getElementById("inputNomLyH").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaLimpiezaeHigiene/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
