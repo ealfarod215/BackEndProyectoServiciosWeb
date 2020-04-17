@@ -131,6 +131,8 @@
         var checkSeguridad= document.getElementById("inputAdmSeguridad");
         var checkRestaurante= document.getElementById("inputAdmRestaurante");
         var checkCuentas= document.getElementById("inputAdmCuentas");
+        var inputConfirmarClave = document.getElementById("inputConfirmarClave");
+        var inputClave= document.getElementById("inputClave");
 
  
       checkCuentas.addEventListener('click', () =>  {
@@ -186,6 +188,8 @@
                 || document.getElementById("inputTelCel").value == "" || document.getElementById("inputLogin").value == ""
                 || document.getElementById("inputClave").value == "" || document.getElementById("inputConfirmarClave").value == "") {
                 alert("Debe llenar toda la informacion!!!");
+                 } else if (inputClave.value != inputConfirmarClave.value){
+                alert("Las contraseñas deben coincidir!!!");
             } else {
                 btnInsertar.setAttribute("formaction", "../RegistroUsuarios/insertarUsuarios")
                 btnInsertar.setAttribute("type", "submit");

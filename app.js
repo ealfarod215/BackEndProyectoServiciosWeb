@@ -35,6 +35,7 @@ var ListaUsuariosRouter= require("./routes/ListaUsuarios");
 var registroUsuariosRouter= require("./routes/RegistroUsuarios");
 var ListaConsecutivosRouter= require("./routes/ListaConsecutivos");
 var registroConsecutivosRouter= require("./routes/RegistroConsecutivos");
+var ListaPaisesRouter= require("./routes/ListaPaises");
 var app = express();
 
 // view engine setup
@@ -82,6 +83,7 @@ app.use('/ListaUsuarios', ListaUsuariosRouter);
 app.use('/RegistroUsuarios',registroUsuariosRouter);
 app.use('/ListaConsecutivos', ListaConsecutivosRouter);
 app.use('/RegistroConsecutivos', registroConsecutivosRouter);
+app.use('/ListaPaises', ListaPaisesRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
