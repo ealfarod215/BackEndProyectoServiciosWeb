@@ -39,6 +39,8 @@ var listaDesechablesEmpaques = require("./routes/ListaDesechablesEmpaques");
 var registroDesechablesEmpaques = require("./routes/RegistroDesechablesEmpaques");
 var listaLimpiezaeHigieneRouter = require("./routes/ListaLimpiezaeHigiene");
 var registroLimpiezaeHigieneRouter = require("./routes/RegistroLimpiezaeHigiene");
+var listaTecnologiaRouter = require("./routes/ListaTecnologia");
+var registroTecnologiaRouter = require("./routes/RegistroTecnologia");
 var app = express();
 
 // view engine setup
@@ -90,6 +92,8 @@ app.use('/ListaDesechablesEmpaques',listaDesechablesEmpaques);
 app.use('/RegistroDesechablesEmpaques',registroDesechablesEmpaques);
 app.use('/ListaLimpiezaeHigiene',listaLimpiezaeHigieneRouter);
 app.use('/RegistroLimpiezaeHigiene',registroLimpiezaeHigieneRouter);
+app.use('/ListaTecnologia',listaTecnologiaRouter);
+app.use('/RegistroTecnologia',registroTecnologiaRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
