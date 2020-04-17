@@ -28,56 +28,67 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/cubiertos.svg" alt="">
             </div>
-            <form class="form-inline d-flex ">
+            <form class="form-inline d-flex " method="post" action="">
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
-                            <label>Información de los  Equipos</label>
+                            <label>Información de los Equipos</label>
                         </div>
+
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Código" readonly>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectTCB">
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
                                 <option selected>Restaurante</option>
-                                <option value="1">ejemplo</option>
-                                <option value="2">ejemplo 2</option>
-                                <option value="3">ejemplo 3</option>
+                                <option value="1">Piccola Stella</option>
+                                <option value="2">Turin Anivo</option>
+                                <option value="3">Notte di Fuoco</option>
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre">
+                            <input type="text" class="form-control" placeholder="Nombre" id="inputNomEyU"
+                                name="inputNomEyU">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectTCB">
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
                                 <option selected>Marca</option>
-                                <option value="1">ejemplo</option>
-                                <option value="2">ejemplo 2</option>
-                                <option value="3">ejemplo 3</option>
+                                <option value="1">Scott Brite</option>
+                                <option value="3">LG</option>
+                                <option value="4">Samsung</option>
+                                <option value="5">Numar</option>
+                                <option value="10">Roma</option>
                             </select>
                         </div>
                         <div class="col-md-9 mb-3">
-                            
-                       <input id="inputCantidad" type="text" class="form-control " placeholder="Cantidad">
+
+                            <input id="inputCantidadEyU" name="inputCantidadEyU" type="text" class="form-control "
+                                placeholder="Cantidad">
                         </div>
                         <div class="col-md-8 mb-3">
-                           <textarea id="inputDescripcion" class="form-control" placeholder="Descripción"
-                                aria-label="With textarea"></textarea>
+                            <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
+                                placeholder="Descripción" aria-label="With textarea"></textarea>
                         </div>
 
                     </div>
 
 
                 </div>
-               
+
 
                 <div id="botonesLogin" class="d-flex">
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/escoba.svg" alt=""></button></div>
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/confirmacion.svg" alt=""></button></div>
-                    <div><button type="button" class="btn"><img style="width: 3rem; height: 3rem;"
-                                src="/images/error.svg" alt=""></button></div>
+                    <!--llamar funcion para limpiar textbox-->
+                    <button id="btnLimpiarRegistroInputs" type="button" class="btn" onclick="limpiarInputs()"><img
+                            style="width: 3rem; height: 3rem;" src="/images/escoba.svg" alt=""></button>
+
+                    <!--llamar post para realizar el insert-->
+                    <button id="btnConfirmarInsertBufet" type="button" class="btn"
+                        onclick="llamadoInsertarFunction()"><img style="width: 3rem; height: 3rem;"
+                            src="/images/confirmacion.svg" alt=""></button>
+
+                    <!--llamar get para regresar a la pagina de listado-->
+                    <a href="/ListaEquiposyUtensilios/listarAllEquiUten"><button type="button" class="btn"><img
+                                style="width: 3rem; height: 3rem;" src="/images/error.svg" alt=""></button>
+                    </a>
+                    <button type="button" class="btn"><img style="width: 3rem; height: 3rem;" src="/images/Lupa.svg"
+                            alt=""></button>
 
                 </div>
             </form>
@@ -88,8 +99,34 @@
 
 
 
-    </div>
+    <script>
+        var btnInsertar = document.getElementById("btnConfirmarInsertBufet");
 
+
+
+
+        function limpiarInputs() {
+
+            document.getElementById("inputNomEyU").value = "";
+            document.getElementById("inputCantidadEyU").value = "";
+            document.getElementById("inputDescripcion").value = "";
+
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoInsertarFunction() {
+
+            if (document.getElementById("inputNomEyU").value == "" || document.getElementById("inputCantidadEyU").value == ""
+                || document.getElementById("inputDescripcion").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                alert("Realizo el post");
+                btnInsertar.setAttribute("formaction", "../RegistroEquiposyUtencilios/insertarEyU")
+                btnInsertar.setAttribute("type", "submit");
+            }
+        }
+
+    </script>
 </body>
 
 </html>
