@@ -56,6 +56,7 @@ var ListaPaisesRouter= require("./routes/ListaPaises");
 var registroNacionRouter= require("./routes/RegistroNacion");
 var ListaCajasRouter= require("./routes/ListaCajas");
 var registroClientesMesasRouter = require("./routes/ClientesMesas");
+var ListaClientesBarraRouter = require("./routes/ListaClientesBarras");
 
 var app = express();
 
@@ -125,6 +126,7 @@ app.use('/ListaPaises', ListaPaisesRouter);
 app.use('/RegistroNacion', registroNacionRouter);
 app.use('/ListaCajas', ListaCajasRouter);
 app.use('/ClientesMesas',registroClientesMesasRouter);
+app.use('/ListaClientesBarras',ListaClientesBarraRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

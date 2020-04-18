@@ -63,6 +63,13 @@
                             <option value="No">No</option>
                         </select>
                     </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <select class="custom-select" id="inputBarra" name="inputBarra">
+                            <option selected>Barra ?</option>
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
 
 
                     <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
@@ -170,6 +177,7 @@
             document.getElementById("inputFecha").value = "";
             document.getElementById("inputReservacion").value = "";
             document.getElementById("inputNombreRest").value = "";
+            document.getElementById("inputBarra").value = "";
 
 
             alert("Cajas de Texto limpias.");
@@ -181,7 +189,8 @@
                 || document.getElementById("inputApClienteUno").value == "" || document.getElementById("inputApClienteDos").value == ""
                 || document.getElementById("inputSelectNomMesa").value == "" || document.getElementById("inputMontoPago").value == ""
                 || document.getElementById("inputDetalle").value == "" || document.getElementById("inputFecha").value == ""
-                || document.getElementById("inputReservacion").value == "" || document.getElementById("inputNombreRest").value == "") {
+                || document.getElementById("inputReservacion").value == "" || document.getElementById("inputNombreRest").value == ""
+                || document.getElementById("inputBarra").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 alert("Realizo el post");

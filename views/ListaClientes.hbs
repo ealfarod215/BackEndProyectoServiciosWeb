@@ -12,50 +12,50 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
+
     <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
     <title>Lista de Clientes</title>
 </head>
 
 <body class="container-fluid">
 
-    <div id="SeccionPrincipalBC" class="container-fluid d-flex border mw-100" >
-        
+    <div id="SeccionPrincipalBC" class="container-fluid d-flex border mw-100">
+
         <div id="LSectionBC" class="">
-            <img class="LogoBC "src="/images/hombre.svg" >
+            <img class="LogoBC " src="/images/hombre.svg">
         </div>
         <div id="RSectionBC" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
-                    
+
                     <div class="marginL">
-                         <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaClientes/listarAllClientes"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaClientes/listarAllClientes">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
-                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
-                    
-                       
-                       <a href="/Funcionalidades"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                    </a>
-                    
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+
+
+                        <a href="/Funcionalidades"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+
                     </div>
-                    
+
                 </div>
                 <div id="littleForm">
-                      <form id="frmClientes" method="post" action="/ListaClientes/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                    <form id="frmClientes" method="post" action="/ListaClientes/filtrarLista"
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <label for="" class="">Codigo del Cliente</label>
                                 </div>
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodC"
-                                        name="inputCodC"  placeholder="Codigo del Cliente">
+                                    <input type="text" class="form-control" id="inputCodC" name="inputCodC"
+                                        placeholder="Codigo del Cliente">
                                 </div>
                             </div>
                             <div class="marginIconos">
@@ -63,57 +63,57 @@
                                     <label for="" class="">Nombre del Cliente</label>
                                 </div>
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomC"
-                                        name="inputNomC" placeholder="Nombre del Cliente">
+                                    <input type="text" class="form-control" id="inputNomC" name="inputNomC"
+                                        placeholder="Nombre del Cliente">
                                 </div>
-                                 <div class="form-group  ">
+                                <div class="form-group  ">
                                     <label for="" class="">Nombre del Restaurante</label>
                                 </div>
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomRe"
-                                       name="inputNomRe" placeholder="Digite el Nombre">
+                                    <input type="text" class="form-control" id="inputNomRe" name="inputNomRe"
+                                        placeholder="Digite el Nombre">
                                 </div>
                             </div>
                             <div class="marginIconos" style="padding-right: 2rem;">
                                 <div class="form-group  ">
                                     <label for="" class="">Rango de Fechas</label>
-                                
-                                <div class="form-group  ">
-                               Inicio: <input type="date" id="startDate" name="startDate" width="276" />
-                               </div>
-                               <div class="form-group  ">
-                               Final: <input type="date" id="endDate" name="endDate" width="276" />
+
+                                    <div class="form-group  ">
+                                        Inicio: <input type="date" id="startDate" name="startDate" width="276" />
+                                    </div>
+                                    <div class="form-group  ">
+                                        Final: <input type="date" id="endDate" name="endDate" width="276" />
+                                    </div>
                                 </div>
-                           </div>
                                 <div class="form-group  ">
                                     <label for="" class="">Rango de Fechas en Reservaciones</label>
-                                
-                                <div class="form-group  ">
-                                Inicio: <input  type="date" id="startDateRe" name="startDateRe" width="276" />
+
+                                    <div class="form-group  ">
+                                        Inicio: <input type="date" id="startDateRe" name="startDateRe" width="276" />
+                                    </div>
+                                    <div class="form-group  ">
+                                        Final: <input type="date" id="endDateRe" name="endDateRe" width="276" />
+                                    </div>
                                 </div>
-                                <div class="form-group  ">
-                                Final: <input  type="date" id="endDateRe" name="endDateRe" width="276" />
-                                </div>
-                            </div>
                             </div>
                             <div class="container-fluid">
-                            <div class="marginIconos">
-                            <div class="form-group  ">
-                                <input type="radio" value="" id="radioReser" name="radioReser">
-                                <label for="">Reservación</label>
+                                <div class="marginIconos">
+                                    <div class="form-group  ">
+                                        <input type="radio" value="" id="radioReser" name="radioReser">
+                                        <label for="">Reservación</label>
+                                    </div>
+                                    <div class="form-group  ">
+                                        <input type="radio" value="" id="radioBarra" name="radioBarra">
+                                        <label for="">Barra</label>
+                                    </div>
                                 </div>
-                                <div class="form-group  ">
-                                <input type="radio" value="" id="radioBarra" name="radioBarra">
-                                <label for="">Barra</label>
                             </div>
-                            </div>
-                             </div>
-                               
-                           
-                             <div class="displayGrid">
-                               
-                              
-                                   <!--llama al post para realizar busqueda-->
+
+
+                            <div class="displayGrid">
+
+
+                                <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
@@ -129,14 +129,15 @@
                         </div>
                     </form>
                 </div>
-                </div>
+            </div>
             <div id="bodyListSection" class="overflow-auto">
                 <div id="listViewRest" class="border">
                     <div id="mostrarContenidoBC">
-                         <table class="table table-hover" style="width:100%; height:auto;">
+                        <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
                                     <th>Codigo</th>
+                                    <th>Consecutivo</th>
                                     <th>Nombre</th>
                                     <th>Monto Pagado</th>
                                     <th>Detalle</th>
@@ -150,6 +151,7 @@
                                 {{#each recordset}}
                                 <tr>
                                     <td>{{codigo}} </td>
+                                    <td>CLI-{{consecutivo}}</td>
                                     <td>{{nombre}}</td>
                                     <td>{{montoPagado}}</td>
                                     <td>{{detalle}}</td>
@@ -168,18 +170,18 @@
 
             </div>
         </div>
-     </div>
-  
-   
+    </div>
 
-<script>
+
+
+    <script>
         var formulario = document.getElementById("frmClientes");
         var btnEliminar = document.getElementById("btnEliminar");
 
         function limpiarInputs() {
             document.getElementById("inputCodC").value = "";
             document.getElementById("inputNomC").value = "";
-            document.getElementById("inputNomRe").value = ""; 
+            document.getElementById("inputNomRe").value = "";
             alert("Cajas de Texto limpias.");
         }
 
@@ -187,7 +189,7 @@
 
 
             if (document.getElementById("inputCodC").value == "" || document.getElementById("inputNomC").value == ""
-             ) {
+            ) {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 btnEliminar.setAttribute("formaction", "../ListaClientes/eliminarClientes")

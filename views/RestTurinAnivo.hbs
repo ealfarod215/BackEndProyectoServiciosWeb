@@ -89,11 +89,14 @@
                 <div id="estadoDeLaBarra" style="width: 25%;" class="displayGrid border">
                     <label>Estado de la Barra: </label>
                     <div>
-                        <input type="radio" value="">
+                        <input id="inputInternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
                         <label for="">Barra Abierta</label>
 
-                        <input type="radio" value="">
+                        <input id="inputExternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
                         <label for="">Barra Cerrada</label>
+                        <button id="adentro" name="adentro" disabled="true"
+                            onclick="window.location.href='/ListaClientesBarras/listarAllClientes'">Barra<img
+                                style="width: 100%; height: 3rem;" src="/images/cuadrados.svg" alt=""></button>
                     </div>
                 </div>
 
@@ -210,16 +213,7 @@
             </div>
 
             <div id="abajo">
-                <div id="estadoDeLaBarra2">
-                    <label>Estado de la Barra: </label>
-                    <div>
-                        <input type="radio" value="">
-                        <label for="">Barra Abierta</label>
-
-                        <input type="radio" value="">
-                        <label for="">Barra Cerrada</label>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div id="barraLateralDerecha" class="border displayGrid text-center ">
@@ -259,7 +253,21 @@
 
 
 
+    <script>
 
+        var dentro = document.getElementById("inputInternoAlRestaurante");
+        var fuera = document.getElementById("inputExternoAlRestaurante");
+
+        dentro.addEventListener('click', () => {
+            alert("Se habilito la barra!!!");
+            document.getElementById("adentro").disabled = false;
+        });
+
+        fuera.addEventListener('click', () => {
+            alert("Se cerro la barra!!!");
+            document.getElementById("adentro").disabled = true;
+        });
+    </script>
 </body>
 
 </html>

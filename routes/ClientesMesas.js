@@ -13,6 +13,7 @@ router.post('/insertarCliente', function (req, res, next) {
     var montoPagado = req.body.inputMontoPago;
     var detalle = req.body.inputDetalle;
     var fecha = req.body.inputFecha;
+    var barra = req.body.inputBarra;
     /*Usar para validar*/
     var reserva = req.body.inputReservacion;
     var restaurante = req.body.inputNombreRest;
@@ -21,7 +22,7 @@ router.post('/insertarCliente', function (req, res, next) {
     var mesa = req.body.inputSelectNomMesa;
 
 
-    db.query("EXEC sp_insertarClientes @cedula = '" + cedula + "', @nombre = '" + nombre + "', @apellidoUno = '" + apellidoUno + "', @apellidoDos = '" + apellidoDos + "', @montoPagado = '" + montoPagado + "', @detalle = '" + detalle + "',@fecha = '" + fecha + "',@reservacion = '" + reserva + "', @barra = 'No', @restaurante = '" + restaurante + "'", function (error, recordset) {
+    db.query("EXEC sp_insertarClientes @cedula = '" + cedula + "', @nombre = '" + nombre + "', @apellidoUno = '" + apellidoUno + "', @apellidoDos = '" + apellidoDos + "', @montoPagado = '" + montoPagado + "', @detalle = '" + detalle + "',@fecha = '" + fecha + "',@reservacion = '" + reserva + "', @barra = '"+barra+"', @restaurante = '" + restaurante + "'", function (error, recordset) {
         if (error) {
             console.log("wrong");
             res.render('ClientesMesas');

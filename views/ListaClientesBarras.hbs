@@ -28,63 +28,146 @@
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
                     <div class="marginL">
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaClientesBarras/listarAllClientes">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
+                        <div class="d-flex">
+                            <!--llamar get para regresar a la pagina de listado-->
+
+                            <a href="/RestNotteDiFuoco">
+                                <button type="button" class="btn btn-primary"
+                                    style="width: 2.5rem; height: 2.5rem;">NdF</button>
+                            </a>
+                            <!--llamar get para regresar a la pagina de listado-->
+
+                            <a href="/RestTurinAnivo">
+                                <button type="button" class="btn btn-primary"
+                                    style="width: 2.5rem; height: 2.5rem;">TA</button>
+                            </a>
+
+
+                            <!--llamar get para regresar a la pagina de listado-->
+
+                            <a href="/RestPiccolaStella">
+                                <button type="button" class="btn btn-primary" style="width: 2.5rem; height: 2.5rem;">
+                                    PS
+                                </button>
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
+                    <form class="form-inline container d-flex headerMidleSize" method="post"
+                        action="/ListaClientesBarras/filtrarLista">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBC"
-                                        placeholder="Codigo del Cliente">
+                                    <input type="text" class="form-control" id="inputCodCliBarra"
+                                        name="inputCodCliBarra" placeholder="Codigo del Cliente">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomBC"
-                                        placeholder="Nombre del Cliente">
+                                    <input type="text" class="form-control" id="inputNomCliBarra"
+                                        name="inputNomCliBarra" placeholder="Nombre del Cliente">
                                 </div>
                             </div>
 
+                            <div class="displayGrid ">
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
 
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+
+                            </div>
                         </div>
+
                     </form>
                 </div>
-                <div class="displayGrid ">
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
-                            alt=""></button>
-                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                            alt=""></button>
-                </div>
+
             </div>
             <div id="bodyListSection">
 
-
-                <div class="row">
-                    <div class="col">Codígo</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Monto Pagado</div>
-                    <div class="col">Detalle</div>
-                    <div class="col">Fecha</div>
-                </div>
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC"></div>
+                    <div id="mostrarContenidoBC">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Consecutivo</th>
+                                    <th>Nombre</th>
+                                    <th>Monto Pagado</th>
+                                    <th>Detalle</th>
+                                    <th>Fecha</th>
+                                    <th>Reservación</th>
+                                    <th>Barra</th>
+                                    <th>Restaurante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>CLI-{{consecutivo}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{montoPagado}}</td>
+                                    <td>{{detalle}}</td>
+                                    <td>{{fecha}}</td>
+                                    <td>{{reservacion}}</td>
+                                    <td>{{barra}}</td>
+                                    <td>{{restaurante}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
+
+
+    <script>
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodCliBarra").value = "";
+            document.getElementById("inputNomCliBarra").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodCliBarra").value == "" || document.getElementById("inputNomCliBarra").value == ""
+            ) {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaClientesBarras/eliminarClientes")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
