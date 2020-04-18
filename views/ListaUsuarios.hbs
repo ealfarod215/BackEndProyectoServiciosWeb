@@ -17,97 +17,149 @@
     <title>Lista de Usuarios</title>
 </head>
 
-<body>
+<body class="container-fluid">
     <div id="SeccionPrincipalUsuarios" class="container d-flex border">
         <div id="LSectionUsuarios" class="">
             <img class="LogoUsuarios" src="/images/usuario.svg" alt="">
         </div>
         <div id="RSectionUsuarios" class="border">
-            <div id="headerListSection" class="d-block border">
+            <div id="headerListSection" class="d-flex border">
+                 <div class="displayGrid headerSideSize d-flex border">
+                    <div class="marginL">
+                         <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaUsuarios/listarAllUsuarios"> 
+                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos">
+                            <img style="width: 2.5rem; height: 2.5rem;"  src="/images/escoba.svg" alt=""></button>
+                    
+                    </div>
+                    <div class="marginL">
+                       <a href="/VentanaSeguridad"><button class="marginIconos">
+                           <img style="width: 2.5rem; height: 2.5rem;"  src="/images/error.svg" alt=""></button>
+                    </a>
+                          <a href="/RegistroUsuarios">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
+                    </div>
+                </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid ">
+                    <form id="frmUsuarios" method="post" action="/ListaUsuarios/filtrarLista"
+                      class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex MAXWandH">
-                            <div class="displayGrid ">
-                                <div class="marginIconos">
-
+                             <div class="marginIconos">
                                     <div class="input-group input-group-sm mb-3">
                                         <input type="text" class="form-control" id="inputCodUsuario"
-                                            placeholder="Codigo del Usuario">
+                                            name="inputCodUsuario" placeholder="Codigo del Usuario">
                                     </div>
-                                </div>
-                                <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
+                                    </div>
+                            <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3">
                                         <input type="text" class="form-control" id="inputNomUsuario"
-                                            placeholder="Nombre del Usuario">
+                                            name="inputNomUsuario" placeholder="Nombre del Usuario">
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="displayGrid headerEspacios">
                                 <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
+                                    <div class="input-group input-group-sm mb-3">
                                         <input type="text" class="form-control" id="inputNickNameUsuario"
-                                            placeholder="Nickname">
+                                            name="inputNickNameUsuario" placeholder="Usuario">
                                     </div>
                                 </div>
-
                                 <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
+                                    <div class="input-group input-group-sm mb-3">
                                         <input type="text" class="form-control" id="inputPrivilegios"
-                                            placeholder="Privilegios">
+                                           name="inputPrivilegios" placeholder="Privilegios">
                                     </div>
                                 </div>
-                            </div>
+                             <div class="displayGrid">
+                               
+                                   <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
 
-                            <div class="d-flex headerEspacios">
-                                <div class="displayGrid ">
-                                    <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/recargar.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/escoba.svg" alt=""></button>
-                                </div>
-                                <div class="displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/mas.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/menos.svg" alt=""></button>
-
-                                </div>
-                                <div class=" displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/error.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/confirmacion.svg" alt=""></button>
-                                </div>
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" name="btnEliminar"type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
                             </div>
                         </div>
-
                     </form>
                 </div>
-
             </div>
-            <div id="bodyListSection">
-
-
-                <div class="row">
-                    <div class="col">Codígo</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Aellido 1</div>
-                    <div class="col">Apellido 2</div>
-                    <div class="col">Telefono Fijo</div>
-                    <div class="col">Telefono Celular</div>
-
-
-                </div>
+            <div id="bodyListSection" class="overflow-auto">
                 <div id="listViewUsuarios" class="border">
-                    <div id="mostrarContenidoUsuarios"></div>
+                    <div id="mostrarContenidoUsuarios">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Consecutivo</th>
+                                    <th>Nombre</th>
+                                    <th>Primer Apellido</th>
+                                    <th>Segundo Apellido</th>
+                                    <th>Telefono Fijo</th>
+                                    <th>Telefono Celular</th>
+                                    <th>Privilegios</th>
+                                    <th>Usuario</th>
+                                    <th>Contraseña</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>USU-{{consecutivo}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{apellidoUno}}</td>
+                                    <td>{{apellidoDos}}</td>
+                                    <td>{{telefonoFijo}}</td>
+                                    <td>{{telefonoCelular}}</td>
+                                    <td>{{privilegios}}</td>
+                                    <td>{{loginUsuario}}</td>
+                                    <td>{{contrasena}}</td>
+
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+      <script>
+        var formulario = document.getElementById("frmUsuarios");
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodUsuario").value = "";
+            document.getElementById("inputNomUsuario").value = "";
+            document.getElementById("inputNickNameUsuario").value = "";
+            document.getElementById("inputPrivilegios").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+            if (document.getElementById("inputCodUsuario").value == "" 
+            || document.getElementById("inputNomUsuario").value == ""
+            || document.getElementById("inputNickNameUsuario").value == "" 
+            || document.getElementById("inputPrivilegios").value == ""){  
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaUsuarios/eliminarUsuarios")
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>

@@ -17,13 +17,13 @@
     <title>Ventana de Seguridad</title>
 </head>
 
-<body>
+<body class="container-fluid">
     <div id="contenedorGTitulo" class="container d-flex">
         <h1>Ventana de Seguridad</h1>
     </div>
     <div id="contenedorGuno" class="container">
 
-        <div id="SeccionPrincipalLR" class="container d-flex border">
+        <div id="SeccionPrincipalLR" class="container-fluid d-flex border">
 
             <div id="LSectionVS" class="">
                 <img class="LogoVS" src="/images/escudo.svg" alt="">
@@ -39,19 +39,19 @@
                                 <div class="d-block">
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputUsuarios">
+                                            <input type="radio" id="inputUsuarios" name="rdbuttom">
                                             <label for="" class="">Usuarios</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputConsecutivos">
+                                            <input type="radio" id="inputConsecutivos" name="rdbuttom">
                                             <label for="" class="">Consecutivos</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputPaises">
+                                            <input type="radio" id="inputPaises" name="rdbuttom">
                                             <label for="" class="">Paises</label>
                                         </div>
                                     </div>
@@ -60,19 +60,19 @@
                                     
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputCajas">
+                                            <input type="radio" id="inputCajas" name="rdbuttom">
                                             <label for="" class="">Cajas</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputRolesEventos">
+                                            <input type="radio" id="inputRolesEventos" name="rdbuttom">
                                             <label for="" class="">Roles o Eventos</label>
                                         </div>
                                     </div>
                                     <div class="marginIconos">
                                         <div class="form-group  ">
-                                            <input type="radio" id="inputUnidadesMedida">
+                                            <input type="radio" id="inputUnidadesMedida" name="rdbuttom">
                                             <label for="" class="">Unidades de Medida</label>
                                         </div>
                                     </div>
@@ -85,18 +85,66 @@
                         </form>
                     </div>
                     <div class="displayGrid ">
+                        <a id="siguienteventana" href="">
                         <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/confirmacion.svg" alt=""></button>
+                                </a>
+                        <a href="/Funcionalidades">
                         <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/error.svg" alt=""></button>
-
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+<script>
+        var radioUsuarios = document.getElementById("inputUsuarios");
+        var radioConsecutivos = document.getElementById("inputConsecutivos");
+        var radioPaises = document.getElementById("inputPaises");
+        var radioCajas = document.getElementById("inputCajas");
+        var radioRolesEventos = document.getElementById("inputRolesEventos");
+        var radioUnidadesMedida = document.getElementById("inputUnidadesMedida");
 
+
+        radioUsuarios.addEventListener('click', () => {
+            alert("Usuarios");
+            document.getElementById("siguienteventana").setAttribute("href", "/ListaUsuarios/listarAllUsuarios");
+
+        });
+
+        radioConsecutivos.addEventListener('click', () => {
+            alert("Consecutivos");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaConsecutivos/listarAllConsecutivos");
+
+        });
+
+        radioPaises.addEventListener('click', () => {
+            alert("Paises");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaPaises/listarAllPaises");
+
+        });
+
+        radioCajas.addEventListener('click', () => {
+            alert("Cajas");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaCajas/listarAllCajas");
+
+        });
+
+        radioRolesEventos.addEventListener('click', () => {
+            alert("Roles o Eventos");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaPuestos/listarAllPuestos");
+
+        });
+
+        radioUnidadesMedida.addEventListener('click', () => {
+            alert("Unidades de Medida");
+            document.getElementById("siguienteventana").setAttribute("href","/ListaPuestos/listarAllPuestos");
+
+        });
+
+    </script>
 
 
 

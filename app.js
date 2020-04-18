@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var ingresoAlSistema = require("./routes/IngresoAlSistema");
+var AperturaCajaPiccolaRouter= require("./routes/AperturaCajaPiccolaRest");
+var AperturaCajaTurinRouter= require("./routes/AperturaCajaTurinRest");
+var AperturaCajaNotteRouter= require("./routes/AperturaCajaNotteRest");
 var reporteAyudaSistem = require("./routes/ReporteDeAyudaDeSistema");
 var reporteAyudaSeguridad = require("./routes/ReporteAyudaDeSeguridad");
 var listaDeRestaurantesRouter = require("./routes/ListaDeRestaurantes");
@@ -47,6 +50,13 @@ var listaProveedoresRouter = require("./routes/ListaProveedores");
 var registroProveedoresRouter = require("./routes/RegistroProveedores");
 
 
+var ListaUsuariosRouter= require("./routes/ListaUsuarios");
+var registroUsuariosRouter= require("./routes/RegistroUsuarios");
+var ListaConsecutivosRouter= require("./routes/ListaConsecutivos");
+var registroConsecutivosRouter= require("./routes/RegistroConsecutivos");
+var ListaPaisesRouter= require("./routes/ListaPaises");
+var registroNacionRouter= require("./routes/RegistroNacion");
+var ListaCajasRouter= require("./routes/ListaCajas");
 var app = express();
 
 // view engine setup
@@ -65,6 +75,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/ingresoAlSistema',ingresoAlSistema);
+app.use('/AperturaCajaPiccolaRest',AperturaCajaPiccolaRouter);
+app.use('/AperturaCajaTurinRest',AperturaCajaTurinRouter);
+app.use('/AperturaCajaNotteRest',AperturaCajaNotteRouter);
 app.use('/ReporteDeAyudaDeSistema', reporteAyudaSistem);
 app.use('/ReporteAyudaDeSeguridad', reporteAyudaSeguridad);
 app.use('/ListaDeRestaurantes',listaDeRestaurantesRouter);
@@ -105,6 +118,13 @@ app.use('/RegistroEquiposyUtencilios',registroEquipoyUtencilioRouter);
 app.use('/ListaProveedores',listaProveedoresRouter);
 app.use('/RegistroProveedores',registroProveedoresRouter);
 
+app.use('/ListaUsuarios', ListaUsuariosRouter);
+app.use('/RegistroUsuarios',registroUsuariosRouter);
+app.use('/ListaConsecutivos', ListaConsecutivosRouter);
+app.use('/RegistroConsecutivos', registroConsecutivosRouter);
+app.use('/ListaPaises', ListaPaisesRouter);
+app.use('/RegistroNacion', registroNacionRouter);
+app.use('/ListaCajas', ListaCajasRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

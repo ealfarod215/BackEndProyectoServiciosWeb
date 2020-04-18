@@ -30,6 +30,7 @@
 #headerListSection {
     width : 100%;
     height: 15%;
+    
 }
 
 .headerMidleSize {
@@ -53,7 +54,7 @@
 }
 
 #listViewUsuarios {
-    width : 100%;
+    width : 110%;
     height: 100%;
 }
 
