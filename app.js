@@ -48,8 +48,6 @@ var listaEquipoyUtencilioRouter = require("./routes/ListaEquiposyUtensilios");
 var registroEquipoyUtencilioRouter = require("./routes/RegistroEquiposyUtencilios");
 var listaProveedoresRouter = require("./routes/ListaProveedores");
 var registroProveedoresRouter = require("./routes/RegistroProveedores");
-
-
 var ListaUsuariosRouter= require("./routes/ListaUsuarios");
 var registroUsuariosRouter= require("./routes/RegistroUsuarios");
 var ListaConsecutivosRouter= require("./routes/ListaConsecutivos");
@@ -57,6 +55,8 @@ var registroConsecutivosRouter= require("./routes/RegistroConsecutivos");
 var ListaPaisesRouter= require("./routes/ListaPaises");
 var registroNacionRouter= require("./routes/RegistroNacion");
 var ListaCajasRouter= require("./routes/ListaCajas");
+var registroClientesMesasRouter = require("./routes/ClientesMesas");
+
 var app = express();
 
 // view engine setup
@@ -117,7 +117,6 @@ app.use('/ListaEquiposyUtensilios',listaEquipoyUtencilioRouter);
 app.use('/RegistroEquiposyUtencilios',registroEquipoyUtencilioRouter);
 app.use('/ListaProveedores',listaProveedoresRouter);
 app.use('/RegistroProveedores',registroProveedoresRouter);
-
 app.use('/ListaUsuarios', ListaUsuariosRouter);
 app.use('/RegistroUsuarios',registroUsuariosRouter);
 app.use('/ListaConsecutivos', ListaConsecutivosRouter);
@@ -125,6 +124,8 @@ app.use('/RegistroConsecutivos', registroConsecutivosRouter);
 app.use('/ListaPaises', ListaPaisesRouter);
 app.use('/RegistroNacion', registroNacionRouter);
 app.use('/ListaCajas', ListaCajasRouter);
+app.use('/ClientesMesas',registroClientesMesasRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
