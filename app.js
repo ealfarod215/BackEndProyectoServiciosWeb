@@ -65,6 +65,13 @@ var ReporteEntornoDeRestauranteReservacionesTurinRouter = require("./routes/Repo
 var ReporteEntornoDeRestauranteEspecialidadesTurinRouter = require("./routes/ReporteEntornoDeRestauranteEspecialidadesTurin");
 var ReporteEntornoDeRestauranteBarraMesasTurinRouter = require("./routes/ReporteEntornoDeRestauranteBarraMesasTurin");
 
+var ReporteDeLicoresPiccolaRouter = require("./routes/ReporteDeLicoresPiccola");
+var ReporteDeLicoresTurinRouter = require("./routes/ReporteDeLicoresTurin");
+var ReporteDeLicoresNotteRouter = require("./routes/ReporteDeLicoresNotte");
+
+var ReporteDeVinosPiccolaRouter = require("./routes/ReporteDeVinosPiccola");
+var ReporteDeVinosTurinRouter = require("./routes/ReporteDeVinosTurin");
+var ReporteDeVinosNotteRouter = require("./routes/ReporteDeVinosNotte");
 var app = express();
 
 // view engine setup
@@ -142,6 +149,13 @@ app.use('/ReporteEntornoDeRestauranteReservacionesTurin',ReporteEntornoDeRestaur
 app.use('/ReporteEntornoDeRestauranteEspecialidadesTurin',ReporteEntornoDeRestauranteEspecialidadesTurinRouter);
 app.use('/ReporteEntornoDeRestauranteBarraMesasTurin',ReporteEntornoDeRestauranteBarraMesasTurinRouter);
 
+app.use('/ReporteDeLicoresPiccola',ReporteDeLicoresPiccolaRouter);
+app.use('/ReporteDeLicoresTurin',ReporteDeLicoresTurinRouter);
+app.use('/ReporteDeLicoresNotte',ReporteDeLicoresNotteRouter);
+
+app.use('/ReporteDeVinosPiccola',ReporteDeVinosPiccolaRouter);
+app.use('/ReporteDeVinosTurin',ReporteDeVinosTurinRouter);
+app.use('/ReporteDeVinosNotte',ReporteDeVinosNotteRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
