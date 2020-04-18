@@ -4,14 +4,13 @@ var db = require('./DBconnection');
 
 
 router.post('/insertarNacion', function (req, res, next) {
-    
-    var nombre= req.body.inputNombrePais;
-    var foto = req.body.inputFotoPais;
 
-    db.query("EXEC sp_insertarPais @nombre = '"+nombre+"',@fotoBandera='"+foto+"'", function (error, recordset) {
+    var nombre = req.body.inputNombrePais;
+
+    db.query("EXEC sp_insertarPais @nombre = '" + nombre + "',@fotoBandera=''", function (error, recordset) {
         if (error) {
             console.log("wronginsert");
-            return;
+            res.render('RegistroNacion');
         } else {
             res.render('RegistroNacion');
         }
