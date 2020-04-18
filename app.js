@@ -43,6 +43,9 @@ var listaTecnologiaRouter = require("./routes/ListaTecnologia");
 var registroTecnologiaRouter = require("./routes/RegistroTecnologia");
 var listaEquipoyUtencilioRouter = require("./routes/ListaEquiposyUtensilios");
 var registroEquipoyUtencilioRouter = require("./routes/RegistroEquiposyUtencilios");
+var listaProveedoresRouter = require("./routes/ListaProveedores");
+var registroProveedoresRouter = require("./routes/RegistroProveedores");
+
 
 var app = express();
 
@@ -99,6 +102,8 @@ app.use('/ListaTecnologia',listaTecnologiaRouter);
 app.use('/RegistroTecnologia',registroTecnologiaRouter);
 app.use('/ListaEquiposyUtensilios',listaEquipoyUtencilioRouter);
 app.use('/RegistroEquiposyUtencilios',registroEquipoyUtencilioRouter);
+app.use('/ListaProveedores',listaProveedoresRouter);
+app.use('/RegistroProveedores',registroProveedoresRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

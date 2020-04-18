@@ -19,101 +19,148 @@
 
 <body>
 
-     <h1 class="text-center align-content-center">Lista de Proveedores</h1> 
-    <div id="SeccionPrincipalBC" class=" d-flex " >
-        
-        <div id="LSectionBC" class=""  >
+    <h1 class="text-center align-content-center">Lista de Proveedores</h1>
+    <div id="SeccionPrincipalBC" class=" d-flex ">
+
+        <div id="LSectionBC" class="">
             <img class="LogoBC img-fluid" alt="Responsive image" src="/images/puestos.svg" alt="">
         </div>
         <div id="RSectionBC" class="border" style="width: 100%;">
             <div id="headerListSection" class="d-flex ">
                 <div class="displayGrid headerSideSize">
                     <div class="marginL">
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaProveedores/listarAllProveedores"><button class="marginIconos "><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
+                                    alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/confirmacion.svg" alt=""></button>
+                        <a href="/RegistroProveedores">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
+
+                        <a href="/VentanaProveedores"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
+                    <form class="form-inline container displayGrid headerMidleSize" method="post"
+                        action="/ListaProveedores/filtrarLista">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
+
                                 <div class="form-group  ">
-                                    <label for="" class="">Codigo del Proveedor</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBC"
-                                        placeholder="Digite el Codigo">
+                                    <input type="text" class="form-control" id="inputCodProveedor"
+                                        name="inputCodProveedor" placeholder="Digite el Codigo">
                                 </div>
                             </div>
                             <div class="marginIconos">
+
                                 <div class="form-group  ">
-                                    <label for="" class="">Nombre del Proveedor</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomBC"
-                                        placeholder="Digite el Nombre">
+                                    <input type="text" class="form-control" id="inputNomProveedor"
+                                        name="inputNomProveedor" placeholder="Digite el Nombre">
                                 </div>
                             </div>
+
                             <div class="marginIconos">
+
                                 <div class="form-group  ">
-                                    <label for="" class="">Dirección</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputDicBC"
-                                        placeholder="Digite la Dirección">
+                                    <input type="text" class="form-control" id="inputCedProveedor"
+                                        name="inputCedProveedor" placeholder="Digite la cédula">
                                 </div>
                             </div>
-                            <div class="marginIconos">
-                                <div class="form-group  ">
-                                    <label for="" class="">Cédula de Identidad</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCelBC"
-                                        placeholder="Digite la cédula">
-                                </div>
-                            </div>
-                            
+
                             <div class="displayGrid ">
-                                <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
-                                <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                                        alt=""></button>
+
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
                             </div>
                         </div>
-                        
 
-                        
                     </form>
                 </div>
-                
+
             </div>
             <div id="bodyListSection">
 
-
-                <div class="row align-content-center" id="SubmenuBarra">
-                    <div class="col">Codigo</div>
-                    <div class="col">Nombre</div>
-                    <div class="col">Primer Apellido</div>
-                    <div class="col">Segundo Apellido</div>
-                    <div class="col">Teléfono Oficina</div>
-                    <div class="col">Fax</div>
-                    <div class="col">Célular</div>
-                </div>
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC"></div>
+                    <div id="mostrarContenidoBC">
+                        <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Codígo</th>
+                                    <th>Consecutivo</th>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido 1</th>
+                                    <th>Apellido 2</th>
+                                    <th>Oficina</th>
+                                    <th>Fax</th>
+                                    <th>Celular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>PRO-{{consecutivo}}</td>
+                                    <td>{{cedula}}</td>
+                                    <td>{{nombre}}</td>
+                                    <td>{{apellidoUno}}</td>
+                                    <td>{{apellidoDos}}</td>
+                                    <td>{{oficina}}</td>
+                                    <td>{{fax}}</td>
+                                    <td>{{celular}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
+
+    <script>
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodProveedor").value = "";
+            document.getElementById("inputNomProveedor").value = "";
+            document.getElementById("inputCedProveedor").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+        function llamadoEliminarFunction() {
+
+
+            if (document.getElementById("inputCodProveedor").value == "" || document.getElementById("inputNomProveedor").value == "") {
+                alert("Debe llenar toda la informacion!!!");
+            } else {
+                btnEliminar.setAttribute("formaction", "../ListaProveedores/eliminarRestRegistro");
+                btnEliminar.setAttribute("type", "submit");
+
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
