@@ -326,13 +326,29 @@ router.get('/ReporteDeFacturacion', function(req, res, next) {
 });
 
 /*ReporteDeLicores*/
-router.get('/ReporteDeLicores', function(req, res, next) {
-  res.render('ReporteDeLicores', { title: 'ReporteDeLicores' });
+router.get('/ReporteDeLicoresPiccola', function(req, res, next) {
+  res.render('ReporteDeLicoresPiccola', { title: 'ReporteDeLicoresPiccola' });
+});
+/*ReporteDeLicores*/
+router.get('/ReporteDeLicoresNotte', function(req, res, next) {
+  res.render('ReporteDeLicoresNotte', { title: 'ReporteDeLicoresNotte' });
+});
+/*ReporteDeLicores*/
+router.get('/ReporteDeLicoresTurin', function(req, res, next) {
+  res.render('ReporteDeLicoresTurin', { title: 'ReporteDeLicoresTurin' });
 });
 
 /*ReporteDeVinos*/
-router.get('/ReporteDeVinos', function(req, res, next) {
-  res.render('ReporteDeVinos', { title: 'ReporteDeVinos' });
+router.get('/ReporteDeVinosPiccola', function(req, res, next) {
+  res.render('ReporteDeVinosPiccola', { title: 'ReporteDeVinosPiccola' });
+});
+/*ReporteDeVinos*/
+router.get('/ReporteDeVinosNotte', function(req, res, next) {
+  res.render('ReporteDeVinosNotte', { title: 'ReporteDeVinosNotte' });
+});
+/*ReporteDeVinos*/
+router.get('/ReporteDeVinosTurin', function(req, res, next) {
+  res.render('ReporteDeVinosTurin', { title: 'ReporteDeVinosTurin' });
 });
 
 /*ReporteEntornoDeRestaurante*/
@@ -373,6 +389,27 @@ router.get('/ReporteEntornoDeRestauranteEspecialidadesNotte', function(req, res,
 /*ReporteEntornoDeRestaurante*/
 router.get('/ReporteEntornoDeRestauranteBarraMesasNotte', function(req, res, next) {
   res.render('ReporteEntornoDeRestauranteBarraMesasNotte', { title: 'ReporteEntornoDeRestauranteBarraMesasNotte'});
+});
+
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteMesasTurin', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteMesasTurin', { title: 'ReporteEntornoDeRestauranteMesasTurin' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteReservacionesTurin', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteReservacionesTurin', { title: 'ReporteEntornoDeRestauranteReservacionesNotte' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteEspecialidadesTurin', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteEspecialidadesTurin', { title: 'ReporteEntornoDeRestauranteEspecialidadesTurin' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteBarraMesasTurin', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteBarraMesasTurin', { title: 'ReporteEntornoDeRestauranteBarraMesasTurin'});
 });
 /*RestaurantesRegistro*/
 router.get('/RestaurantesRegistro', function(req, res, next) {

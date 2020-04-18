@@ -1,6 +1,6 @@
 #contenedorReporteVinos{
-    width: 90%;
-    height: 70%;
+    width: 70%;
+    height: 50%;
     background-color: rgb(253, 196, 143);
 }
 #contenedorReporteVinosSuperior{
@@ -14,5 +14,9 @@
 }
 #contenedorReporteVinosInterno{
     width: 100%;
-    height: 830%;
+    height: 730%;
 }
+#botonesLogin{
+    width: 60%;
+    height: 250%;
+    }
