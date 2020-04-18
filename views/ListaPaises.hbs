@@ -18,9 +18,7 @@
 </head>
 
 <body class="container-fluid">
-
-
-    <div id="SeccionPrincipalPais" class="container d-flex border">
+     <div id="SeccionPrincipalPais" class="container d-flex border">
         <div id="LSectionPais" class="">
             <img class="LogoPais" src="/images/equipo.svg" alt="">
         </div>
@@ -28,20 +26,20 @@
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize d-flex border">
                     <div class="marginL">
-                         <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaPaises/listarAllPaises"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaPaises/listarAllPaises">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
                         <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos">
-                            <img style="width: 2.5rem; height: 2.5rem;"  src="/images/escoba.svg" alt=""></button>
-                    
+                            <img style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+
                     </div>
                     <div class="marginL">
-                       <a href="/VentanaSeguridad"><button class="marginIconos">
-                           <img style="width: 2.5rem; height: 2.5rem;"  src="/images/error.svg" alt=""></button>
-                    </a>
-                          <a href="/RegistroPais">
+                        <a href="/VentanaSeguridad"><button class="marginIconos">
+                                <img style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                        <a href="/RegistroNacion">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -49,30 +47,30 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmPaises" method="post" action="/ListaPaises/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputCodPais"
-                                       name="inputCodPais" placeholder="Codigo del Pais">
+                                    <input type="text" class="form-control" id="inputCodPais" name="inputCodPais"
+                                        placeholder="Codigo del Pais">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputNomPais"
-                                       name="inputNomPais" placeholder="Nombre del Pais">
+                                    <input type="text" class="form-control" id="inputNomPais" name="inputNomPais"
+                                        placeholder="Nombre del Pais">
                                 </div>
                             </div>
-                              <div class="displayGrid">
-                                   <!--llama al post para realizar busqueda-->
+                            <div class="displayGrid">
+                                <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
                                 <!--Cargar post para eliminar registro de buffet-->
-                                <button id="btnEliminar" name="btnEliminar"type="button" onclick="llamadoEliminarFunction()"
-                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                        src="/images/menos.svg" alt=""></button>
+                                <button id="btnEliminar" name="btnEliminar" type="button"
+                                    onclick="llamadoEliminarFunction()" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg" alt=""></button>
                             </div>
                         </div>
                     </form>
@@ -107,7 +105,7 @@
         </div>
     </div>
 
-     <script>
+    <script>
         var formulario = document.getElementById("frmPaises");
         var btnEliminar = document.getElementById("btnEliminar");
 
@@ -118,8 +116,8 @@
         }
 
         function llamadoEliminarFunction() {
-            if (document.getElementById("inputCodPais").value == "" 
-            || document.getElementById("inputNomPais").value == ""){  
+            if (document.getElementById("inputCodPais").value == ""
+                || document.getElementById("inputNomPais").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 btnEliminar.setAttribute("formaction", "../ListaPaises/eliminarPaises")

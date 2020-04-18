@@ -17,68 +17,53 @@
     <title>Lista de Cajas</title>
 </head>
 
-<body>
+<body class="container-fluid">
     <div id="SeccionPrincipalCajas" class="container d-flex border">
         <div id="LSectionCajas" class="">
             <img class="LogoCajas" src="/images/negocios-y-finanzas.svg" alt="">
         </div>
         <div id="RSectionCajas" class="border">
-            <div id="headerListSection" class="d-block border">
+            <div id="headerListSection" class="d-flex border">
+                <div class="displayGrid headerSideSize d-flex border">
+                <div class="marginL">
+                         <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaCajas/listarAllCajas"> 
+                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--boton que llama a la funcion limpiar-->
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos">
+                            <img style="width: 2.5rem; height: 2.5rem;"  src="/images/escoba.svg" alt=""></button>
+                    
+                    </div>
+                    <div class="marginL">
+                       <a href="/VentanaSeguridad"><button class="marginIconos">
+                           <img style="width: 2.5rem; height: 2.5rem;"  src="/images/error.svg" alt=""></button>
+                    </a>
+                    </div>
+                </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid ">
+                    <form id="frmCajas" method="post" action="/ListaCajas/filtrarLista"
+                      class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex MAXWandH">
-                            <div class="displayGrid ">
                                 <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3">
+                                     <div class="input-group input-group-sm mb-3">
                                         <input type="text" class="form-control" id="inputCodRegistro"
-                                            placeholder="Codigo del Registro">
+                                           name="inputCodRegistro" placeholder="Codigo del Registro">
                                     </div>
                                 </div>
-                                <div class="container">
-
-                                    <input id="fechaRegistro" class="form-control" placeholder="Fecha del Registro" />
-                                </div>
-
-                            </div>
-                            <div class="displayGrid headerEspacios">
                                 <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
+                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomRestaurante"
-                                            placeholder="Nombre del Restaurante">
+                                            name="inputNomRestaurante" placeholder="Nombre del Restaurante">
                                     </div>
                                 </div>
+                               <div class="displayGrid">
 
-                                <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
-                                        <input type="radio" class="" id="inputAperturaCaja">Apertura de Caja
-                                    </div>
-                                </div>
-                                <div class="marginIconos">
-
-                                    <div class="input-group input-group-sm mb-3  ">
-                                        <input type="radio" class="" id="inputAperturaCaja">Cierre de Caja
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-flex headerEspacios">
-                                <div class="displayGrid ">
-                                    <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/recargar.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/escoba.svg" alt=""></button>
-                                </div>
-
-                                <div class=" displayGrid headerEspacios">
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/error.svg" alt=""></button>
-                                    <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                            src="/images/confirmacion.svg" alt=""></button>
-                                </div>
-                            </div>
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
+                              </div>
                         </div>
 
                     </form>
@@ -86,25 +71,54 @@
 
             </div>
             <div id="bodyListSection">
-
-
-                <div class="row">
-                    <div class="col">Codígo</div>
-                    <div class="col">Fecha</div>
-                    <div class="col">Descripcion</div>
-                    <div class="col">Entrada de Dinero</div>
-                    <div class="col">Apertura</div>
-                    <div class="col">Cierre</div>
-                    <div class="col">Restaurante</div>
-
-
-                </div>
                 <div id="listViewCajas" class="border">
-                    <div id="mostrarContenidoCajas"></div>
+                    <div id="mostrarContenidoCajas">
+                         <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Consecutivo</th>
+                                    <th>Fecha</th>
+                                    <th>Descripcion</th>
+                                    <th>Apertura</th>
+                                    <th>Cierre</th>
+                                    <th>Restaurante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{codigo}} </td>
+                                    <td>CAJ-{{consecutivo}}</td>
+                                    <td>{{fechaRegistro}}</td>
+                                    <td>{{descripcion}}</td>
+                                    <td>{{aperturaCaja}}</td>
+                                    <td>{{cierreCaja}}</td>
+                                    <td>{{restaurante}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        var formulario = document.getElementById("frmCajas");
+        var btnEliminar = document.getElementById("btnEliminar");
+
+        function limpiarInputs() {
+            document.getElementById("inputCodRegistro").value = "";
+            document.getElementById("inputNomRestaurante").value = "";
+            alert("Cajas de Texto limpias.");
+        }
+
+
+    </script>
   
 </body>
 

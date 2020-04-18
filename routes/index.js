@@ -7,9 +7,20 @@ router.get('/', function(req, res, next) {
   res.render('IngresoAlSistema', { title: 'Express' });
 });
 
+router.get('/IngresoAlSistema', function(req, res, next) {
+  res.render('IngresoAlSistema', { title: 'IngresoAlSistema' });
+});
 /*Apertura de Caja */
-router.get('/AperturaCaja', function(req, res, next) {
-  res.render('AperturaCaja', { title: 'AperturaCaja' });
+router.get('/AperturaCajaPiccolaRest', function(req, res, next) {
+  res.render('AperturaCajaPiccolaRest', { title: 'AperturaCajaPiccolaRest' });
+});
+/*Apertura de Caja */
+router.get('/AperturaCajaTurinRest', function(req, res, next) {
+  res.render('AperturaCajaTurinRest', { title: 'AperturaCajaTurinRest' });
+});
+/*Apertura de Caja */
+router.get('/AperturaCajaNotteRest', function(req, res, next) {
+  res.render('AperturaCajaNotteRest', { title: 'AperturaCajaNotteRest' });
 });
 
 /*Buffet */
@@ -242,9 +253,9 @@ router.get('/RegistroMesas', function(req, res, next) {
   res.render('RegistroMesas', { title: 'RegistroMesas' });
 });
 
-/*RegistroPais*/
-router.get('/RegistroPais', function(req, res, next) {
-  res.render('RegistroPais', { title: 'RegistroPais' });
+/*RegistroNacion*/
+router.get('/RegistroNacion', function(req, res, next) {
+  res.render('RegistroNacion', { title: 'RegistroNacion' });
 });
 
 /*RegistroProveedores*/
@@ -256,6 +267,7 @@ router.get('/RegistroProveedores', function(req, res, next) {
 router.get('/RegistroPuestos', function(req, res, next) {
   res.render('RegistroPuestos', { title: 'RegistroPuestos' });
 });
+
 
 /*RegistroRoles*/
 router.get('/RegistroRoles', function(req, res, next) {

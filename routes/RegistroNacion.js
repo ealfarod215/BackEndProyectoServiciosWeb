@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('./DBconnection');
 
 
-router.post('/insertarPais', function (req, res, next) {
+router.post('/insertarNacion', function (req, res, next) {
     
     var nombre= req.body.inputNombrePais;
     var foto = req.body.inputFotoPais;
@@ -13,7 +13,7 @@ router.post('/insertarPais', function (req, res, next) {
             console.log("wronginsert");
             return;
         } else {
-            res.render('RegistroPais');
+            res.render('RegistroNacion');
         }
     });
 
