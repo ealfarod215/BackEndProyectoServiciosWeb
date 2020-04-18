@@ -1,6 +1,6 @@
 #contenedorReporteEntornoRestaurante{
-    width: 90%;
-    height: 70%;
+    width: 80%;
+    height: 40%;
     background-color: rgb(253, 196, 143);
 }
 #contenedorReporteEntornoRestauranteSuperior{
@@ -14,5 +14,13 @@
 }
 #contenedorReporteEntornoRestauranteInterno{
     width: 100%;
-    height: 830%;
+    height: 680%;
+}
+#botonesLogin{
+    width: 70%;
+    height: 260%;
+    display      : flex;
+    align-items  : center;
+    padding-left : 2rem;
+    padding-right: 2rem;
 }

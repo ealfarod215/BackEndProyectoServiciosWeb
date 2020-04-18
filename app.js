@@ -9,6 +9,11 @@ var ingresoAlSistema = require("./routes/IngresoAlSistema");
 var AperturaCajaPiccolaRouter= require("./routes/AperturaCajaPiccolaRest");
 var AperturaCajaTurinRouter= require("./routes/AperturaCajaTurinRest");
 var AperturaCajaNotteRouter= require("./routes/AperturaCajaNotteRest");
+
+var CierreCajaPiccolaRouter =require("./routes/CierreCajaPiccolaRest");
+var CierreCajaTurinRouter =require("./routes/CierreCajaTurinRest");
+var CierreCajaNotteRouter =require("./routes/CierreCajaNotteRest");
+
 var reporteAyudaSistem = require("./routes/ReporteDeAyudaDeSistema");
 var reporteAyudaSeguridad = require("./routes/ReporteAyudaDeSeguridad");
 var listaDeRestaurantesRouter = require("./routes/ListaDeRestaurantes");
@@ -41,6 +46,25 @@ var registroConsecutivosRouter= require("./routes/RegistroConsecutivos");
 var ListaPaisesRouter= require("./routes/ListaPaises");
 var registroNacionRouter= require("./routes/RegistroNacion");
 var ListaCajasRouter= require("./routes/ListaCajas");
+
+var RestPiccolaStellaRouter = require("./routes/RestPiccolaStella");
+var ReporteEntornoDeRestauranteMesasPiccolaRouter = require("./routes/ReporteEntornoDeRestauranteMesasPiccola");
+var ReporteEntornoDeRestauranteReservacionesPiccolaRouter = require("./routes/ReporteEntornoDeRestauranteReservacionesPiccola");
+var ReporteEntornoDeRestauranteEspecialidadesPiccolaRouter = require("./routes/ReporteEntornoDeRestauranteEspecialidadesPiccola");
+var ReporteEntornoDeRestauranteBarraMesasPiccolaRouter = require("./routes/ReporteEntornoDeRestauranteBarraMesasPiccola");
+
+var RestNotteDiFuocoRouter= require("./routes/RestNotteDiFuoco");
+var ReporteEntornoDeRestauranteMesasNotteRouter = require("./routes/ReporteEntornoDeRestauranteMesasNotte");
+var ReporteEntornoDeRestauranteReservacionesNotteRouter = require("./routes/ReporteEntornoDeRestauranteReservacionesNotte");
+var ReporteEntornoDeRestauranteEspecialidadesNotteRouter = require("./routes/ReporteEntornoDeRestauranteEspecialidadesNotte");
+var ReporteEntornoDeRestauranteBarraMesasNotteRouter = require("./routes/ReporteEntornoDeRestauranteBarraMesasNotte");
+
+var RestTurinAnivoRouter = require("./routes/RestTurinAnivo");
+var ReporteEntornoDeRestauranteMesasTurinRouter = require("./routes/ReporteEntornoDeRestauranteMesasTurin");
+var ReporteEntornoDeRestauranteReservacionesTurinRouter = require("./routes/ReporteEntornoDeRestauranteReservacionesTurin");
+var ReporteEntornoDeRestauranteEspecialidadesTurinRouter = require("./routes/ReporteEntornoDeRestauranteEspecialidadesTurin");
+var ReporteEntornoDeRestauranteBarraMesasTurinRouter = require("./routes/ReporteEntornoDeRestauranteBarraMesasTurin");
+
 var app = express();
 
 // view engine setup
@@ -62,6 +86,11 @@ app.use('/ingresoAlSistema',ingresoAlSistema);
 app.use('/AperturaCajaPiccolaRest',AperturaCajaPiccolaRouter);
 app.use('/AperturaCajaTurinRest',AperturaCajaTurinRouter);
 app.use('/AperturaCajaNotteRest',AperturaCajaNotteRouter);
+
+app.use('/CierreCajaPiccolaRest',CierreCajaPiccolaRouter );
+app.use('/CierreCajaTurinRest',CierreCajaTurinRouter );
+app.use('/CierreCajaNotteRest',CierreCajaNotteRouter);
+
 app.use('/ReporteDeAyudaDeSistema', reporteAyudaSistem);
 app.use('/ReporteAyudaDeSeguridad', reporteAyudaSeguridad);
 app.use('/ListaDeRestaurantes',listaDeRestaurantesRouter);
@@ -94,6 +123,25 @@ app.use('/RegistroConsecutivos', registroConsecutivosRouter);
 app.use('/ListaPaises', ListaPaisesRouter);
 app.use('/RegistroNacion', registroNacionRouter);
 app.use('/ListaCajas', ListaCajasRouter);
+
+app.use('/RestPiccolaStella', RestPiccolaStellaRouter);
+app.use('/ReporteEntornoDeRestauranteMesasPiccola',ReporteEntornoDeRestauranteMesasPiccolaRouter);
+app.use('/ReporteEntornoDeRestauranteReservacionesPiccola',ReporteEntornoDeRestauranteReservacionesPiccolaRouter);
+app.use('/ReporteEntornoDeRestauranteEspecialidadesPiccola',ReporteEntornoDeRestauranteEspecialidadesPiccolaRouter);
+app.use('/ReporteEntornoDeRestauranteBarraMesasPiccola',ReporteEntornoDeRestauranteBarraMesasPiccolaRouter);
+
+app.use('/RestNotteDiFuoco', RestNotteDiFuocoRouter);  
+app.use('/ReporteEntornoDeRestauranteMesasNotte',ReporteEntornoDeRestauranteMesasNotteRouter);
+app.use('/ReporteEntornoDeRestauranteReservacionesNotte',ReporteEntornoDeRestauranteReservacionesNotteRouter);
+app.use('/ReporteEntornoDeRestauranteEspecialidadesNotte',ReporteEntornoDeRestauranteEspecialidadesNotteRouter);
+app.use('/ReporteEntornoDeRestauranteBarraMesasNotte',ReporteEntornoDeRestauranteBarraMesasNotteRouter);
+
+app.use('/RestTurinAnivo', RestTurinAnivoRouter);
+app.use('/ReporteEntornoDeRestauranteMesasTurin',ReporteEntornoDeRestauranteMesasTurinRouter);
+app.use('/ReporteEntornoDeRestauranteReservacionesTurin',ReporteEntornoDeRestauranteReservacionesTurinRouter);
+app.use('/ReporteEntornoDeRestauranteEspecialidadesTurin',ReporteEntornoDeRestauranteEspecialidadesTurinRouter);
+app.use('/ReporteEntornoDeRestauranteBarraMesasTurin',ReporteEntornoDeRestauranteBarraMesasTurinRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

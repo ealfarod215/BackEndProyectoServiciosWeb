@@ -16,9 +16,9 @@ router.post('/insertarCaja', function (req, res, next) {
             console.log("wronginsert");
             return;
         } else {
-            res.render('RestNotteDiFuoco');
-            
+            res.render('IngresoAlSistema');
         }
+        
     });
 
 

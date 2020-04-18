@@ -18,11 +18,11 @@
     <title>Restaurante Notte Di Fuoco</title>
 </head>
 
-<body>
+<body class="container-fluid">
     <div id="navResOne" class="border">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Sistema</a>
+                <a class="nav-link" href="/Funcionalidades">Sistema</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Ayuda</a>
@@ -33,39 +33,38 @@
         </ul>
     </div>
     <div id="seccionCentral" class="d-flex">
-        <div id="barraLateralIzquierda" class=" border">
+        <div id="barraLateralIzquierda" class="container-fluid">
             <ul class="nav flex-column">
                 <li class="nav-item">
-
-                    <a class="nav-link active" href="">
+                <a class="nav-link active" href="/ReporteEntornoDeRestauranteMesasNotte/listarAllMesasEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/tabla.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteReservacionesNotte/listarAllReservacionesEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/reservado.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteBarraMesasNotte/listarAllBarraMesasEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/empleado.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteEspecialidadesNotte/listarAllEspecialidadesEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/desayuno.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/CierreCajaNotteRest">
                         <span style="font-size: 1em; color: black;">
                             <button type="button" class="btn-primary">Salir del Menú</button>
                         </span>
@@ -73,7 +72,7 @@
                 </li>
             </ul>
         </div>
-        <div id="cuerpoPrincipal" class="displayGrid">
+        <div id="cuerpoPrincipal" class="container-fluid displayGrid">
             <div id="arriba" class="d-flex">
 
                 <div class="">
@@ -110,7 +109,7 @@
                         <button>Mesa 14<img style="width: 4rem; height: 4rem;" src="/images/cena.svg" alt=""></button>
                     </div>
                     <div>
-                        <div id="estadoDeLaBarra" class="displayGrid border">
+                        <div id="estadoDeLaBarra" class="container-fluid displayGrid border">
                             <label>Manejo de la Barra: </label>
                             <div>
                                 <input type="radio" value="">
@@ -146,7 +145,6 @@
 
             </div>
 
-
         </div>
         <div id="barraLateralDerecha" class="border displayGrid text-center ">
             <div id="lateralUnoMesas">
@@ -156,8 +154,8 @@
                 </div>
             </div>
             <div id="puertaSalida">
-                <button><img src="/images/puerta.svg" style="width: 100%; height: 10%;" alt=""></button>
-            </div>
+               <a href="/CierreCajaNotteRest"> <button><img src="/images/puerta.svg" style="width: 100%; height: 10%;" alt=""></button>
+            </div> </a>
             <div id="lateralDosMesas">
                 <div class="">
                     <button>Mesa 27<img style="width: 4rem; height: 4rem;" src="/images/cena.svg" alt=""></button>

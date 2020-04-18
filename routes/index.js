@@ -29,9 +29,20 @@ router.get('/Buffet', function(req, res, next) {
 });
 
 /*Cierre de Caja */
-router.get('/CierreCaja', function(req, res, next) {
-  res.render('CierreCaja', { title: 'CierreCaja' });
+router.get('/CierreCajaPiccolaRest', function(req, res, next) {
+  res.render('CierreCajaPiccolaRest', { title: 'CierreCajaPiccolaRest' });
 });
+
+/*Cierre de Caja */
+router.get('/CierreCajaNotteRest', function(req, res, next) {
+  res.render('CierreCajaNotteRest', { title: 'CierreCajaNotteRest' });
+});
+
+/*Cierre de Caja */
+router.get('/CierreCajaTurinRest', function(req, res, next) {
+  res.render('CierreCajaTurinRest', { title: 'CierreCajaTurinRest' });
+});
+
 
 /*ClientesMesas */
 router.get('/ClientesMesas', function(req, res, next) {
@@ -325,10 +336,44 @@ router.get('/ReporteDeVinos', function(req, res, next) {
 });
 
 /*ReporteEntornoDeRestaurante*/
-router.get('/ReporteEntornoDeRestaurante', function(req, res, next) {
-  res.render('ReporteEntornoDeRestaurante', { title: 'ReporteEntornoDeRestaurante' });
+router.get('/ReporteEntornoDeRestauranteMesasPiccola', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteMesasPiccola', { title: 'ReporteEntornoDeRestauranteMesasPiccolaPiccola' });
 });
 
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteReservacionesPiccola', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteReservacionesPiccola', { title: 'ReporteEntornoDeRestauranteReservacionesPiccola' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteEspecialidadesPiccola', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteEspecialidadesPiccola', { title: 'ReporteEntornoDeRestauranteEspecialidadesPiccola' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteBarraMesasPiccola', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteBarraMesasPiccola', { title: 'ReporteEntornoDeRestauranteBarraMesasPiccola'});
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteMesasNotte', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteMesasNotte', { title: 'ReporteEntornoDeRestauranteMesasNotte' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteReservacionesNotte', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteReservacionesNotte', { title: 'ReporteEntornoDeRestauranteReservacionesNotte' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteEspecialidadesNotte', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteEspecialidadesNotte', { title: 'ReporteEntornoDeRestauranteEspecialidadesNotte' });
+});
+
+/*ReporteEntornoDeRestaurante*/
+router.get('/ReporteEntornoDeRestauranteBarraMesasNotte', function(req, res, next) {
+  res.render('ReporteEntornoDeRestauranteBarraMesasNotte', { title: 'ReporteEntornoDeRestauranteBarraMesasNotte'});
+});
 /*RestaurantesRegistro*/
 router.get('/RestaurantesRegistro', function(req, res, next) {
   res.render('RestaurantesRegistro', { title: 'RestaurantesRegistro' });
