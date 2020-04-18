@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/ReporteEntornoDeRestaurante.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <title>Entorno de Restaurante</title>
+</head>
+
+<body class="container-fluid">
+    <div class="container navbar-expand-xl">
+        <h1 class="text-left align-content-center">Listado de Productos y Precios del Restaurante</h1>
+    </div>
+    <div id="contenedorReporteEntornoRestaurante" class="container border d-flex border border-dark">
+        <div id="imagenEntornoRestaurante">
+            <div class="text-left align-content-center" >
+                <span style="font-size: 3em; color: black;" >
+                    <img src="/images/restaurante.svg" class="img-fluid col pt-md-5" alt="Responsive image" srcset="">
+                </span>
+            </div>
+        </div>
+        <div id="contenedorReporteEntornoRestauranteSuperior" class= "text-left align-content-center">
+            <a href="#" class="close btn btn-danger text-right" data-dismiss="panel" aria-label="close" >&times;</a></th>
+            <h4 class="text-left align-content-left">Módulo del Restaurante Listado de Productos y Precios</h4>
+            <div id="contenedorReporteEntornoRestauranteInterno" class="overflow-auto border border-white" >
+                 <table class="table table-hover" style="width:100%; height:auto;">
+                            <thead>
+                                <tr>
+                                    <th>Nombre del Platillo Especial</th>
+                                    <th>Ingredientes</th>
+                                    <th>Precio</th>
+                                    <th>Detalles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each recordset}}
+                                <tr>
+                                    <td>{{platillo}} </td>
+                                    <td>{{ingredientes}}</td>
+                                    <td>{{precio}}</td>
+                                    <td>{{detalle}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+            </div>
+                <div id="botonesLogin" class="d-flex " >
+                              <button class="h-75 d-inline-block w-25 p-3 ">
+                             <a href="/ReporteEntornoDeRestauranteBarraMesasNotte/listarAllBarraMesasEstado"><img src="/images/flechaizquierda.svg"class="img-fluid " style="width: 100%; height: 80%;" alt="Responsive image" srcset="">
+                            </a></button>
+                            <button class="h-75 d-inline-block w-25 p-3">
+                            <a href="/ReporteEntornoDeRestauranteMesasNotte/listarAllMesasEstado"><img src="/images/flechaderecha.svg" class="img-fluid  " style="width: 100%; height: 80%;" alt="Responsive image">
+                            </a></button>
+                            <button class="h-75 d-inline-block w-25 p-3 ">
+                           <a href="/RestNotteDiFuoco"><img src="/images/cerrar.svg"class="img-fluid " 
+                            style="width: 100%; height: 80%;" alt="Responsive image" srcset="">
+                            </a></button> 
+                            <!--<button class="h-75 d-inline-block w-25 p-3 "><img src="/images/configimpresora.png"class="img-fluid " style="width: 100%; height: 80%;" alt="Responsive image" srcset="">
+                            </button>
+                            <button class="h-75 d-inline-block w-25 p-3"><img src="/images/impresora.svg" class="img-fluid  " style="width: 100%; height: 80%;" alt="Responsive image">
+                            </button>-->
+                </div>
+                
+        </div>
+        
+    </div>
+    
+</body>
+
+</html>

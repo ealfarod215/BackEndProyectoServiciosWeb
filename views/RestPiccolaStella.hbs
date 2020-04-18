@@ -17,11 +17,11 @@
     <title>Restaurante Piccola Stella</title>
 </head>
 
-<body>
+<body class="container-fluid">
     <div id="navResOne" class="border">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Sistema</a>
+               <a class="nav-link" href="/Funcionalidades">Sistema</a> 
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Ayuda</a>
@@ -32,39 +32,39 @@
         </ul>
     </div>
     <div id="seccionCentral" class="d-flex">
-        <div id="barraLateralIzquierda" class=" border">
+        <div id="barraLateralIzquierda" class="container-fluid ">
             <ul class="nav flex-column">
                 <li class="nav-item">
 
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteMesasPiccola/listarAllMesasEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/tabla.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteReservacionesPiccola/listarAllReservacionesEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/reservado.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteBarraMesasPiccola/listarAllBarraMesasEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/empleado.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/ReporteEntornoDeRestauranteEspecialidadesPiccola/listarAllEspecialidadesEstado">
                         <span style="font-size: 3em; color: black;">
                             <img src="/images/desayuno.svg" alt="" srcset="">
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link active" href="/CierreCajaPiccolaRest">
                         <span style="font-size: 1em; color: black;">
                             <button type="button" class="btn-primary">Salir del Menú</button>
                         </span>
@@ -72,7 +72,7 @@
                 </li>
             </ul>
         </div>
-        <div id="cuerpoPrincipal" class="displayGrid">
+        <div id="cuerpoPrincipal" class="container-fluid displayGrid">
             <div id="arriba" class="d-flex">
 
                 <div class="">
@@ -86,7 +86,7 @@
                     <button><img style="width: 25%; height: 2rem;" src="/images/banos.svg" alt=""></button>
                 </div>
 
-                <div id="estadoDeLaBarra" style="width: 25%;" class="displayGrid border">
+                <div id="estadoDeLaBarra" style="width: 25%;" class="container-fluid  displayGrid border">
                     <label>Estado de la Barra: </label>
                     <div>
                         <input id="inputInternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
@@ -218,11 +218,9 @@
             </div>
         </div>
         <div id="barraLateralDerecha" class="border displayGrid text-center ">
-            <div id="lateralUno">
-
-            </div>
-            <div id="puertaSalida">
-                <button><img src="/images/puerta.svg" style="width: 100%; height: 10%;" alt=""></button>
+        
+            <div id="puertaSalida" >
+               <a href="/CierreCajaPiccolaRest"> <button><img src="/images/puerta.svg" style="width: 100%; height: 10%;" alt=""></button></a>
             </div>
             <div id="cocina">
                 <button><img src="/images/cocina.svg" style="width: 100%; height: 10%;" alt=""></button>

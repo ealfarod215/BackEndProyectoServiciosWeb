@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/CierreCaja.css">
+    <title>Cierre de Caja</title>
+</head>
+
+<body class="container-fluid">
+    <div class="container navbar-expand-xl">
+        <h1 class="text-center align-content-center">Cierre de Caja</h1>
+    </div>
+    <div class="d-flex MAXWandH">
+        <div id="contenedorLogin" class="container border d-flex ">
+            <div id="imagenLogo">
+                <img style="width: 80%; height: 60%;" src="/images/cartera.svg" alt="">
+            </div>
+            <div id="contenedorForm" class=" d-flex">
+                <form class="form-inline d-flex " method="post" action="">
+                    <div id="BmenuUno" class="container border">
+                        <div class="displayGrid ">
+                            <div class="">
+                                <label>Cierre de Caja</label>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <input id="inputSelectRestPantalla" name="inputSelectRestPantalla" type="text"
+                                    class="form-control" placeholder="Notte Di Fuoco" readonly>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <input id="inputSelectRest" name="inputSelectRest" type="hidden" class="form-control"
+                                    placeholder="Notte Di Fuoco" readonly value=3>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <input id="inputDescripcion" name="inputDescripcion" type="text" class="form-control"
+                                    placeholder="" readonly value="Cierre de Caja">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <input id="inputApertura" name="inputApertura" type="hidden" class="form-control"
+                                    placeholder="Monto de Apertura" value=0>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <input id="inputCierre" name="inputCierre" type="text" class="form-control"
+                                    placeholder="Monto de Salida">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="botonesLogin" class="d-flex">
+                        <!--llamar funcion para limpiar textbox-->
+                       <a href="/CierreCajaNotteRest">  <button id="btnLimpiarRegistroInputs" type="button" class="btn" ><img
+                                style="width: 3rem; height: 3rem;" src="/images/escoba.svg" alt=""></button> </a>
+   
+                        <!--llamar post para realizar el insert-->
+                        <button id="btnConfirmarInsertCaja" type="button" class="btn"
+                            onclick="llamadoInsertarFunction()"><img style="width: 3rem; height: 3rem;"
+                                src="/images/confirmacion.svg" alt=""></button>
+
+                        <!--llamar get para regresar a la pagina de listado-->
+                        <a href="/RestNotteDiFuoco"><button type="button" class="btn"><img
+                                    style="width: 3rem; height: 3rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            var btnInsertar = document.getElementById("btnConfirmarInsertCaja");
+
+            function llamadoInsertarFunction() {
+
+
+                if (document.getElementById("inputCierre").value == "") {
+                    alert("Debe llenar toda la informacion para acceder al restaurante.");
+                } else {
+                    btnInsertar.setAttribute("formaction", "../CierreCajaNotteRest/insertarCaja")
+                    btnInsertar.setAttribute("type", "submit");
+                    alert("Se salio del restaurante.");
+                }
+            }
+
+
+        </script>
+</body>
+
+</html>

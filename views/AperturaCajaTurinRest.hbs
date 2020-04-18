@@ -25,14 +25,18 @@
                 <img style="width: 80%; height: 60%;" src="/images/cartera.svg" alt="">
             </div>
             <div id="contenedorForm" class=" d-flex">
-                <form class="form-inline d-flex " method="post" action="">
+               <form class="form-inline d-flex " method="post" action="">
                     <div id="BmenuUno" class="container border">
                         <div class="displayGrid ">
                             <div class="">
                                 <label>Apertura de Caja</label>
                             </div>
-                           <div class="col-md-4 mb-3">
-                                <input id="inputSelectRest" name="inputSelectRest" type="text" 
+                             <div class="col-md-4 mb-3">
+                                  <input id="inputSelectRestPantalla" name="inputSelectRestPantalla" type="text" 
+                                class="form-control" placeholder="Turin Anivo" readonly >
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <input id="inputSelectRest" name="inputSelectRest" type="hidden" 
                                 class="form-control" placeholder="Turin Anivo" readonly value=2>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -51,9 +55,9 @@
                     </div>
                      <div id="botonesLogin" class="d-flex">
                     <!--llamar funcion para limpiar textbox-->
-                    <button id="btnLimpiarRegistroInputs" type="button" class="btn" onclick="limpiarInputs()"><img
+                    <a href="/AperturaCajaTurinRest"><button id="btnLimpiarRegistroInputs" type="button" class="btn"><img
                             style="width: 3rem; height: 3rem;" src="/images/escoba.svg" alt=""></button>
-
+                        </a>
                     <!--llamar post para realizar el insert-->
                     <button id="btnConfirmarInsertCaja" type="button" class="btn"
                         onclick="llamadoInsertarFunction()"><img style="width: 3rem; height: 3rem;"
@@ -67,7 +71,7 @@
                 </form>
             </div>
         </div>
-       <script>
+      <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertCaja");
 
         function llamadoInsertarFunction() {
