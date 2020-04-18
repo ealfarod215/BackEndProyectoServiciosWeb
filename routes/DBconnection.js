@@ -1,23 +1,20 @@
-// JavaScript source code
 var sql = require("mssql/msnodesqlv8");
 
-var config = {
-    user:'Proyecto',
-    password:'123',
-    server: 'LAPTOP-DE-CAOO\\MSSQLSERVER2',
-    driver: 'msnodesqlv8',
-    database: 'dbSistemaRestaurante',
+var dbConfig = {
+    database: "dbSistemaRestaurante",
+    server: "localhost",
+    driver: "msnodesqlv8",
     options: {
-        instanceName:'sql'
+        trustedConnection: true
     }
-};
-var conn = new sql.ConnectionPool(config);
+}
+
+var conn = new sql.ConnectionPool(dbConfig);
 
 
 conn.connect(function (err) {
     if (err) {
-        console.dir("wrongBase");
-        console.dir(err);
+        console.dir("wrong");
     }
     else {
         console.dir("Se ha conectado a la base de datos");
