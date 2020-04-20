@@ -49,9 +49,11 @@
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
                                 <option selected>Restaurante</option>
-                                <option value="1">Piccola Stella</option>
-                                <option value="2">Turin Anivo</option>
-                                <option value="3">Notte di Fuoco</option>
+                                {{restaurante}}
+                                {{#each restaurante}}
+                                <option value="{{codRes}}">{{nomRes}}</option>
+
+                                {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">

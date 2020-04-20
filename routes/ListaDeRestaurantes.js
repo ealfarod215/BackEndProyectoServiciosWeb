@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('./DBconnection');
 
 router.get('/listarRestaurantes', function (req, res, next) {
-    db.query('SELECT codigo,nombre,direccion,especialidad,telefono FROM tbRestaurante', function (error, recordset) {
+    db.query('SELECT codigo, consecutivo,nombre,direccion,especialidad,telefono FROM tbRestaurante', function (error, recordset) {
         if (error) {
             console.log('error en el listado');
             return;
@@ -19,13 +19,13 @@ router.post('/filtrarLista', function (req, res, next) {
     var nombre = req.body.inputNomRest;
     if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaDeRestaurantes', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaDeRestaurantes', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
         db.query("EXEC sp_listarRestaurantes @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaDeRestaurantes', { mensaje: 'Erro al Filtrar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaDeRestaurantes', recordset);
@@ -40,16 +40,16 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
     var nombre = req.body.inputNomRest;
     if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaDeRestaurantes', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaDeRestaurantes', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
         db.query("EXEC sp_borrarRestaurante @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaDeRestaurantes', { mensaje: 'Error al eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaDeRestaurantes', {mensaje:'Se elimino el Restaurante de manera Exitosa'});
+                res.render('ListaDeRestaurantes', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
             }
         });
     }

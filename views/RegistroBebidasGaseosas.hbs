@@ -40,38 +40,44 @@
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
                                 <option selected>Marca</option>
-                                <option value="1">Scott Brite</option>
-                                <option value="2">Lemon</option>
-                                <option value="3">LG</option>
-                                <option value="4">Samsung</option>
+                                {{marca}}
+                                {{#each marca}}
+                                <option value="{{codMarca}}">{{nomMarca}}</option>
+
+                                {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
                                 <option selected>Nacionalidad</option>
-                                <option value="1">Costa Rica</option>
-                                <option value="2">China</option>
-                                <option value="3">Venezuela</option>
-                                <option value="4">Italia</option>
+                                {{nacionalidad}}
+                                {{#each nacionalidad}}
+                                <option value="{{codPais}}">{{nomPais}}</option>
+
+                                {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioBebida" name="inputPrecioBebida" type="text" class="form-control" placeholder="Precio">
+                            <input id="inputPrecioBebida" name="inputPrecioBebida" type="text" class="form-control"
+                                placeholder="Precio">
                         </div>
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
                                 <option selected>Restaurante</option>
-                                <option value="1">Piccola Stella</option>
-                                <option value="2">Turin Anivo</option>
-                                <option value="3">Notte di Fuoco</option>
+                                {{restaurante}}
+                                {{#each restaurante}}
+                                <option value="{{codRes}}">{{nomRes}}</option>
+
+                                {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCantidadBebida" name="inputCantidadBebida" type="text" class="form-control" placeholder="Cantidad">
+                            <input id="inputCantidadBebida" name="inputCantidadBebida" type="text" class="form-control"
+                                placeholder="Cantidad">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputDescripcion" name="inputDescripcion" class="form-control" placeholder="Descripción"
-                                aria-label="With textarea"></textarea>
+                            <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
+                                placeholder="Descripción" aria-label="With textarea"></textarea>
                         </div>
                     </div>
                 </div>

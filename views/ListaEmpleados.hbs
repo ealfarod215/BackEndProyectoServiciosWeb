@@ -90,11 +90,12 @@
                 </div>
             <div id="bodyListSection">
                 <div id="listViewEmpl" class="border">
-                    <div id="mostrarContenidoEmpl">
+                    <div id="mostrarContenidoEmpl" class="overflow-auto">
                     <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
                                     <th>Codigo</th>
+                                    <th>Consecutivo</th>
                                     <th>Cédula</th>
                                     <th>Nombre</th>
                                     <th>Primer Apellido</th>
@@ -105,6 +106,7 @@
                                 {{#each recordset}}
                                 <tr>
                                     <td>{{codigo}} </td>
+                                    <td>EMP-{{consecutivo}}</td>
                                     <td>{{cedula}}</td>
                                     <td>{{nombre}}</td>
                                     <td>{{apellidoUno}}</td>

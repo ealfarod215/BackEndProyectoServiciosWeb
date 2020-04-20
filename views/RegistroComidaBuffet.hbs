@@ -22,6 +22,10 @@
 
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Comida Buffet</h1>
+        <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+            {{mensaje}}</h1>
+        <h1 style="text-align: center; color: #3C763D; border-radius: 1rem; background-color: #DFF0D8; ">
+            {{mensajeExito}}</h1>
     </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
@@ -34,32 +38,40 @@
                         <div class="">
                             <label>Información de la Comida Tipo Buffet</label>
                         </div>
-                        
+
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" id="inputNombre" name="inputNombre">
+                            <input type="text" class="form-control" placeholder="Nombre" id="inputNombre"
+                                name="inputNombre">
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Precio" id="inputPrecio" name="inputPrecio">
+                            <input type="text" class="form-control" placeholder="Precio" id="inputPrecio"
+                                name="inputPrecio">
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectTCB" name="inputSelectTCB">
                                 <option selected>Tipo</option>
-                                <option value="1">Frutas</option>
-                                <option value="2">Carnes</option>
-                                <option value="3">Vegetales</option>
-                                <option value="4">Helado</option>
+                                {{tipo}}
+                                {{#each tipo}}
+                                <option value="{{codTbTipCom}}">{{nomTbTipCom}}</option>
+
+                                {{/each}}
                             </select>
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectUM" name="inputSelectUM">
                                 <option selected>Unidad de Medida</option>
-                                <option value="5">gramo</option>
+                                {{UM}}
+                                {{#each UM}}
+                                <option value="{{codUM}}">{{unidad}}</option>
+
+                                {{/each}}
+                                <!-- <option value="5">gramo</option>
                                 <option value="6">amperio</option>
                                 <option value="7">metro</option>
-                                <option value="8">kelvin </option>
+                                <option value="8">kelvin </option>-->
 
                             </select>
                         </div>
@@ -107,7 +119,7 @@
     <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertBufet");
 
-        
+
 
 
         function limpiarInputs() {
@@ -116,7 +128,7 @@
 
             var tipo = document.getElementById("inputSelectTCB").value;
             var UM = document.getElementById("inputSelectUM").value;
-            alert("Cajas de Texto limpias."+tipo+" "+UM);
+            alert("Cajas de Texto limpias." + tipo + " " + UM);
         }
 
         function llamadoInsertarFunction() {

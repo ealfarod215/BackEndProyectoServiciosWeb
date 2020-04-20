@@ -25,7 +25,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarBebidasHeladas @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaBebidasHeladas', { mensaje: 'Error al Filtrar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaBebidasHeladas', recordset);
@@ -46,7 +46,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
         db.query("EXEC sp_borrarBebidasHeladas @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaBebidasHeladas', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaBebidasHeladas', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });

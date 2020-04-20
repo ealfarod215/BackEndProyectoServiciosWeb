@@ -2,6 +2,16 @@ var express = require('express');
 var router = express.Router();
 var db = require('./DBconnection');
 
+var select1 = "select codigo as codRes, nombre as nomRes from tbRestaurante";
+
+
+router.get('/listarInfoDropMenus', function (req, res, next) {
+    db.query(select1, function (err, rows) {
+        if (err) throw err;
+        res.render('RegistroBebidasCalientes', { restaurante: rows.recordset });
+
+    });
+});
 
 router.post('/insertarBebidaCaliente', function (req, res, next) {
 
@@ -12,12 +22,13 @@ router.post('/insertarBebidaCaliente', function (req, res, next) {
     var descripcion = req.body.inputDescripcion;
 
 
-    db.query("EXEC sp_insertarBebidas @nombre='"+nombre+"',@precioUnitario='"+precio+"',@restaurante='"+nomRestaurante+"',@ingredientes='"+ingredientes+"',@descripcion='"+descripcion+"',@foto=' ',@marca=1, @nacionalidad=1, @cantidad=1, @precioBotella=0, @yearCosecha=0, @tipo ='caliente'", function (error, recordset) {
+    db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precio + "',@restaurante='" + nomRestaurante + "',@ingredientes='" + ingredientes + "',@descripcion='" + descripcion + "',@foto=' ',@marca=1, @nacionalidad=1, @cantidad=1, @precioBotella=0, @yearCosecha=0, @tipo ='caliente'", function (error, recordset) {
         if (error) {
-            console.log("wrong "+nombre+" "+ingredientes+" "+precio+" "+nomRestaurante+" "+descripcion);
-            return;
+            console.log("wrong " + nombre + " " + ingredientes + " " + precio + " " + nomRestaurante + " " + descripcion);
+            res.redirect('/RegistroBebidasCalientes/listarInfoDropMenus');
         } else {
-            res.render('RegistroBebidasCalientes');
+            //res.render('RegistroBebidasCalientes');
+            res.redirect('/RegistroBebidasCalientes/listarInfoDropMenus');
         }
     });
 
