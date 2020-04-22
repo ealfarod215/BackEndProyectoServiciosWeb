@@ -48,18 +48,18 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmConsecutivos" method="post" action="/ListaConsecutivos/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodConsecutivo"
-                                        name="inputCodConsecutivo" placeholder="Digite el Codigo">
+                                    <input type="number" class="form-control" id="inputCodConsecutivo"
+                                        name="inputCodConsecutivo" placeholder="Digite el Codigo" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputDescripcionConsecutivo"
-                                        name="inputDescripcionConsecutivo" placeholder="Digite Tipo">
+                                        name="inputDescripcionConsecutivo" placeholder="Digite Tipo" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -79,39 +79,36 @@
                 </div>
             </div>
             <div id="bodyListSection" class="overflow-auto">
-                <div id="listViewConsecutivo" class="border">
-                    <div id="mostrarContenidoConsecutivo">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Tipo</th>
-                                    <th>Descripcion</th>
-                                    <th>Valor del Consecutivo</th>
-                                    <th>Contiene Prefijo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{idConsecutivos}} </td>
-                                    <td>{{tipoConsecutivo}}</td>
-                                    <td>{{descripcion}}</td>
-                                    <td>{{valor}}</td>
-                                    <td>{{poseeprefijo}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Tipo</th>
+                            <th>Descripcion</th>
+                            <th>Valor del Consecutivo</th>
+                            <th>Contiene Prefijo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{idConsecutivos}} </td>
+                            <td>{{tipoConsecutivo}}</td>
+                            <td>{{descripcion}}</td>
+                            <td>{{valor}}</td>
+                            <td>{{poseeprefijo}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
     </div>
+
     <script>
         var formulario = document.getElementById("frmConsecutivos");
         var btnEliminar = document.getElementById("btnEliminar");
@@ -124,18 +121,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodConsecutivo").value == "" || document.getElementById("inputDescripcionConsecutivo").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaConsecutivos/eliminarConsecutivos")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaConsecutivos/eliminarConsecutivos")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

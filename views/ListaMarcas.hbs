@@ -46,21 +46,22 @@
                         <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
                                 style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
-                    <form class="form-inline container displayGrid" method="post" action="/ListaMarcas/filtrarLista">
+                    <form class="form-inline container displayGrid needs-validation" method="post"
+                        action="/ListaMarcas/filtrarLista" novalidate>
                         <div class="d-flex MAXWandH">
                             <div class="displayGrid ">
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodMarca" name="inputCodMarca"
-                                            placeholder="Código de la Marca">
+                                        <input type="number" class="form-control" id="inputCodMarca"
+                                            name="inputCodMarca" placeholder="Código de la Marca" required>
                                     </div>
                                 </div>
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomMarca" name="inputNomMarca"
-                                            placeholder="Nombre de la Marca">
+                                            placeholder="Nombre de la Marca" required>
                                     </div>
                                 </div>
 
@@ -69,7 +70,7 @@
                                 <div class="marginIconos">
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNacionalidad"
-                                            name="inputNacionalidad" placeholder="Nacionalidad">
+                                            name="inputNacionalidad" placeholder="Nacionalidad" required>
                                     </div>
                                 </div>
                             </div>
@@ -95,42 +96,39 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewMarcas" class="border">
-                    <div id="mostrarContenidoMarcas" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
-                                    <th>Nacionalidad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>M-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{descripcion}}</td>
-                                    <td>{{pais}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Nacionalidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>M-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{descripcion}}</td>
+                            <td>{{pais}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                    </div>
-                </div>
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
+
             </div>
         </div>
     </div>
+
 
     <script>
         var btnEliminar = document.getElementById("btnEliminar");
@@ -144,18 +142,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodMarca").value == "" || document.getElementById("inputNomMarca").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaMarcas/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaMarcas/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

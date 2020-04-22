@@ -44,22 +44,22 @@
                                     style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button></a>
 
                     </div>
-                    <form class="form-inline container displayGrid " method="post"
-                        action="/ListaComestibles/filtrarLista">
+                    <form class="form-inline container displayGrid needs-validation" method="post"
+                        action="/ListaComestibles/filtrarLista" novalidate>
                         <div class="d-flex MAXWandH">
                             <div class="displayGrid ">
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodComestible"
-                                            name="inputCodComestible" placeholder="Codigo del Comestible">
+                                        <input type="number" class="form-control" id="inputCodComestible"
+                                            name="inputCodComestible" placeholder="Codigo del Comestible" required>
                                     </div>
                                 </div>
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomComestible"
-                                            name="inputNomComestible" placeholder="Nombre del Comestible">
+                                            name="inputNomComestible" placeholder="Nombre del Comestible" required>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                 <div class="marginIconos">
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomRestaurante"
-                                            name="inputNomRestaurante" placeholder="Nombre del Restaurante">
+                                            name="inputNomRestaurante" placeholder="Nombre del Restaurante" required>
                                     </div>
                                 </div>
                             </div>
@@ -95,42 +95,39 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewComestibles" class="border">
-                    <div id="mostrarContenidoComestibles" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
-                                    <th>Restaurante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>COM-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{cantidad}}</td>
-                                    <td>{{restaurante}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Restaurante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>COM-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{cantidad}}</td>
+                            <td>{{restaurante}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                    </div>
-                </div>
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
+
             </div>
         </div>
     </div>
+
     <script>
         var btnEliminar = document.getElementById("btnEliminar");
 
@@ -143,17 +140,15 @@
 
         function llamadoEliminarFunction() {
 
-            if (document.getElementById("inputCodComestible").value == "" || document.getElementById("inputNomComestible").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaComestibles/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
+            btnEliminar.setAttribute("formaction", "../ListaComestibles/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
 
-            }
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>
