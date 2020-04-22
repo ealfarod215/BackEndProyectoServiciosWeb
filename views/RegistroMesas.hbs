@@ -22,6 +22,16 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Mesas</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
@@ -48,9 +58,9 @@
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectRest" name="inputSelectRest">
                                 <option selected>Nombre del Restaurante</option>
-                                <option value="1">Piccola Stella</option>
-                                <option value="2">Turin Anivo</option>
-                                <option value="3">Notte di Fuoco</option>
+                                {{#each restaurante}}
+                                <option value="{{codRes}}">{{nomRes}}</option>
+                                {{/each}}
                             </select>
                         </div>
                     </div>
@@ -98,6 +108,8 @@
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
 </body>
 
 </html>

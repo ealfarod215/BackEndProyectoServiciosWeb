@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 var db = require('./DBconnection');
 
+var sqlRestaurante = "select codigo as codRes, nombre as nomRes from tbRestaurante";
+
+router.get('/listarInfoDropMenus', function (req, res, next) {
+    db.query(sqlRestaurante, function (err, rows) {
+        if (err) throw err;
+
+        res.render('ClientesMesas', { restaurante: rows.recordset });
+    });
+});
 
 router.post('/insertarCliente', function (req, res, next) {
 
@@ -22,23 +31,27 @@ router.post('/insertarCliente', function (req, res, next) {
     var mesa = req.body.inputSelectNomMesa;
 
 
-    db.query("EXEC sp_insertarClientes @cedula = '" + cedula + "', @nombre = '" + nombre + "', @apellidoUno = '" + apellidoUno + "', @apellidoDos = '" + apellidoDos + "', @montoPagado = '" + montoPagado + "', @detalle = '" + detalle + "',@fecha = '" + fecha + "',@reservacion = '" + reserva + "', @barra = '"+barra+"', @restaurante = '" + restaurante + "'", function (error, recordset) {
+    db.query("EXEC sp_insertarClientes @cedula = '" + cedula + "', @nombre = '" + nombre + "', @apellidoUno = '" + apellidoUno + "', @apellidoDos = '" + apellidoDos + "', @montoPagado = '" + montoPagado + "', @detalle = '" + detalle + "',@fecha = '" + fecha + "',@reservacion = '" + reserva + "', @barra = '" + barra + "', @restaurante = '" + restaurante + "'", function (error, recordset) {
         if (error) {
             console.log("wrong");
-            res.render('ClientesMesas');
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
+            res.redirect('/ClientesMesas/listarInfoDropMenus');
+
         } else {
             if (reserva == "Si") {
                 db.query("EXEC sp_insertarReservacion @codigoMesa = '" + mesa + "', @cedula = '" + cedula + "', @restaurante = '" + restaurante + "'", function (error, recordset) {
                     if (error) {
                         console.log("wrong en segundo query");
-                        res.render('ClientesMesas');
+                        req.flash('errorRegistro', 'Error al realizar el Registro!!!');
+                        res.redirect('/ClientesMesas/listarInfoDropMenus');
                     } else {
-
-                        res.render('ClientesMesas');
+                        req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
+                        res.redirect('/ClientesMesas/listarInfoDropMenus');
                     }
                 });
             } else {
-                res.render('ClientesMesas');
+                req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
+                res.redirect('/ClientesMesas/listarInfoDropMenus');
             }
 
         }

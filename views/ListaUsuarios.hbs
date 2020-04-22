@@ -24,22 +24,22 @@
         </div>
         <div id="RSectionUsuarios" class="border">
             <div id="headerListSection" class="d-flex border">
-                 <div class="displayGrid headerSideSize d-flex border">
+                <div class="displayGrid headerSideSize d-flex border">
                     <div class="marginL">
-                         <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaUsuarios/listarAllUsuarios"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaUsuarios/listarAllUsuarios">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
                         <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos">
-                            <img style="width: 2.5rem; height: 2.5rem;"  src="/images/escoba.svg" alt=""></button>
-                    
+                            <img style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+
                     </div>
                     <div class="marginL">
-                       <a href="/VentanaSeguridad"><button class="marginIconos">
-                           <img style="width: 2.5rem; height: 2.5rem;"  src="/images/error.svg" alt=""></button>
-                    </a>
-                          <a href="/RegistroUsuarios">
+                        <a href="/VentanaSeguridad"><button class="marginIconos">
+                                <img style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                        <a href="/RegistroUsuarios">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -47,43 +47,43 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmUsuarios" method="post" action="/ListaUsuarios/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex MAXWandH">
-                             <div class="marginIconos">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodUsuario"
-                                            name="inputCodUsuario" placeholder="Codigo del Usuario">
-                                    </div>
-                                    </div>
                             <div class="marginIconos">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputNomUsuario"
-                                            name="inputNomUsuario" placeholder="Nombre del Usuario">
-                                    </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" class="form-control" id="inputCodUsuario" name="inputCodUsuario"
+                                        placeholder="Codigo del Usuario">
                                 </div>
-                                <div class="marginIconos">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputNickNameUsuario"
-                                            name="inputNickNameUsuario" placeholder="Usuario">
-                                    </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" class="form-control" id="inputNomUsuario" name="inputNomUsuario"
+                                        placeholder="Nombre del Usuario">
                                 </div>
-                                <div class="marginIconos">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputPrivilegios"
-                                           name="inputPrivilegios" placeholder="Privilegios">
-                                    </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" class="form-control" id="inputNickNameUsuario"
+                                        name="inputNickNameUsuario" placeholder="Usuario">
                                 </div>
-                             <div class="displayGrid">
-                               
-                                   <!--llama al post para realizar busqueda-->
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" class="form-control" id="inputPrivilegios"
+                                        name="inputPrivilegios" placeholder="Privilegios">
+                                </div>
+                            </div>
+                            <div class="displayGrid">
+
+                                <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
 
                                 <!--Cargar post para eliminar registro de buffet-->
-                                <button id="btnEliminar" name="btnEliminar"type="button" onclick="llamadoEliminarFunction()"
-                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                        src="/images/menos.svg" alt=""></button>
+                                <button id="btnEliminar" name="btnEliminar" type="button"
+                                    onclick="llamadoEliminarFunction()" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg" alt=""></button>
                             </div>
                         </div>
                     </form>
@@ -126,14 +126,16 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-      <script>
+    <script>
         var formulario = document.getElementById("frmUsuarios");
         var btnEliminar = document.getElementById("btnEliminar");
 
@@ -146,10 +148,10 @@
         }
 
         function llamadoEliminarFunction() {
-            if (document.getElementById("inputCodUsuario").value == "" 
-            || document.getElementById("inputNomUsuario").value == ""
-            || document.getElementById("inputNickNameUsuario").value == "" 
-            || document.getElementById("inputPrivilegios").value == ""){  
+            if (document.getElementById("inputCodUsuario").value == ""
+                || document.getElementById("inputNomUsuario").value == ""
+                || document.getElementById("inputNickNameUsuario").value == ""
+                || document.getElementById("inputPrivilegios").value == "") {
                 alert("Debe llenar toda la informacion!!!");
             } else {
                 btnEliminar.setAttribute("formaction", "../ListaUsuarios/eliminarUsuarios")

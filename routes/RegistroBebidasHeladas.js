@@ -25,8 +25,10 @@ router.post('/insertarBebidaHelada', function (req, res, next) {
     db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precio + "',@restaurante='" + nomRestaurante + "',@ingredientes='" + ingredientes + "',@descripcion='" + descripcion + "',@foto=' ',@marca=1, @nacionalidad=1, @cantidad=1, @precioBotella=0, @yearCosecha=0, @tipo ='helada'", function (error, recordset) {
         if (error) {
             console.log("wrong " + nombre + " " + ingredientes + " " + precio + " " + nomRestaurante + " " + descripcion);
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
             res.redirect('/RegistroBebidasHeladas/listarInfoDropMenus');
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.redirect('/RegistroBebidasHeladas/listarInfoDropMenus');
         }
     });

@@ -23,6 +23,16 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Puestos</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
@@ -40,25 +50,24 @@
                         </div>
                         <div class="form-group  ">
                             <input id="inputInternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
-                            <label for="">Interno al Restaurante</label>
+                            <label>Interno al Restaurante</label>
 
                             <input id="inputExternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
-                            <label for="">Externo al Restaurante</label>
+                            <label>Externo al Restaurante</label>
 
                         </div>
                         <div class="col-md-4 mb-3 d-flex">
                             <input id="adentro" name="adentro" type="text" class="form-control" placeholder="Opcion"
-                                disabled="true">
+                                readonly value="">
                             <input id="afuera" name="afuera" type="text" class="form-control" placeholder="Opcion"
-                                disabled="true">
+                                readonly value="">
                         </div>
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectRoles" name="inputSelectRoles">
                                 <option selected>Rol en el Restaurante</option>
-                                <option value="1">Camarero</option>
-                                <option value="2">Chef Secundario</option>
-                                <option value="3">Camarero secundario</option>
-                                <option value="4">Conserje</option>
+                                {{#each rolPuesto}}
+                                <option value="{{codRol}}">{{nomRol}}</option>
+                                {{/each}}
                             </select>
                         </div>
 
@@ -95,6 +104,7 @@
         fuera.addEventListener('click', () => {
             document.getElementById("adentro").value = "No";
             document.getElementById("afuera").value = "Si";
+
         });
 
         function limpiarInputs() {
@@ -120,6 +130,8 @@
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
 </body>
 
 </html>

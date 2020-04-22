@@ -13,9 +13,11 @@ router.post('/insertarRestaurante', function (req, res, next) {
     db.query("EXEC sp_insertarRestaurante @nombre ='" + nombre + "', @especialidad = '" + especialidad + "', @direccion = '" + direccion + "', @telefono = '" + telefono + "', @estado = '" + estado + "'", function (error, recordset) {
         if (error) {
             console.log("wrong");
-            res.render('RestaurantesRegistro', { mensaje: 'Error al registrar la Información!!!' });
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
+            res.render('RestaurantesRegistro');
         } else {
-            res.render('RestaurantesRegistro', { mensajeExito: 'Exito al registrar la Información!!!' });
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
+            res.render('RestaurantesRegistro');
         }
     });
 

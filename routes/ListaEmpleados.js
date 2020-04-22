@@ -16,16 +16,17 @@ router.get('/listarAllEmpleados', function (req, res, next) {
 
 router.post('/filtrarLista', function (req, res, next) {
     var codigo = req.body.inputCodEmpl;
-    var nombre = req.body.inputNomEmpl; 
-    if (codigo == "" || nombre == "" ) {
+    var nombre = req.body.inputNomEmpl;
+    if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaEmpleados', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaEmpleados', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
-        db.query("EXEC sp_listarEmpleados @codigo = '" + codigo + "', @nombre = '" + nombre + "'",  function (error, recordset) {
+        db.query("EXEC sp_listarEmpleados @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaEmpleados', { mensaje: 'Error al Filtrar la Información!!!' });
+
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaEmpleados', recordset);
@@ -36,20 +37,20 @@ router.post('/filtrarLista', function (req, res, next) {
 });
 
 router.post('/eliminarEmpleados', function (req, res, next) {
-    var codigo = req.body.inputCodEmpl; 
-    var nombre = req.body.inputNomEmpl; 
-    if (codigo == "" || nombre == "" ) {
+    var codigo = req.body.inputCodEmpl;
+    var nombre = req.body.inputNomEmpl;
+    if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaEmpleados', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaEmpleados', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
         db.query("EXEC sp_borrarEmpleados  @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaEmpleados', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaEmpleados', {mensaje:'Se elimino el empleado de manera Exitosa'});
+                res.render('ListaEmpleados', { mensaje: 'Se elimino el empleado de manera Exitosa' });
             }
         });
     }

@@ -7,16 +7,7 @@ var select2 = "EXEC sp_allVinos";
 var select3 = "select codigo as codPais, nombre as nomPais from tbPais";
 
 router.get('/listarAllVinos', function (req, res, next) {
-    /* db.query('EXEC sp_allVinos', function (error, recordset) {
-         if (error) {
-             console.log('error en el listado');
-             return;
-         } else {
-             console.log(recordset.recordset);
-             res.render('ListaVinos', recordset);
-         }
-     });*/
-
+   
     db.query(select1, function (err, rows1) {
         if (err) throw err;
         db.query(select2, function (err, rows) {

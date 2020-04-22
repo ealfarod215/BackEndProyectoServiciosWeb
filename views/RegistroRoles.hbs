@@ -22,6 +22,16 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Roles</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
@@ -40,7 +50,7 @@
                             <div class="col-md-4 mb-3">
                                 <input id="inputNombreRol" type="text" class="form-control" placeholder="Nombre">
                             </div>
-                            
+
                             <div class="col-md-4 mb-3">
                                 <textarea id="inputDescripcionRol" class="form-control" placeholder="Descripción"
                                     aria-label="With textarea"></textarea>
@@ -62,6 +72,8 @@
         </div>
     </div>
     </div>
+
+    <script src="/javascripts/alertas.js"></script>
 </body>
 
 </html>

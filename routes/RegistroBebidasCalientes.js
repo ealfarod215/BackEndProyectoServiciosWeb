@@ -25,9 +25,11 @@ router.post('/insertarBebidaCaliente', function (req, res, next) {
     db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precio + "',@restaurante='" + nomRestaurante + "',@ingredientes='" + ingredientes + "',@descripcion='" + descripcion + "',@foto=' ',@marca=1, @nacionalidad=1, @cantidad=1, @precioBotella=0, @yearCosecha=0, @tipo ='caliente'", function (error, recordset) {
         if (error) {
             console.log("wrong " + nombre + " " + ingredientes + " " + precio + " " + nomRestaurante + " " + descripcion);
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
             res.redirect('/RegistroBebidasCalientes/listarInfoDropMenus');
         } else {
             //res.render('RegistroBebidasCalientes');
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.redirect('/RegistroBebidasCalientes/listarInfoDropMenus');
         }
     });

@@ -40,7 +40,7 @@
                         <a href="/VentanaAdministracion"><button class="marginIconos"><img
                                     style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
                         </a>
-                        <a href="/RegistroPuestos">
+                        <a href="/RegistroPuestos/listarInfoDropMenus">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -51,21 +51,18 @@
                         class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
-                                <label for="" class="">Codigo del Restaurante</label>
-
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputCodRestPU" name="inputCodRestPU"
-                                        placeholder="Codigo del Restaurante">
+                                        placeholder="Codigo">
                                 </div>
                             </div>
                             <div class="marginIconos">
-                                <label for="" class="">Nombre del Restaurante</label>
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomRestPU" name="inputNomRestPU"
-                                        placeholder="Nombre del Restaurante">
+                                        placeholder="Nombre del Puesto">
                                 </div>
                             </div>
-                            
+
                             <div class="displayGrid ">
                                 <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
@@ -112,8 +109,9 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
 
                     </div>
                 </div>

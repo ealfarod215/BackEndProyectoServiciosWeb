@@ -43,10 +43,10 @@ router.post('/eliminarConsecutivos', function (req, res, next) {
         res.render('ListaConsecutivos', {mensaje:'Debe llenar toda la Información!!!'});
 
     } else {
-        db.query("EXEC sp_borrarConsecutivos @idConsecutivos = '" + codigo + "', @descripcion= '" + nombrePlatillo + "'", function (error, recordset) {
+        db.query("EXEC sp_borrarConsecutivos @idConsecutivos = '" + codigo + "', @descripcion= '" + descripcion + "'", function (error, recordset) {
             if (error) {
                 console.log("wrongborr");
-                return;
+                res.render('ListaConsecutivos', {mensaje:'Error al Eliminar el consecutivo de manera exitosa'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaConsecutivos', {mensaje:'Se elimino el consecutivo de manera exitosa'});

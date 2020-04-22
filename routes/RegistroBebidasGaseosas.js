@@ -37,8 +37,10 @@ router.post('/insertarBebidaGaseosa', function (req, res, next) {
     db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precio + "',@restaurante='" + nomRestaurante + "',@ingredientes='NoAplica',@descripcion='" + descripcion + "',@foto=' ',@marca='" + marca + "', @nacionalidad='" + pais + "', @cantidad='" + cantidad + "', @precioBotella=0, @yearCosecha=0, @tipo ='gaseosa'", function (error, recordset) {
         if (error) {
             console.log("wrong ");
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
             res.redirect('/RegistroBebidasGaseosas/listarInfoDropMenus');
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.redirect('/RegistroBebidasGaseosas/listarInfoDropMenus');
         }
     });

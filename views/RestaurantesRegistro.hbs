@@ -22,11 +22,17 @@
 
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Restaurante</h1>
-        <h1 style="text-align: center; color: red; border-radius: 1rem; background-color: rgb(235, 144, 144);">
-            {{mensaje}}</h1>
-        <h1
-            style="text-align: center; color: rgb(89, 236, 89); border-radius: 1rem; background-color: rgb(194, 248, 194);">
-            {{mensajeExito}}</h1>
+
+    </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
     </div>
 
     <div id="contenedorLogin" class="container border d-flex ">
@@ -126,6 +132,7 @@
 
     </script>
 
+    <script src="/javascripts/alertas.js"></script>
 </body>
 
 </html>

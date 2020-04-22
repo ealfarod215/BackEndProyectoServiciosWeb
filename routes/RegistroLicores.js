@@ -38,9 +38,11 @@ router.post('/insertarLicor', function (req, res, next) {
     db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precioU + "',@restaurante='" + restaurante + "',@ingredientes='Azucar',@descripcion='" + descripcion + "',@foto=' ',@marca='" + marca + "', @nacionalidad='" + pais + "', @cantidad='" + cantidad + "', @precioBotella='" + precioB + "', @yearCosecha=0, @tipo ='licor'", function (error, recordset) {
         if (error) {
             console.log("wrong");
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
             res.redirect('/RegistroLicores/listarInfoDropMenus');
 
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.redirect('/RegistroLicores/listarInfoDropMenus');
         }
     });

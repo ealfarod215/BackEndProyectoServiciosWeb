@@ -22,6 +22,16 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Proveedores</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div id="SeccionPrincipalLR" class="container d-flex border">
         <div id="LSectionListaComidaBufet" class="">
             <img style="width: 80%; height: 60%;" class="LogoCEB" src="/images/proveedores.svg" alt="">
@@ -136,6 +146,7 @@
 
     </script>
 
+    <script src="/javascripts/alertas.js"></script>
 </body>
 
 </html>

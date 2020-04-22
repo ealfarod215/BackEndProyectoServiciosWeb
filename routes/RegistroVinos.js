@@ -13,9 +13,7 @@ router.get('/listarInfoDropMenus', function (req, res, next) {
             if (err) throw err;
             db.query(select3, function (err, rows2) {
                 if (err) throw err;
-                console.log(rows);
-                console.log(rows1);
-                console.log(rows2);
+                
                 res.render('RegistroVinos', { restaurante: rows.recordset, marca: rows1.recordset, nacionalidad: rows2.recordset });
             });
         });
@@ -38,8 +36,10 @@ router.post('/insertarVino', function (req, res, next) {
     db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precioUnitario + "',@restaurante='" + restaurante + "',@ingredientes='Azucar',@descripcion='" + descripcion + "',@foto=' ',@marca='" + marca + "', @nacionalidad='" + pais + "', @cantidad='" + cantidad + "', @precioBotella='" + precioBotella + "', @yearCosecha='" + cosecha + "', @tipo ='vino'", function (error, recordset) {
         if (error) {
             console.log("wrong");
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
             res.redirect('/RegistroVinos/listarInfoDropMenus');
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.redirect('/RegistroVinos/listarInfoDropMenus');
         }
     });

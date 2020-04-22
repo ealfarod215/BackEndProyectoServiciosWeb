@@ -22,10 +22,22 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Especialidades</h1>
     </div>
-    <div class="d-flex MAXWandH"> 
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
+    <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
-                <img style="width: 80%; height: 60%;" src="/images/restaurante-cubiertos-simbolo-circular-de-una-cuchara-y-un-tenedor-en-un-circulo.svg" alt="">
+                <img style="width: 80%; height: 60%;"
+                    src="/images/restaurante-cubiertos-simbolo-circular-de-una-cuchara-y-un-tenedor-en-un-circulo.svg"
+                    alt="">
             </div>
             <form class="form-inline d-flex " method="post" action="">
                 <div id="BmenuUno" class="container border">
@@ -34,18 +46,20 @@
                             <label class="smd-8 mb-4">Información de la Especialidad</label>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputNombreEsp" name="inputNombreEsp" type="text" class="form-control" placeholder="Nombre del Platillo">
+                            <input id="inputNombreEsp" name="inputNombreEsp" type="text" class="form-control"
+                                placeholder="Nombre del Platillo">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputIngredienteEsp" name="inputIngredienteEsp"  class="form-control" placeholder="Descripción"
-                                aria-label="With textarea"></textarea>
+                            <textarea id="inputIngredienteEsp" name="inputIngredienteEsp" class="form-control"
+                                placeholder="Descripción" aria-label="With textarea"></textarea>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioEsp" name="inputPrecioEsp"  type="text" class="form-control" placeholder="Precio">
+                            <input id="inputPrecioEsp" name="inputPrecioEsp" type="text" class="form-control"
+                                placeholder="Precio">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputDescripcionEsp" name="inputDescripcionEsp" class="form-control" placeholder="Detalle"
-                                aria-label="With textarea"></textarea>
+                            <textarea id="inputDescripcionEsp" name="inputDescripcionEsp" class="form-control"
+                                placeholder="Detalle" aria-label="With textarea"></textarea>
                         </div>
                     </div>
                 </div>
@@ -102,6 +116,8 @@
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
 </body>
 
 </html>

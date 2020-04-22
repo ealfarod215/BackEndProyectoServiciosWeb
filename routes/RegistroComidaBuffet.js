@@ -27,8 +27,10 @@ router.post('/insertarBuffet', function (req, res, next) {
     db.query("exec sp_insertarBuffet @nombre = '" + nombre + "',@precio = '" + precio + "',@tipo = '" + tipo + "',@unidadMedida = '" + unidadMedida + "', @foto =''", function (error, recordset) {
         if (error) {
             console.log("wrong");
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
             res.redirect('/RegistroComidaBuffet/listarInfoDropMenus');
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.redirect('/RegistroComidaBuffet/listarInfoDropMenus');
         }
     });
