@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/comedor.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -45,19 +45,19 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreMesa" name="inputNombreMesa" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputNumMesa" name="inputNumMesa" type="text" class="form-control"
-                                placeholder="Numero">
+                            <input id="inputNumMesa" name="inputNumMesa" type="number" class="form-control"
+                                placeholder="Numero" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCanSillas" name="inputCanSillas" type="text" class="form-control"
-                                placeholder="Cantidad Sillas">
+                            <input id="inputCanSillas" name="inputCanSillas" type="number" class="form-control"
+                                placeholder="Cantidad Sillas" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectRest" name="inputSelectRest">
-                                <option selected>Nombre del Restaurante</option>
+                            <select class="custom-select" id="inputSelectRest" name="inputSelectRest" required>
+                                <option value="">Nombre del Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
                                 {{/each}}
@@ -97,19 +97,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroMesas/insertarMesas")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputNombreMesa").value == "" || document.getElementById("inputNumMesa").value == ""
-                || document.getElementById("inputCanSillas").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroMesas/insertarMesas")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

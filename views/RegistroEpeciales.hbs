@@ -39,7 +39,7 @@
                     src="/images/restaurante-cubiertos-simbolo-circular-de-una-cuchara-y-un-tenedor-en-un-circulo.svg"
                     alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -47,19 +47,21 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreEsp" name="inputNombreEsp" type="text" class="form-control"
-                                placeholder="Nombre del Platillo">
+                                placeholder="Nombre del Platillo" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputIngredienteEsp" name="inputIngredienteEsp" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                            <textarea id="inputIngredienteEsp" type="text" name="inputIngredienteEsp"
+                                class="form-control" placeholder="Descripción" aria-label="With textarea"
+                                required></textarea>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioEsp" name="inputPrecioEsp" type="text" class="form-control"
-                                placeholder="Precio">
+                            <input id="inputPrecioEsp" name="inputPrecioEsp" type="number" class="form-control"
+                                placeholder="Precio" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputDescripcionEsp" name="inputDescripcionEsp" class="form-control"
-                                placeholder="Detalle" aria-label="With textarea"></textarea>
+                            <textarea id="inputDescripcionEsp" type="text" name="inputDescripcionEsp"
+                                class="form-control" placeholder="Detalle" aria-label="With textarea"
+                                required></textarea>
                         </div>
                     </div>
                 </div>
@@ -105,19 +107,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroEpeciales/insertarEpeciales")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputNombreEsp").value == "" || document.getElementById("inputIngredienteEsp").value == ""
-                || document.getElementById("inputPrecioEsp").value == "" || document.getElementById("inputDescripcionEsp").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroEpeciales/insertarEpeciales")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

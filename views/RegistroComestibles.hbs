@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/comestibles.svg" alt="">
             </div>
-            <form class="form-inline d-flex border MAXWandH" method="post" action="">
+            <form class="form-inline d-flex border MAXWandH needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container ">
                     <div class="displayGrid ">
                         <div class="">
@@ -46,24 +46,24 @@
 
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreComestible" name="inputNombreComestible" type="text"
-                                class="form-control" placeholder="Nombre">
+                                class="form-control" placeholder="Nombre" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCantCompestible" name="inputCantCompestible" type="text"
-                                class="form-control" placeholder="Cantidad">
+                            <input id="inputCantCompestible" name="inputCantCompestible" type="number"
+                                class="form-control" placeholder="Cantidad" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <select class="custom-select" id="inputSelectTipoComestible"
-                                name="inputSelectTipoComestible">
-                                <option selected>Tipo de Comestible</option>
+                                name="inputSelectTipoComestible" required>
+                                <option value="">Tipo de Comestible</option>
                                 {{#each tipoComestible}}
                                 <option value="{{codTbTipCom}}">{{nomTbTipCom}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                <option selected>Restaurante</option>
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                <option value="" required>Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
                                 {{/each}}
@@ -74,32 +74,35 @@
                 </div>
                 <div id="BmenuDos">
                     <div class="col-md-4 mb-3">
-                        <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                            <option selected>Marca</option>
+                        <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                            <option value="" required>Marca</option>
                             {{#each marca}}
                             <option value="{{codMarca}}">{{nomMarca}}</option>
                             {{/each}}
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <select class="custom-select" id="inputSelectClaseComestible" name="inputSelectClaseComestible">
-                            <option selected>Clase de Comestible</option>
+                        <select class="custom-select" id="inputSelectClaseComestible" name="inputSelectClaseComestible"
+                            required>
+                            <option value="" required>Clase de Comestible</option>
                             {{#each claseCamestible}}
                             <option value="{{codClaseComestible}}">{{nomClaseComestible}}</option>
                             {{/each}}
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <select class="custom-select" id="inputSelectLineaComestible" name="inputSelectLineaComestible">
-                            <option selected>Linea de Comestible</option>
+                        <select class="custom-select" id="inputSelectLineaComestible" name="inputSelectLineaComestible"
+                            required>
+                            <option value="" required>Linea de Comestible</option>
                             {{#each lineaComestible}}
                             <option value="{{codLineaComestible}}">{{nomLineaComestible}}</option>
                             {{/each}}
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <select class="custom-select" id="inputSelectUnidadMedida" name="inputSelectUnidadMedida">
-                            <option selected>Unidad de Medida</option>
+                        <select class="custom-select" id="inputSelectUnidadMedida" name="inputSelectUnidadMedida"
+                            required>
+                            <option value="" required>Unidad de Medida</option>
                             {{#each unidadMedida}}
                             <option value="{{codUM}}">{{unidad}}</option>
                             {{/each}}
@@ -153,18 +156,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputNombreComestible").value == "" || document.getElementById("inputCantCompestible").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroComestibles/insertarComestible")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroComestibles/insertarComestible")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

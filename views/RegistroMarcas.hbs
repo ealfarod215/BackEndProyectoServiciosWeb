@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/camion.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="border d-flex">
                     <div class="displayGrid ">
                         <div class="">
@@ -45,20 +45,21 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreMarca" name="inputNombreMarca" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
-                                <option selected>Nacionalidad</option>
+                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad"
+                                required>
+                                <option value="">Nacionalidad</option>
                                 {{#each nacionalidad}}
                                 <option value="{{codPais}}">{{nomPais}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                            <textarea id="inputDescripcion" type="text" name="inputDescripcion" class="form-control"
+                                placeholder="Descripción" aria-label="With textarea" required></textarea>
                         </div>
                         <div class="d-flex MAXWandH">
                             <div class="d-flex">
@@ -80,15 +81,16 @@
 
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreEmpresa" name="inputNombreEmpresa" type="text" class="form-control"
-                                placeholder="Nombre de la Empresa">
+                                placeholder="Nombre de la Empresa" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <textarea id="inputDescripcionE" name="inputDescripcionE" class="form-control"
-                                placeholder="Detalle de la Empresa" aria-label="With textarea"></textarea>
+                                placeholder="Detalle de la Empresa" type="text" aria-label="With textarea"
+                                required></textarea>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputTelefono" name="inputTelefono" type="text" class="form-control"
-                                placeholder="Telefono de la Empresa">
+                            <input id="inputTelefono" name="inputTelefono" type="number" class="form-control"
+                                placeholder="Telefono de la Empresa" required>
                         </div>
                         <div class="d-flex MAXWandH">
                             <div class="d-flex">
@@ -141,20 +143,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputNombreMarca").value == "" || document.getElementById("inputDescripcion").value == ""
-                || document.getElementById("inputNombreEmpresa").value == "" || document.getElementById("inputDescripcionE").value == ""
-                || document.getElementById("inputTelefono").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroMarcas/insertarMarca")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroMarcas/insertarMarca")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

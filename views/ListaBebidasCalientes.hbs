@@ -78,67 +78,63 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoLR" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Restaurante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>BE-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{precioUnitario}}</td>
-                                    <td>{{restaurante}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Restaurante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>BE-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{precioUnitario}}</td>
+                            <td>{{restaurante}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
-    </div>
-
-    <script>
-        var formulario = document.getElementById("frmBufete");
-        var btnEliminar = document.getElementById("btnEliminar");
-
-        function limpiarInputs() {
-            document.getElementById("inputCodBC").value = "";
-            document.getElementById("inputNomBC").value = "";
-            alert("Cajas de Texto limpias.");
-        }
-
-        function llamadoEliminarFunction() {
 
 
-            if (document.getElementById("inputCodBC").value == "" || document.getElementById("inputNomBC").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaBebidasCalientes/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
 
+        <script>
+            var formulario = document.getElementById("frmBufete");
+            var btnEliminar = document.getElementById("btnEliminar");
+
+            function limpiarInputs() {
+                document.getElementById("inputCodBC").value = "";
+                document.getElementById("inputNomBC").value = "";
+                alert("Cajas de Texto limpias.");
             }
-        }
+
+            function llamadoEliminarFunction() {
 
 
-    </script>
+                if (document.getElementById("inputCodBC").value == "" || document.getElementById("inputNomBC").value == "") {
+                    alert("Debe llenar toda la informacion!!!");
+                } else {
+                    btnEliminar.setAttribute("formaction", "../ListaBebidasCalientes/eliminarRestRegistro")
+                    btnEliminar.setAttribute("type", "submit");
+
+                }
+            }
+
+
+        </script>
 </body>
 
 </html>

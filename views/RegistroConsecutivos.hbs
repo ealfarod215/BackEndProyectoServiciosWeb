@@ -38,7 +38,7 @@
                 <img style="width: 80%; height: 60%;" src="/images/ajustes2.svg" alt="">
             </div>
             <div id="contenedorForm" class=" d-flex">
-                <form class="form-inline d-flex " method="post" action="">
+                <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                     <div id="BmenuUno" class="container border">
                         <div class="displayGrid ">
                             <div class="">
@@ -46,15 +46,15 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <input id="inputTipoConsecutivo" name="inputTipoConsecutivo" type="text"
-                                    class="form-control" placeholder="TipoConsecutivo">
+                                    class="form-control" placeholder="TipoConsecutivo" required>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <input id="inputValorConsecutivo" name="inputValorConsecutivo" type="text"
-                                    class="form-control" placeholder="Valor">
+                                <input id="inputValorConsecutivo" name="inputValorConsecutivo" type="number"
+                                    class="form-control" placeholder="Valor" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <input id="inputDesConsecutivo" name="inputDesConsecutivo" type="text"
-                                    class="form-control" placeholder="Descripcion">
+                                    class="form-control" placeholder="Descripcion" required>
                             </div>
                             <div class="d-flex">
 
@@ -68,7 +68,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <input id="inputPrefConsecutivo" name="inputPrefConsecutivo" type="text"
-                                    class="form-control" placeholder="Prefijo">
+                                    class="form-control" placeholder="Prefijo" required>
                             </div>
 
                         </div>
@@ -127,19 +127,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroConsecutivos/insertarConsecutivos")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputTipoConsecutivo").value == "" || document.getElementById("inputValorConsecutivo").value == ""
-                || document.getElementById("inputDesConsecutivo").value == "" || document.getElementById("inputPrefConsecutivo").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroConsecutivos/insertarConsecutivos")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 

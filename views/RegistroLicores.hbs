@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/licor.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -46,19 +46,20 @@
 
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreBebida" name="inputNombreBebida" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                                <option selected>Marca</option>
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                                <option value="">Marca</option>
                                 {{#each marca}}
                                 <option value="{{codMarca}}">{{nomMarca}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
-                                <option selected>Nacionalidad</option>
+                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad"
+                                required>
+                                <option value="">Nacionalidad</option>
                                 {{#each nacionalidad}}
                                 <option value="{{codPais}}">{{nomPais}}</option>
                                 {{/each}}
@@ -67,30 +68,30 @@
                         <div class="col-md-4 mb-3 d-flex">
                             <input id="checkPrecioUnitario" type="checkbox">
                             Precio U:
-                            <input id="inputPrecioUnitario" name="inputPrecioUnitario" type="text" class="form-control"
-                                value="0" disabled="true">
+                            <input id="inputPrecioUnitario" name="inputPrecioUnitario" type="number"
+                                class="form-control" value="0" disabled="true" required>
                         </div>
                         <div class="col-md-4 mb-3 d-flex ">
                             <input id="checkPrecioBotella" type="checkbox">
                             Precio B:
-                            <input id="inputPrecioBotella" name="inputPrecioBotella" type="text" class="form-control"
-                                value="0" disabled="true">
+                            <input id="inputPrecioBotella" name="inputPrecioBotella" type="number" class="form-control"
+                                value="0" disabled="true" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                <option selected>Restaurante</option>
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                <option value="">Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCantidadBebida" name="inputCantidadBebida" type="text" class="form-control"
-                                placeholder="Cantidad">
+                            <input id="inputCantidadBebida" name="inputCantidadBebida" type="number"
+                                class="form-control" placeholder="Cantidad" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                                placeholder="Descripción" type="text" aria-label="With textarea" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -152,21 +153,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputNombreBebida").value == "" || document.getElementById("inputSelectMarca").value == ""
-                || document.getElementById("inputSelectNacionalidad").value == "" || document.getElementById("inputPrecioUnitario").value == ""
-                || document.getElementById("inputPrecioBotella").value == "" || document.getElementById("inputNombreRest").value == ""
-                || document.getElementById("inputCantidadBebida").value == "" || document.getElementById("inputDescripcion").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroLicores/insertarLicor")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroLicores/insertarLicor")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/empleado (2).svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -45,52 +45,54 @@
                             <!--AGREGAR CLASE A TITULOS-->
                         </div>
                         <div class="col-md-8 mb-3">
-                            <input id="inputCedulaEmpleado" name="inputCedulaEmpleado" type="text" class="form-control"
-                                placeholder="Cédula">
+                            <input id="inputCedulaEmpleado" name="inputCedulaEmpleado" type="number"
+                                class="form-control" placeholder="Cédula" required>
                         </div>
                         <div class="col-md-8 mb-3">
                             <input id="inputNombreEmpleado" name="inputNombreEmpleado" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="col-md-8 mb-3">
 
                             <input id="inputApellidoUnoEmpleado" name="inputApellidoUnoEmpleado" type="text"
-                                class="form-control " placeholder="Primer Apellido">
+                                class="form-control " placeholder="Primer Apellido" required>
                         </div>
                         <div class="col-md-8 mb-3">
 
                             <input id="inputApellidoDosEmpleado" name="inputApellidoDosEmpleado" type="text"
-                                class="form-control " placeholder="Segundo Apellido">
+                                class="form-control " placeholder="Segundo Apellido" required>
                         </div>
                         <div class="col-md-8 mb-3">
 
-                            <input id="inputTelefonoUnoEmpleado" name="inputTelefonoUnoEmpleado" type="text"
-                                class="form-control " placeholder="Teléfono 1">
+                            <input id="inputTelefonoUnoEmpleado" name="inputTelefonoUnoEmpleado" type="number"
+                                class="form-control " placeholder="Teléfono 1" required>
                         </div>
                         <div class="col-md-8 mb-3">
 
-                            <input id="inputTelefonoDosEmpleado" name="inputTelefonoDosEmpleado" type="text"
-                                class="form-control " placeholder="Teléfono 2">
+                            <input id="inputTelefonoDosEmpleado" name="inputTelefonoDosEmpleado" type="number"
+                                class="form-control " placeholder="Teléfono 2" required>
                         </div>
                         <div class="form-group col-md-6 mb-3">
-                            <select class="custom-select" id="inputSelectPuesto" name="inputSelectPuesto">
-                                <option selected>Puesto</option>
+                            <select class="custom-select" id="inputSelectPuesto" name="inputSelectPuesto" required>
+                                <option value="">Puesto</option>
                                 {{#each puestoEmp}}
                                 <option value="{{codPuesto}}">{{nomPuesto}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="form-group col-md-6 mb-3">
-                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
-                                <option selected>Nacionalidad</option>
+                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad"
+                                required>
+                                <option value="">Nacionalidad</option>
                                 {{#each nacionalidad}}
                                 <option value="{{codPais}}">{{nomPais}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="form-group col-md-6 mb-3">
-                            <select class="custom-select " id="inputSelectRestaurante" name="inputSelectRestaurante">
-                                <option selected>Restaurante</option>
+                            <select class="custom-select " id="inputSelectRestaurante" name="inputSelectRestaurante"
+                                required>
+                                <option value="">Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
                                 {{/each}}
@@ -144,20 +146,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroEmpleados/insertarEmpleados")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputCedulaEmpleado").value == "" || document.getElementById("inputNombreEmpleado").value == ""
-                || document.getElementById("inputApellidoUnoEmpleado").value == "" || document.getElementById("inputApellidoDosEmpleado").value == ""
-                || document.getElementById("inputTelefonoUnoEmpleado").value == "" || document.getElementById("inputTelefonoDosEmpleado").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroEmpleados/insertarEmpleados")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

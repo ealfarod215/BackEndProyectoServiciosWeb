@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/copa-de-vino.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -45,39 +45,40 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreBebida" name="inputNombreBebida" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                                <option selected>Marca</option>
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                                <option value="">Marca</option>
                                 {{#each marca}}
                                 <option value="{{codMarca}}">{{nomMarca}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
-                                <option selected>Nacionalidad</option>
+                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad"
+                                required>
+                                <option value="">Nacionalidad</option>
                                 {{#each nacionalidad}}
                                 <option value="{{codPais}}">{{nomPais}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioUnitario" name="inputPrecioUnitario" type="text" class="form-control"
-                                placeholder="Precio Unitario">
+                            <input id="inputPrecioUnitario" name="inputPrecioUnitario" type="number"
+                                class="form-control" placeholder="Precio Unitario" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioBotella" name="inputPrecioBotella" type="text" class="form-control"
-                                placeholder="Precio Botella">
+                            <input id="inputPrecioBotella" name="inputPrecioBotella" type="number" class="form-control"
+                                placeholder="Precio Botella" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCosecha" name="inputCosecha" type="text" class="form-control"
-                                placeholder="Año de la Cosecha">
+                            <input id="inputCosecha" name="inputCosecha" type="number" class="form-control"
+                                placeholder="Año de la Cosecha" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                <option selected>Restaurante</option>
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                <option value="">Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
 
@@ -85,12 +86,12 @@
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCantidad" name="inputCantidad" type="text" class="form-control"
-                                placeholder="Cantidad">
+                            <input id="inputCantidad" name="inputCantidad" type="number" class="form-control"
+                                placeholder="Cantidad" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                                placeholder="Descripción" type="text" aria-label="With textarea" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -141,22 +142,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputNombreBebida").value == "" || document.getElementById("inputSelectMarca").value == ""
-                || document.getElementById("inputSelectNacionalidad").value == "" || document.getElementById("inputPrecioUnitario").value == ""
-                || document.getElementById("inputPrecioBotella").value == "" || document.getElementById("inputNombreRest").value == ""
-                || document.getElementById("inputCantidad").value == "" || document.getElementById("inputCosecha").value == ""
-                || document.getElementById("inputDescripcion").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroVinos/insertarVino")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroVinos/insertarVino")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

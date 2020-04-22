@@ -39,7 +39,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/bufe.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -48,17 +48,17 @@
 
                         <div class="col-md-4 mb-3">
                             <input type="text" class="form-control" placeholder="Nombre" id="inputNombre"
-                                name="inputNombre">
+                                name="inputNombre" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Precio" id="inputPrecio"
-                                name="inputPrecio">
+                            <input type="number" class="form-control" placeholder="Precio" id="inputPrecio"
+                                name="inputPrecio" required>
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectTCB" name="inputSelectTCB">
-                                <option selected>Tipo</option>
+                            <select class="custom-select" id="inputSelectTCB" name="inputSelectTCB" required>
+                                <option value="">Tipo</option>
                                 {{#each tipo}}
                                 <option value="{{codTbTipCom}}">{{nomTbTipCom}}</option>
 
@@ -67,8 +67,8 @@
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectUM" name="inputSelectUM">
-                                <option selected>Unidad de Medida</option>
+                            <select class="custom-select" id="inputSelectUM" name="inputSelectUM" required>
+                                <option value="">Unidad de Medida</option>
                                 {{#each UM}}
                                 <option value="{{codUM}}">{{unidad}}</option>
                                 {{/each}}
@@ -109,11 +109,6 @@
         </div>
         </form>
     </div>
-    </div>
-
-
-
-
 
     <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertBufet");
@@ -132,18 +127,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroComidaBuffet/insertarBuffet")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputNombre").value == "" || document.getElementById("inputPrecio").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroComidaBuffet/insertarBuffet")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

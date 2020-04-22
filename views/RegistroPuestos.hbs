@@ -38,7 +38,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/escritoriopuesto.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombrePuesto" name="inputNombrePuesto" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="form-group  ">
                             <input id="inputInternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
@@ -58,13 +58,13 @@
                         </div>
                         <div class="col-md-4 mb-3 d-flex">
                             <input id="adentro" name="adentro" type="text" class="form-control" placeholder="Opcion"
-                                readonly value="">
+                                value="" required>
                             <input id="afuera" name="afuera" type="text" class="form-control" placeholder="Opcion"
-                                readonly value="">
+                                value="" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectRoles" name="inputSelectRoles">
-                                <option selected>Rol en el Restaurante</option>
+                            <select class="custom-select" id="inputSelectRoles" name="inputSelectRoles" required>
+                                <option value="">Rol en el Restaurante</option>
                                 {{#each rolPuesto}}
                                 <option value="{{codRol}}">{{nomRol}}</option>
                                 {{/each}}
@@ -118,20 +118,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroPuestos/insertarPuestos")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputNombrePuesto").value == "" || document.getElementById("adentro").value == ""
-                || document.getElementById("afuera").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroPuestos/insertarPuestos")
-                btnInsertar.setAttribute("type", "submit");
-                window.location.href = "/Funcionalidades";
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

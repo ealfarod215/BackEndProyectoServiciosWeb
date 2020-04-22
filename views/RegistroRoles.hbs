@@ -38,22 +38,21 @@
                 <img style="width: 80%; height: 60%;" src="/images/estufa.svg" alt="">
             </div>
             <div id="contenedorForm" class=" d-flex">
-                <form class="form-inline d-flex">
+                <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                     <div id="BmenuUno" class="container border">
                         <div class="displayGrid ">
                             <div class="">
                                 <label>Información de los Roles</label>
                             </div>
+
                             <div class="col-md-4 mb-3">
-                                <input id="inputCodRol" type="text" class="form-control" placeholder="Código Rol">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <input id="inputNombreRol" type="text" class="form-control" placeholder="Nombre">
+                                <input id="inputNombreRol" type="text" class="form-control" placeholder="Nombre"
+                                    required>
                             </div>
 
                             <div class="col-md-4 mb-3">
-                                <textarea id="inputDescripcionRol" class="form-control" placeholder="Descripción"
-                                    aria-label="With textarea"></textarea>
+                                <textarea id="inputDescripcionRol" type="text" class="form-control"
+                                    placeholder="Descripción" aria-label="With textarea" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -74,6 +73,7 @@
     </div>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

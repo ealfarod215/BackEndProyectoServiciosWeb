@@ -14,7 +14,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/1a7b3b1445.js" crossorigin="anonymous"></script>
-    <title>Lista de Bebidas Heladas</title>
+    <title>Lista de Bebidas Gaseosas</title>
 </head>
 
 <body>
@@ -88,62 +88,58 @@
                     </a>
                 </div>
             </div>
-            <div id="bodyListSection">
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBG" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each Bebidas}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>BE-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{precioUnitario}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
+            <div id="bodyListSection" class="overflow-auto">
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each Bebidas}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>BE-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{precioUnitario}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
-    </div>
-    <script>
-        var formulario = document.getElementById("frmBufete");
-        var btnEliminar = document.getElementById("btnEliminar");
 
-        function limpiarInputs() {
-            document.getElementById("inputCodBH").value = "";
-            document.getElementById("inputNomBH").value = "";
-            alert("Cajas de Texto limpias.");
-        }
+        <script>
+            var formulario = document.getElementById("frmBufete");
+            var btnEliminar = document.getElementById("btnEliminar");
 
-        function llamadoEliminarFunction() {
-
-
-            if (document.getElementById("inputCodBH").value == "" || document.getElementById("inputNomBH").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaBebidasGaseosas/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
+            function limpiarInputs() {
+                document.getElementById("inputCodBH").value = "";
+                document.getElementById("inputNomBH").value = "";
+                alert("Cajas de Texto limpias.");
             }
-        }
+
+            function llamadoEliminarFunction() {
 
 
-    </script>
+                if (document.getElementById("inputCodBH").value == "" || document.getElementById("inputNomBH").value == "") {
+                    alert("Debe llenar toda la informacion!!!");
+                } else {
+                    btnEliminar.setAttribute("formaction", "../ListaBebidasGaseosas/eliminarRestRegistro")
+                    btnEliminar.setAttribute("type", "submit");
+
+                }
+            }
+
+
+        </script>
 </body>
 
 </html>

@@ -37,7 +37,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/soda.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -45,11 +45,11 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombreBebida" name="inputNombreBebida" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                                <option selected>Marca</option>
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                                <option value="">Marca</option>
                                 {{#each marca}}
                                 <option value="{{codMarca}}">{{nomMarca}}</option>
 
@@ -57,9 +57,9 @@
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad">
-                                <option selected>Nacionalidad</option>
-                                {{nacionalidad}}
+                            <select class="custom-select" id="inputSelectNacionalidad" name="inputSelectNacionalidad"
+                                required>
+                                <option value="">Nacionalidad</option>
                                 {{#each nacionalidad}}
                                 <option value="{{codPais}}">{{nomPais}}</option>
 
@@ -67,13 +67,12 @@
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputPrecioBebida" name="inputPrecioBebida" type="text" class="form-control"
-                                placeholder="Precio">
+                            <input id="inputPrecioBebida" name="inputPrecioBebida" type="number" class="form-control"
+                                placeholder="Precio" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                <option selected>Restaurante</option>
-                                {{restaurante}}
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                <option value="">Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
 
@@ -81,12 +80,12 @@
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputCantidadBebida" name="inputCantidadBebida" type="text" class="form-control"
-                                placeholder="Cantidad">
+                            <input id="inputCantidadBebida" name="inputCantidadBebida" type="number"
+                                class="form-control" placeholder="Cantidad" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                                placeholder="Descripción" aria-label="With textarea" type="text" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -136,19 +135,16 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroBebidasGaseosas/insertarBebidaGaseosa")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputNombreBebida").value == "" || document.getElementById("inputCantidadBebida").value == ""
-                || document.getElementById("inputPrecioBebida").value == "" || document.getElementById("inputDescripcion").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroBebidasGaseosas/insertarBebidaGaseosa")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
+
 </body>
 
 </html>

@@ -32,21 +32,21 @@
             {{messages.exitoRegistro}}
         </h1>
     </div>
-    <div>
+    <div class="container">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/escobaLimpieza.svg" alt="">
             </div>
-            <form class="form-inline d-flex   height: 70%;" method="post" action="">
-                <div id="BmenuUno" class="container border">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
+                <div id="BmenuUno" class="container ">
                     <div class="displayGrid ">
                         <div class="">
                             <label class="smd-9 mb-4">Información de los Artículos</label>
                         </div>
 
-                        <div class="col-md-6 mb-3">
-                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                <option selected>Restaurante</option>
+                        <div class="col-md-9 mb-3">
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                <option value="">Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
                                 {{/each}}
@@ -54,11 +54,11 @@
                         </div>
                         <div class="col-md-9 mb-3">
                             <input id="inputArticuloLyH" name="inputArticuloLyH" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
-                        <div class="col-md-7 mb-3">
-                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                                <option selected>Marca</option>
+                        <div class="col-md-9 mb-3">
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                                <option value="">Marca</option>
                                 {{#each marca}}
                                 <option value="{{codMarca}}">{{nomMarca}}</option>
                                 {{/each}}
@@ -66,32 +66,32 @@
                         </div>
                         <div class="col-md-9 mb-3">
 
-                            <input id="inputCantidad" name="inputCantidad" type="text" class="form-control "
-                                placeholder="Cantidad">
+                            <input id="inputCantidad" name="inputCantidad" type="number" class="form-control "
+                                placeholder="Cantidad" required>
                         </div>
-                        <div class="col-md-8 mb-3">
-                            <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                        <div class="col-md-9 mb-3">
+                            <textarea id="inputDescripcion" type="text" name="inputDescripcion" class="form-control"
+                                placeholder="Descripción" aria-label="With textarea" required></textarea>
                         </div>
-
                     </div>
                 </div>
                 <div id="BmenuDos">
-                    <div class="col-md-8 mb-3">
-                        <select class="custom-select" id="inputSelectTipo" name="inputSelectTipo">
-                            <option selected>Tipo</option>
+                    <div class="col-md-9 mb-3">
+                        <select class="custom-select" id="inputSelectTipo" name="inputSelectTipo" required>
+                            <option value="">Tipo</option>
                             {{#each tipoLimHig}}
                             <option value="{{codTipLim}}">{{nomTipLim}}</option>
                             {{/each}}
                         </select>
                     </div>
-                    <div class="col-md-8 mb-3">
-                        <input id="inputCanMedida" name="inputCanMedida" type="text" class="form-control"
-                            placeholder="Cantidad de Medida">
+                    <div class="col-md-9 mb-3">
+                        <input id="inputCanMedida" name="inputCanMedida" type="number" class="form-control"
+                            placeholder="Cantidad de Medida" required>
                     </div>
-                    <div class="col-md-8 mb-3">
-                        <select class="custom-select" id="inputSelectUnidadDeMedida" name="inputSelectUnidadDeMedida">
-                            <option selected>Unidad de Medida</option>
+                    <div class="col-md-9 mb-3">
+                        <select class="custom-select" id="inputSelectUnidadDeMedida" name="inputSelectUnidadDeMedida"
+                            required>
+                            <option value="">Unidad de Medida</option>
                             {{#each unidadMedida}}
                             <option value="{{codUM}}">{{unidad}}</option>
                             {{/each}}
@@ -105,9 +105,9 @@
                         <label for="">No</label>
 
                     </div>
-                    <div class="col-md-4 mb-3 d-flex">
+                    <div class="col-md-9 mb-3 d-flex">
                         <input id="adentro" name="adentro" type="text" class="form-control" placeholder="Es liquido?"
-                            disabled="true">
+                            required>
 
                     </div>
                 </div>
@@ -166,20 +166,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputArticuloLyH").value == "" || document.getElementById("inputCantidad").value == ""
-                || document.getElementById("inputCanMedida").value == "" || document.getElementById("inputDescripcion").value == ""
-                || document.getElementById("adentro").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroLimpiezaeHigiene/insertarLyH")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroLimpiezaeHigiene/insertarLyH")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

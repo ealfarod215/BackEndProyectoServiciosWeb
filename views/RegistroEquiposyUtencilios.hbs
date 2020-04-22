@@ -38,7 +38,7 @@
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/cubiertos.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -46,8 +46,8 @@
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                <option selected>Restaurante</option>
+                            <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                <option value="">Restaurante</option>
                                 {{#each restaurante}}
                                 <option value="{{codRes}}">{{nomRes}}</option>
                                 {{/each}}
@@ -55,11 +55,11 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input type="text" class="form-control" placeholder="Nombre" id="inputNomEyU"
-                                name="inputNomEyU">
+                                name="inputNomEyU" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                                <option selected>Marca</option>
+                            <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                                <option value="">Marca</option>
                                 {{#each marca}}
                                 <option value="{{codMarca}}">{{nomMarca}}</option>
                                 {{/each}}
@@ -67,12 +67,12 @@
                         </div>
                         <div class="col-md-9 mb-3">
 
-                            <input id="inputCantidadEyU" name="inputCantidadEyU" type="text" class="form-control "
-                                placeholder="Cantidad">
+                            <input id="inputCantidadEyU" name="inputCantidadEyU" type="number" class="form-control "
+                                placeholder="Cantidad" required>
                         </div>
                         <div class="col-md-8 mb-3">
                             <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                placeholder="Descripción" aria-label="With textarea"></textarea>
+                                placeholder="Descripción" type="text" aria-label="With textarea" required></textarea>
                         </div>
 
                     </div>
@@ -124,19 +124,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputNomEyU").value == "" || document.getElementById("inputCantidadEyU").value == ""
-                || document.getElementById("inputDescripcion").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroEquiposyUtencilios/insertarEyU")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroEquiposyUtencilios/insertarEyU")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>
