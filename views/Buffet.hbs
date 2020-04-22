@@ -39,9 +39,9 @@
                                 style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <a href="/Especialidades"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                    src="/images/error.svg" alt=""></button></a>
-                        <a href="/RegistroComidaBuffet">
+                        <a href="/Especialidades"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button></a>
+                        <a href="/RegistroComidaBuffet/listarInfoDropMenus">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -91,11 +91,12 @@
             <div id="bodyListSection">
 
                 <div id="listViewComidaBufet" class="border">
-                    <div id="mostrarContenidoLR">
+                    <div id="mostrarContenidoLR" class="overflow-auto">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
                                     <th>Codígo</th>
+                                    <th>Consecutivo</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
                                     <th>Tipo</th>
@@ -106,6 +107,7 @@
                                 {{#each recordset}}
                                 <tr>
                                     <td>{{codigo}}</td>
+                                    <td>BUF-{{consecutivo}}</td>
                                     <td>{{nombre}}</td>
                                     <td>{{precio}}</td>
                                     <td>{{tipo}}</td>
@@ -115,8 +117,9 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
 

@@ -10,11 +10,13 @@ router.post('/insertarRestaurante', function (req, res, next) {
     var estado = req.body.inpEstadoRes;
 
     console.log(nombre);
-    db.query("EXEC sp_insertarRestaurante @nombre ='"+nombre+"', @especialidad = '"+especialidad+"', @direccion = '"+direccion+"', @telefono = '"+telefono+"', @estado = '"+estado+"'", function (error, recordset) {
+    db.query("EXEC sp_insertarRestaurante @nombre ='" + nombre + "', @especialidad = '" + especialidad + "', @direccion = '" + direccion + "', @telefono = '" + telefono + "', @estado = '" + estado + "'", function (error, recordset) {
         if (error) {
             console.log("wrong");
-            return;
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
+            res.render('RestaurantesRegistro');
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.render('RestaurantesRegistro');
         }
     });

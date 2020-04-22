@@ -25,55 +25,55 @@
         <div id="RSectionCajas" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize d-flex border">
-                <div class="marginL">
-                         <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaCajas/listarAllCajas"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
+                    <div class="marginL">
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaCajas/listarAllCajas">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
                         <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos">
-                            <img style="width: 2.5rem; height: 2.5rem;"  src="/images/escoba.svg" alt=""></button>
-                    
+                            <img style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
+
                     </div>
                     <div class="marginL">
-                       <a href="/VentanaSeguridad"><button class="marginIconos">
-                           <img style="width: 2.5rem; height: 2.5rem;"  src="/images/error.svg" alt=""></button>
-                    </a>
+                        <a href="/VentanaSeguridad"><button class="marginIconos">
+                                <img style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
                     </div>
                 </div>
                 <div id="littleForm">
                     <form id="frmCajas" method="post" action="/ListaCajas/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex MAXWandH">
-                                <div class="marginIconos">
-                                     <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodRegistro"
-                                           name="inputCodRegistro" placeholder="Codigo del Registro">
-                                    </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3">
+                                    <input type="text" class="form-control" id="inputCodRegistro"
+                                        name="inputCodRegistro" placeholder="Codigo del Registro">
                                 </div>
-                                <div class="marginIconos">
-                                     <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputNomRestaurante"
-                                            name="inputNomRestaurante" placeholder="Nombre del Restaurante">
-                                    </div>
+                            </div>
+                            <div class="marginIconos">
+                                <div class="input-group input-group-sm mb-3  ">
+                                    <input type="text" class="form-control" id="inputNomRestaurante"
+                                        name="inputNomRestaurante" placeholder="Nombre del Restaurante">
                                 </div>
-                               <div class="displayGrid">
+                            </div>
+                            <div class="displayGrid">
 
                                 <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
-                              </div>
+                            </div>
                         </div>
 
                     </form>
                 </div>
 
             </div>
-            <div id="bodyListSection" class="overflow-auto">
+            <div id="bodyListSection">
                 <div id="listViewCajas" class="border">
-                    <div id="mostrarContenidoCajas">
-                         <table class="table table-hover" style="width:100%; height:auto;">
+                    <div id="mostrarContenidoCajas" class="overflow-auto">
+                        <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -100,9 +100,11 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -120,7 +122,7 @@
 
 
     </script>
-  
+
 </body>
 
 </html>

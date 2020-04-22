@@ -17,18 +17,18 @@
     <title>Lista de Clientes</title>
 </head>
 
-<body class="container-fluid">
+<body>
 
-    <div id="SeccionPrincipalBC" class="container-fluid d-flex border mw-100">
+    <div id="SeccionPrincipalBC" class="container d-flex border">
 
         <div id="LSectionBC" class="">
             <img class="LogoBC " src="/images/hombre.svg">
         </div>
         <div id="RSectionBC" class="border">
             <div id="headerListSection" class="d-flex border">
-                <div class="displayGrid headerSideSize">
 
-                    <div class="marginL">
+                <div id="littleForm" class="d-flex ">
+                    <div class="marginL d-block">
                         <!--llama al get para recargar la informacion de la tabla-->
                         <a href="/ListaClientes/listarAllClientes">
                             <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
@@ -43,75 +43,32 @@
                         </a>
 
                     </div>
-
-                </div>
-                <div id="littleForm">
                     <form id="frmClientes" method="post" action="/ListaClientes/filtrarLista"
                         class="form-inline container displayGrid headerMidleSize">
-                        <div class="d-flex headerMidleSize">
-                            <div class="marginIconos">
-                                <div class="form-group  ">
-                                    <label for="" class="">Codigo del Cliente</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodC" name="inputCodC"
-                                        placeholder="Codigo del Cliente">
-                                </div>
-                            </div>
-                            <div class="marginIconos">
-                                <div class="form-group  ">
-                                    <label for="" class="">Nombre del Cliente</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomC" name="inputNomC"
-                                        placeholder="Nombre del Cliente">
-                                </div>
-                                <div class="form-group  ">
-                                    <label for="" class="">Nombre del Restaurante</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomRe" name="inputNomRe"
-                                        placeholder="Digite el Nombre">
-                                </div>
-                            </div>
-                            <div class="marginIconos" style="padding-right: 2rem;">
-                                <div class="form-group  ">
-                                    <label for="" class="">Rango de Fechas</label>
-
-                                    <div class="form-group  ">
-                                        Inicio: <input type="date" id="startDate" name="startDate" width="276" />
-                                    </div>
-                                    <div class="form-group  ">
-                                        Final: <input type="date" id="endDate" name="endDate" width="276" />
-                                    </div>
-                                </div>
-                                <div class="form-group  ">
-                                    <label for="" class="">Rango de Fechas en Reservaciones</label>
-
-                                    <div class="form-group  ">
-                                        Inicio: <input type="date" id="startDateRe" name="startDateRe" width="276" />
-                                    </div>
-                                    <div class="form-group  ">
-                                        Final: <input type="date" id="endDateRe" name="endDateRe" width="276" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container-fluid">
+                        <div class="d-flex headerMidleSize ">
+                            <div class="marginIconos d-flex">
                                 <div class="marginIconos">
-                                    <div class="form-group  ">
-                                        <input type="radio" value="" id="radioReser" name="radioReser">
-                                        <label for="">Reservación</label>
-                                    </div>
-                                    <div class="form-group  ">
-                                        <input type="radio" value="" id="radioBarra" name="radioBarra">
-                                        <label for="">Barra</label>
+                                    <div class="input-group input-group-sm mb-3   ">
+                                        <input type="text" class="form-control" id="inputCodC" name="inputCodC"
+                                            placeholder="Codigo del Cliente">
                                     </div>
                                 </div>
-                            </div>
+                                <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3   ">
+                                        <input type="text" class="form-control" id="inputNomC" name="inputNomC"
+                                            placeholder="Nombre del Cliente">
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3   ">
+                                        <input type="text" class="form-control" id="inputNomRe" name="inputNomRe"
+                                            placeholder="Nombre del Restaurante">
+                                    </div>
+                                </div>
 
+                            </div>
 
                             <div class="displayGrid">
-
 
                                 <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
@@ -123,16 +80,15 @@
                                     class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                         src="/images/menos.svg" alt=""></button>
 
-
-
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <div id="bodyListSection" class="overflow-auto">
+
+            <div id="bodyListSection">
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC">
+                    <div id="mostrarContenidoBC" class="overflow-auto">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
@@ -164,11 +120,14 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
-
             </div>
+
+
         </div>
     </div>
 

@@ -57,10 +57,10 @@
                                         <select class="custom-select" id="inputSelectNacionalidad"
                                             name="inputSelectNacionalidad">
                                             <option selected>Nacionalidad</option>
-                                            <option value="1">Costa Rica</option>
-                                            <option value="2">China</option>
-                                            <option value="3">Venezuela</option>
-                                            <option value="4">Italia</option>
+                                            {{#each nacionalidad}}
+                                            <option value="{{codPais}}">{{nomPais}}</option>
+
+                                            {{/each}}
                                         </select>
                                     </div>
                                 </div>
@@ -70,9 +70,10 @@
                                     <div class="input-group input-group-sm mb-3  ">
                                         <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
                                             <option selected>Restaurante</option>
-                                            <option value="1">Piccola Stella</option>
-                                            <option value="2">Turin Anivo</option>
-                                            <option value="3">Notte di Fuoco</option>
+                                            {{#each restaurante}}
+                                            <option value="{{codRes}}">{{nomRes}}</option>
+
+                                            {{/each}}
                                         </select>
                                     </div>
                                 </div>
@@ -113,7 +114,7 @@
                                 style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </di>
                     <di class="displayGrid">
-                        <a href="/RegistroVinos">
+                        <a href="/RegistroVinos/listarInfoDropMenus">
                             <button type="button" class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -133,11 +134,12 @@
         <div id="bodyListSection">
 
             <div id="listViewVinos" class="border">
-                <div id="mostrarContenidoVinos">
+                <div id="mostrarContenidoVinos" class="overflow-auto">
                     <table class="table table-hover" style="width:100%; height:auto;">
                         <thead>
                             <tr>
                                 <th>Codígo</th>
+                                <th>Consecutivo</th>
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Nacionalidad</th>
@@ -145,9 +147,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each recordset}}
+                            {{#each Bebidas}}
                             <tr>
                                 <td>{{codigo}} </td>
+                                <td>BE-{{consecutivo}}</td>
                                 <td>{{nombre}}</td>
                                 <td>{{precioBotella}}</td>
                                 <td>{{pais}}</td>
@@ -157,8 +160,8 @@
                         </tbody>
                     </table>
 
-                    <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                    <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                        {{mensaje}}</h1>
                 </div>
             </div>
         </div>
@@ -171,9 +174,9 @@
             document.getElementById("inputCodVino").value = "";
             document.getElementById("inputNomVino").value = "";
             document.getElementById("inputYearVino").value = "";
-           document.getElementById("inputSelectNacionalidad").value = "Nacionalidad";
-           document.getElementById("inputNombreRest").value = "Restaurante";
-           document.getElementById("inputPrecioVino").value = "";
+            document.getElementById("inputSelectNacionalidad").value = "Nacionalidad";
+            document.getElementById("inputNombreRest").value = "Restaurante";
+            document.getElementById("inputPrecioVino").value = "";
 
             alert("Cajas de Texto limpias.");
         }

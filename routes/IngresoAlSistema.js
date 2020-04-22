@@ -17,6 +17,7 @@ router.post('/confirmarCredenciales', function (req, res, next) {
         } else {
             console.log("permisos denegados");
             console.log(recordset);
+            req.flash('errorRegistro', 'Acceso denegado, Credenciales Invalidas !!!');
             res.render('IngresoAlSistema', recordset);
         }
     });

@@ -2,6 +2,16 @@ var express = require('express');
 var router = express.Router();
 var db = require('./DBconnection');
 
+var select1 = "select codigo as codRes, nombre as nomRes from tbRestaurante";
+
+
+router.get('/listarInfoDropMenus', function (req, res, next) {
+    db.query(select1, function (err, rows) {
+        if (err) throw err;
+        res.render('RegistroBebidasHeladas', { restaurante: rows.recordset });
+
+    });
+});
 
 router.post('/insertarBebidaHelada', function (req, res, next) {
 
@@ -15,9 +25,11 @@ router.post('/insertarBebidaHelada', function (req, res, next) {
     db.query("EXEC sp_insertarBebidas @nombre='" + nombre + "',@precioUnitario='" + precio + "',@restaurante='" + nomRestaurante + "',@ingredientes='" + ingredientes + "',@descripcion='" + descripcion + "',@foto=' ',@marca=1, @nacionalidad=1, @cantidad=1, @precioBotella=0, @yearCosecha=0, @tipo ='helada'", function (error, recordset) {
         if (error) {
             console.log("wrong " + nombre + " " + ingredientes + " " + precio + " " + nomRestaurante + " " + descripcion);
-            return;
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
+            res.redirect('/RegistroBebidasHeladas/listarInfoDropMenus');
         } else {
-            res.render('RegistroBebidasHeladas');
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
+            res.redirect('/RegistroBebidasHeladas/listarInfoDropMenus');
         }
     });
 

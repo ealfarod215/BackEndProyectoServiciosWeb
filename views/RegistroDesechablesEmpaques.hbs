@@ -22,47 +22,55 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro Desechables y Empaques</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/paquete.svg" alt="">
             </div>
             <div id="contenedorGDyE" class="border">
-                <form class="form-inline d-flex " method="post" action="">
+                <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                     <div id="BmenuUno" class="container ">
                         <div class="displayGrid ">
                             <div class="">
                                 <label>Información de los Empaques</label>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                    <option selected>Restaurante</option>
-                                    <option value="1">Piccola Stella</option>
-                                    <option value="2">Turin Anivo</option>
-                                    <option value="3">Notte di Fuoco</option>
+                                <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                    <option value="">Restaurante</option>
+                                    {{#each restaurante}}
+                                    <option value="{{codRes}}">{{nomRes}}</option>
+                                    {{/each}}
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <input id="inputNombreDyE" name="inputNombreDyE" type="text" class="form-control"
-                                    placeholder="Nombre">
+                                    placeholder="Nombre" required>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca">
-                                    <option selected>Marca</option>
-                                    <option value="1">Scott Brite</option>
-                                    <option value="3">LG</option>
-                                    <option value="4">Samsung</option>
-                                    <option value="5">Numar</option>
-                                    <option value="10">Roma</option>
+                                <select class="custom-select" id="inputSelectMarca" name="inputSelectMarca" required>
+                                    <option value="">Marca</option>
+                                    {{#each marca}}
+                                    <option value="{{codMarca}}">{{nomMarca}}</option>
+                                    {{/each}}
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <input id="inputCantidadDyE" name="inputCantidadDyE" type="text" class="form-control"
-                                    placeholder="Cantidad">
+                                <input id="inputCantidadDyE" name="inputCantidadDyE" type="number" class="form-control"
+                                    placeholder="Cantidad" required>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <textarea id="inputDescripcion" name="inputDescripcion" class="form-control"
-                                    placeholder="Descripción" aria-label="With textarea"></textarea>
+                                <textarea id="inputDescripcion" type="text" name="inputDescripcion" class="form-control"
+                                    placeholder="Descripción" aria-label="With textarea" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -108,17 +116,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputNombreDyE").value == "" || document.getElementById("inputCantidadDyE").value == ""
-                || document.getElementById("inputDescripcion").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroDesechablesEmpaques/insertarDyE")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroDesechablesEmpaques/insertarDyE")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

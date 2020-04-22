@@ -25,7 +25,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarMarcas @codigo = '"+codigo+"', @nombre = '"+nombre+"'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaMarcas', {mensaje:'Error al Filtrar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaMarcas', recordset);

@@ -1,16 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var db = require('./DBconnection');
-
+var select1 = "select codigo as codRes, nombre as nomRes from tbRestaurante";
+var select2 = "EXEC sp_allBebidasGaseosas";
 router.get('/listarAllBebidasGaseosas', function (req, res, next) {
-    db.query('EXEC sp_allBebidasGaseosas', function (error, recordset) {
-        if (error) {
-            console.log('error en el listado');
-            return;
-        } else {
-            console.log(recordset.recordset);
-            res.render('ListaBebidasGaseosas', recordset);
-        }
+
+    db.query(select1, function (err, rows1) {
+        if (err) throw err;
+        db.query(select2, function (err, rows) {
+            if (err) throw err;
+            console.log(rows);
+            console.log(rows1);
+            res.render('ListaBebidasGaseosas', { Bebidas: rows.recordset, restaurante: rows1.recordset });
+        });
     });
 });
 
@@ -21,16 +23,16 @@ router.post('/filtrarLista', function (req, res, next) {
 
     if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaBebidasGaseosas', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaBebidasGaseosas', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
-        db.query("EXEC sp_listarBebidasGaseosas @codigo = '"+codigo+"', @nombre = '"+nombre+"', @restaurante = '"+codigoRest+"'", function (error, recordset) {
+        db.query("EXEC sp_listarBebidasGaseosas @codigo = '" + codigo + "', @nombre = '" + nombre + "', @restaurante = '" + codigoRest + "'", function (error, rows) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaBebidasGaseosas', { mensaje: 'Error al Filtrar la Información!!!' });
             } else {
-                console.log(recordset.recordset);
-                res.render('ListaBebidasGaseosas', recordset);
+                console.log(rows.recordset);
+                res.render('ListaBebidasGaseosas', {Bebidas: rows.recordset});
             }
         });
     }
@@ -43,16 +45,17 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
 
     if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaBebidasGaseosas', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaBebidasGaseosas', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
         db.query("EXEC sp_borrarBebidasGaseosas @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaBebidasGaseosas', { mensaje: 'Error al Eliminar la Información!!!' });
+
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaBebidasGaseosas', {mensaje:'Se elimino el Restaurante de manera Exitosa'});
+                res.render('ListaBebidasGaseosas', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
             }
         });
     }

@@ -20,7 +20,7 @@
 <body>
 
     <h1 class="text-center align-content-center">Lista de Proveedores</h1>
-    <div id="SeccionPrincipalBC" class=" d-flex ">
+    <div id="SeccionPrincipalBC" class="container d-flex ">
 
         <div id="LSectionBC" class="">
             <img class="LogoBC img-fluid" alt="Responsive image" src="/images/puestos.svg" alt="">
@@ -96,7 +96,7 @@
             <div id="bodyListSection">
 
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC">
+                    <div id="mostrarContenidoBC" class="overflow-auto">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
@@ -128,8 +128,9 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
 

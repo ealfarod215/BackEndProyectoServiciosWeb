@@ -97,11 +97,12 @@
             <div id="bodyListSection">
 
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoLR">
+                    <div id="mostrarContenidoLR" class="overflow-auto">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
                                     <th>Codigo</th>
+                                    <th>Consecutivo</th>
                                     <th>Nombre</th>
                                     <th>Direccion</th>
                                     <th>Especialidad</th>
@@ -112,6 +113,7 @@
                                 {{#each recordset}}
                                 <tr>
                                     <td>{{codigo}} </td>
+                                    <td>RES-{{consecutivo}}</td>
                                     <td>{{nombre}}</td>
                                     <td>{{direccion}}</td>
                                     <td>{{especialidad}}</td>
@@ -121,8 +123,9 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
 

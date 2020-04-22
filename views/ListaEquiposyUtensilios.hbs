@@ -38,7 +38,7 @@
                                 style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL d-flex">
-                        <a href="/RegistroEquiposyUtencilios">
+                        <a href="/RegistroEquiposyUtencilios/listarInfoDropMenus">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -94,7 +94,7 @@
             <div id="bodyListSection">
 
                 <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC">
+                    <div id="mostrarContenidoBC" class="overflow-auto">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
@@ -118,8 +118,9 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
 

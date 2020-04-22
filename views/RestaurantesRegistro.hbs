@@ -22,13 +22,25 @@
 
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Restaurante</h1>
+
+    </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
     </div>
 
     <div id="contenedorLogin" class="container border d-flex ">
         <div id="imagenLogo">
             <img style="width: 80%; height: 60%;" src="/images/Restaurante.jpg" alt="">
         </div>
-        <form id="frmRegistroRestaurante" class="form-inline container displayGrid " method="post" action="">
+        <form id="frmRegistroRestaurante" class="form-inline container displayGrid needs-validation" method="post"
+            action="" novalidate>
             <div class="container border">
                 <div class="displayGrid ">
 
@@ -36,27 +48,27 @@
 
                     <div class="col-md-4 mb-3">
                         <input id="nombreRestaurante" name="nombreRestaurante" type="text" class="form-control"
-                            placeholder="Nombre del Restaurante">
+                            placeholder="Nombre del Restaurante" required>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <input id="especialidadRestaurante" name="especialidadRestaurante" type="text"
-                            class="form-control" placeholder="Especialidad">
+                            class="form-control" placeholder="Especialidad" required>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <input id="direccionRestaurante" name="direccionRestaurante" type="text" class="form-control"
-                            placeholder="Dirección">
+                            placeholder="Dirección" required>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <input id="telefonoRestaurante" name="telefonoRestaurante" type="text" class="form-control"
-                            placeholder="Teléfono">
+                        <input id="telefonoRestaurante" name="telefonoRestaurante" type="number" class="form-control"
+                            placeholder="Teléfono" required>
                     </div>
                     <div class="d-flex">
                         <input id="cbxActivoRestaurante" name="cbxActivoRestaurante" type="checkbox" class="">
                         <input id="inpEstadoRes" name="inpEstadoRes" type="text" class="form-control"
-                            placeholder="Estado" disabled="true" value="Inactivo">
+                            placeholder="Estado" value="Inactivo" required>
                     </div>
                     <div id="botonesLogin" class="d-flex">
                         <!--llamar funcion para limpiar textbox-->
@@ -74,11 +86,7 @@
                     </div>
                 </div>
 
-
             </div>
-
-
-
 
         </form>
     </div>
@@ -109,18 +117,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RestaurantesRegistro/insertarRestaurante")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("nombreRestaurante").value == "" || document.getElementById("especialidadRestaurante").value == ""
-                || document.getElementById("direccionRestaurante").value == "" || document.getElementById("telefonoRestaurante").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RestaurantesRegistro/insertarRestaurante")
-                btnInsertar.setAttribute("type", "submit");
-            }
         }
 
     </script>
 
+    <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

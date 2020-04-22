@@ -28,43 +28,43 @@
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
                     <div class="marginL">
-                       <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaConsecutivos/listarAllConsecutivos"> 
-                        <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/recargar.svg" alt=""></button></a>
+                        <!--llama al get para recargar la informacion de la tabla-->
+                        <a href="/ListaConsecutivos/listarAllConsecutivos">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button></a>
                         <!--boton que llama a la funcion limpiar-->
-                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/escoba.svg" alt=""></button>
+                        <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
+                                style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                       <a href="/VentanaSeguridad"><button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
-                    </a>
-                          <a href="/RegistroConsecutivos">
+                        <a href="/VentanaSeguridad"><button class="marginIconos"><img
+                                    style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
+                        </a>
+                        <a href="/RegistroConsecutivos">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
                     </div>
-                    </div>
+                </div>
                 <div id="littleForm">
                     <form id="frmConsecutivos" method="post" action="/ListaConsecutivos/filtrarLista"
-                      class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize">
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputCodConsecutivo"
-                                       name="inputCodConsecutivo" placeholder="Digite el Codigo">
+                                        name="inputCodConsecutivo" placeholder="Digite el Codigo">
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputDescripcionConsecutivo"
-                                        name="inputDescripcionConsecutivo" placeholder="Digite Descripcion">
+                                        name="inputDescripcionConsecutivo" placeholder="Digite Tipo">
                                 </div>
                             </div>
-                                <div class="displayGrid">
-                               
-                                   <!--llama al post para realizar busqueda-->
+                            <div class="displayGrid">
+
+                                <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
                                         style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
                                         alt=""></button>
@@ -104,14 +104,15 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <script>
+    <script>
         var formulario = document.getElementById("frmConsecutivos");
         var btnEliminar = document.getElementById("btnEliminar");
 

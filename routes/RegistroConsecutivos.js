@@ -4,8 +4,8 @@ var db = require('./DBconnection');
 
 
 router.post('/insertarConsecutivos', function (req, res, next) {
-    
-    var tipoConsecutivo= req.body.inputTipoConsecutivo;
+
+    var tipoConsecutivo = req.body.inputTipoConsecutivo;
     var valor = req.body.inputValorConsecutivo;
     var descripcion = req.body.inputDesConsecutivo;
     var poseePrefijo = req.body.inputPoseePrefijo;
@@ -15,8 +15,10 @@ router.post('/insertarConsecutivos', function (req, res, next) {
     db.query("exec sp_insertarConsecutivo @tipoConsecutivo='" + tipoConsecutivo + "',@valor='" + valor + "',@descripcion='" + descripcion + "',@poseePrefijo='" + poseePrefijo + "',@prefijo='" + prefijo + "'", function (error, recordset) {
         if (error) {
             console.log("wronginsert");
-            return;
+            req.flash('errorRegistro', 'Error al realizar el Registro!!!');
+            res.render('RegistroConsecutivos');
         } else {
+            req.flash('exitoRegistro', 'Exito al realizar el Registro!!!');
             res.render('RegistroConsecutivos');
         }
     });

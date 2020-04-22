@@ -22,33 +22,47 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Usuarios</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/usuario.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
-                
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
+
                 <div id="BmenuUno" class="border d-flex">
                     <div class="displayGrid ">
                         <div class="">
                             <label>Información del Usuario</label>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputNombreUsuario" name="inputNombreUsuario" type="text" class="form-control" placeholder="Nombre">
+                            <input id="inputNombreUsuario" name="inputNombreUsuario" type="text" class="form-control"
+                                placeholder="Nombre" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputApellidoUno" name="inputApellidoUno" type="text" class="form-control" placeholder="Primer Apellido">
+                            <input id="inputApellidoUno" name="inputApellidoUno" type="text" class="form-control"
+                                placeholder="Primer Apellido" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputApellidoDos" type="text" class="form-control"
-                                name="inputApellidoDos" placeholder="Segundo Apellido">
+                            <input id="inputApellidoDos" type="text" class="form-control" name="inputApellidoDos"
+                                placeholder="Segundo Apellido" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputTelFijo" name="inputTelFijo" type="text" class="form-control" placeholder="Telefono Fijo">
+                            <input id="inputTelFijo" name="inputTelFijo" type="number" class="form-control"
+                                placeholder="Telefono Fijo" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputTelCel" name="inputTelCel" type="text" class="form-control" placeholder="Telefono Celular">
+                            <input id="inputTelCel" name="inputTelCel" type="number" class="form-control"
+                                placeholder="Telefono Celular" required>
                         </div>
 
                     </div>
@@ -59,44 +73,42 @@
                             <label>Datos Tecnicos del Usuario</label>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputLogin" name="inputLogin" type="text" class="form-control" placeholder="Login">
+                            <input id="inputLogin" name="inputLogin" type="text" class="form-control"
+                                placeholder="Login" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input id="inputClave" name="inputClave" type="text" class="form-control" placeholder="Contraseña">
+                            <input id="inputClave" name="inputClave" type="text" class="form-control"
+                                placeholder="Contraseña" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputConfirmarClave" name="inputConfirmarClave" type="text" class="form-control"
-                                placeholder="Confirmar Contraseña">
+                                placeholder="Confirmar Contraseña" required>
                         </div>
-                       <!-- <div class="col-md-4 mb-3 d-flex">
-                            <input id="inputCambioClave" type="checkbox" class="form-control">
-                            <label for="">Cambio de Contraseña</label>
-                        </div>-->
+
                         <div class="d-block ">
                             <div><label for="">Privilegios</label></div>
                             <div class="d-flex ">
-                                <input id="inputprivilegios" name="inputprivilegios" 
-                                    type="hidden" class="form-control" >
+                                <input id="inputprivilegios" name="inputprivilegios" type="hidden" class="form-control" required>
                                 <div class="col-md-4 mb-3">
-                                    <input id="inputAdmSistema" name="inputAdmSistema" 
-                                    type="checkbox" class="form-control" >
+                                    <input id="inputAdmSistema" name="inputAdmSistema" type="checkbox"
+                                        class="form-control">
                                     <label for="">Administrador del Sistema</label>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <input id="inputAdmSeguridad" name="inputAdmSeguridad"
-                                    type="checkbox" class="form-control" >
+                                    <input id="inputAdmSeguridad" name="inputAdmSeguridad" type="checkbox"
+                                        class="form-control">
                                     <label for="">Administrador de Seguridad</label>
                                 </div>
                             </div>
                             <div class="d-flex ">
                                 <div class="col-md-4 mb-3">
-                                    <input id="inputAdmRestaurante" name="inputAdmRestaurante" 
-                                    type="checkbox" class="form-control">
+                                    <input id="inputAdmRestaurante" name="inputAdmRestaurante" type="checkbox"
+                                        class="form-control">
                                     <label for="">Administrador del Restaurante</label>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <input id="inputAdmCuentas" name="inputAdmCuentas"
-                                    type="checkbox" class="form-control" >
+                                    <input id="inputAdmCuentas" name="inputAdmCuentas" type="checkbox"
+                                        class="form-control">
                                     <label for="">Administrador de Cuentas</label>
                                 </div>
                             </div>
@@ -104,10 +116,10 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div id="botonesLogin" class="d-flex">
-                   <!--llamar funcion para limpiar textbox-->
+                    <!--llamar funcion para limpiar textbox-->
                     <button id="btnLimpiarRegistroInputs" type="button" class="btn" onclick="limpiarInputs()"><img
                             style="width: 3rem; height: 3rem;" src="/images/escoba.svg" alt=""></button>
 
@@ -125,45 +137,45 @@
         </div>
     </div>
 
-<script>
+    <script>
         var btnInsertar = document.getElementById("btnConfirmarInsertUsuarios");
-        var checkSistema= document.getElementById("inputAdmSistema");
-        var checkSeguridad= document.getElementById("inputAdmSeguridad");
-        var checkRestaurante= document.getElementById("inputAdmRestaurante");
-        var checkCuentas= document.getElementById("inputAdmCuentas");
+        var checkSistema = document.getElementById("inputAdmSistema");
+        var checkSeguridad = document.getElementById("inputAdmSeguridad");
+        var checkRestaurante = document.getElementById("inputAdmRestaurante");
+        var checkCuentas = document.getElementById("inputAdmCuentas");
         var inputConfirmarClave = document.getElementById("inputConfirmarClave");
-        var inputClave= document.getElementById("inputClave");
+        var inputClave = document.getElementById("inputClave");
 
- 
-      checkCuentas.addEventListener('click', () =>  {
-        document.getElementById("inputprivilegios").value = 1;
-        checkSistema.checked = false;
-        checkSeguridad.checked = false;
-        checkRestaurante.checked = false;
 
-        });
-        checkSistema.addEventListener('click', () =>  {
-        document.getElementById("inputprivilegios").value = 2;
-        checkSeguridad.checked = false;
-        checkRestaurante.checked = false;
-        checkCuentas.checked = false;
+        checkCuentas.addEventListener('click', () => {
+            document.getElementById("inputprivilegios").value = 1;
+            checkSistema.checked = false;
+            checkSeguridad.checked = false;
+            checkRestaurante.checked = false;
 
         });
-      checkSeguridad.addEventListener('click', () =>  {
-        document.getElementById("inputprivilegios").value = 3;
-        checkSistema.checked = false;
-        checkRestaurante.checked = false;
-        checkCuentas.checked = false;
+        checkSistema.addEventListener('click', () => {
+            document.getElementById("inputprivilegios").value = 2;
+            checkSeguridad.checked = false;
+            checkRestaurante.checked = false;
+            checkCuentas.checked = false;
 
         });
-      checkRestaurante.addEventListener('click', () =>  {
-        document.getElementById("inputprivilegios").value = 4;
-        checkSistema.checked = false;
-        checkSeguridad.checked = false;
-        checkCuentas.checked = false;
+        checkSeguridad.addEventListener('click', () => {
+            document.getElementById("inputprivilegios").value = 3;
+            checkSistema.checked = false;
+            checkRestaurante.checked = false;
+            checkCuentas.checked = false;
 
         });
-     
+        checkRestaurante.addEventListener('click', () => {
+            document.getElementById("inputprivilegios").value = 4;
+            checkSistema.checked = false;
+            checkSeguridad.checked = false;
+            checkCuentas.checked = false;
+
+        });
+
         function limpiarInputs() {
             document.getElementById("inputNombreUsuario").value = "";
             document.getElementById("inputApellidoUno").value = "";
@@ -182,13 +194,7 @@
 
         function llamadoInsertarFunction() {
 
-
-            if (document.getElementById("inputNombreUsuario").value == "" || document.getElementById("inputApellidoUno").value == ""
-                || document.getElementById("inputApellidoDos").value == "" || document.getElementById("inputTelFijo").value == ""
-                || document.getElementById("inputTelCel").value == "" || document.getElementById("inputLogin").value == ""
-                || document.getElementById("inputClave").value == "" || document.getElementById("inputConfirmarClave").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-                 } else if (inputClave.value != inputConfirmarClave.value){
+            if (inputClave.value != inputConfirmarClave.value) {
                 alert("Las contraseñas deben coincidir!!!");
             } else {
                 btnInsertar.setAttribute("formaction", "../RegistroUsuarios/insertarUsuarios")
@@ -197,6 +203,9 @@
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

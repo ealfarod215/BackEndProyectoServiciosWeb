@@ -23,12 +23,22 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Puestos</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div class="d-flex MAXWandH">
         <div id="contenedorLogin" class="container border d-flex ">
             <div id="imagenLogo">
                 <img style="width: 80%; height: 60%;" src="/images/escritoriopuesto.svg" alt="">
             </div>
-            <form class="form-inline d-flex " method="post" action="">
+            <form class="form-inline d-flex needs-validation" method="post" action="" novalidate>
                 <div id="BmenuUno" class="container border">
                     <div class="displayGrid ">
                         <div class="">
@@ -36,29 +46,28 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <input id="inputNombrePuesto" name="inputNombrePuesto" type="text" class="form-control"
-                                placeholder="Nombre">
+                                placeholder="Nombre" required>
                         </div>
                         <div class="form-group  ">
                             <input id="inputInternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
-                            <label for="">Interno al Restaurante</label>
+                            <label>Interno al Restaurante</label>
 
                             <input id="inputExternoAlRestaurante" name="inputInternoExterno" type="radio" value="">
-                            <label for="">Externo al Restaurante</label>
+                            <label>Externo al Restaurante</label>
 
                         </div>
                         <div class="col-md-4 mb-3 d-flex">
                             <input id="adentro" name="adentro" type="text" class="form-control" placeholder="Opcion"
-                                disabled="true">
+                                value="" required>
                             <input id="afuera" name="afuera" type="text" class="form-control" placeholder="Opcion"
-                                disabled="true">
+                                value="" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <select class="custom-select" id="inputSelectRoles" name="inputSelectRoles">
-                                <option selected>Rol en el Restaurante</option>
-                                <option value="1">Camarero</option>
-                                <option value="2">Chef Secundario</option>
-                                <option value="3">Camarero secundario</option>
-                                <option value="4">Conserje</option>
+                            <select class="custom-select" id="inputSelectRoles" name="inputSelectRoles" required>
+                                <option value="">Rol en el Restaurante</option>
+                                {{#each rolPuesto}}
+                                <option value="{{codRol}}">{{nomRol}}</option>
+                                {{/each}}
                             </select>
                         </div>
 
@@ -95,6 +104,7 @@
         fuera.addEventListener('click', () => {
             document.getElementById("adentro").value = "No";
             document.getElementById("afuera").value = "Si";
+
         });
 
         function limpiarInputs() {
@@ -108,18 +118,15 @@
 
         function llamadoInsertarFunction() {
 
+            btnInsertar.setAttribute("formaction", "../RegistroPuestos/insertarPuestos")
+            btnInsertar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputNombrePuesto").value == "" || document.getElementById("adentro").value == ""
-                || document.getElementById("afuera").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnInsertar.setAttribute("formaction", "../RegistroPuestos/insertarPuestos")
-                btnInsertar.setAttribute("type", "submit");
-                window.location.href = "/Funcionalidades";
-            }
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

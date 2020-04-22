@@ -1,24 +1,26 @@
 body {
     width : auto;
-    height: 1005px;
+    height: 1007px;
 }
-.MAXWandH{
-    width: 100%;
-    height: 100%;
-    align-items: center;
+
+.MAXWandH {
+    width          : 100%;
+    height         : 100%;
+    align-items    : center;
     justify-content: center;
 }
 
-.displayGrid{
+.displayGrid {
     display: grid;
 }
 
-.espacios{
-    margin-left: 2rem;
+.espacios {
+    margin-left : 2rem;
     margin-right: 2rem;
 }
 
-.espaciosDos{
-    margin-top: 5rem;
+.espaciosDos {
+    margin-top   : 5rem;
     margin-bottom: 5rem;
 }
+

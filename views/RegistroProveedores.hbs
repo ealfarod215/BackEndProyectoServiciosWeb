@@ -22,58 +22,70 @@
     <div class="container navbar-expand-xl">
         <h1 class="text-center align-content-center">Registro de Proveedores</h1>
     </div>
+    <div class="container errorR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.errorRegistro}}
+        </h1>
+    </div>
+    <div class="container exitoR" role="alert">
+        <h1 class="text-center align-content-center">
+            {{messages.exitoRegistro}}
+        </h1>
+    </div>
     <div id="SeccionPrincipalLR" class="container d-flex border">
         <div id="LSectionListaComidaBufet" class="">
             <img style="width: 80%; height: 60%;" class="LogoCEB" src="/images/proveedores.svg" alt="">
         </div>
-        <form action="" class="displayGrid MAXWandH" method="post" action="">
+        <form action="" class="needs-validation displayGrid MAXWandH" method="post" action="" novalidate>
 
             <div class="">
                 <label>Información del Proveedor</label>
             </div>
 
             <div class="col-md-12 mb-3">
-                <input id="inputCedula" name="inputCedula" type="text" class="form-control"
-                    placeholder="Cédula de Identidad">
+                <input id="inputCedula" name="inputCedula" type="number" class="form-control"
+                    placeholder="Cédula de Identidad" required>
             </div>
             <div class="col-md-12 mb-3">
-                <input id="inputFecha" name="inputFecha" type="date" class="form-control"
-                    placeholder="Fecha de Ingreso">
+                <input id="inputFecha" name="inputFecha" type="date" class="form-control" placeholder="Fecha de Ingreso"
+                    required>
             </div>
             <div class="col-md-12  mb-3">
                 <input id="inputNombre" name="inputNombre" type="text" class="form-control"
-                    placeholder="Nombre del Proveedor">
+                    placeholder="Nombre del Proveedor" required>
             </div>
             <div class="col-md-12  mb-3">
                 <input id="inputPrimerA" name="inputPrimerA" type="text" class="form-control"
-                    placeholder="Primer Apellido">
+                    placeholder="Primer Apellido" required>
             </div>
             <div class="col-md-12  mb-3">
                 <input id="inputSegundoA" name="inputSegundoA" type="text" class="form-control"
-                    placeholder="Segundo Apellido">
+                    placeholder="Segundo Apellido" required>
             </div>
             <div class="col-md-12  mb-3">
-                <input id="inputCorreo" name="inputCorreo" type="text" class="form-control"
-                    placeholder="Correo electrónico">
+                <input id="inputCorreo" name="inputCorreo" type="email" class="form-control"
+                    placeholder="Correo electrónico" required>
             </div>
             <div class="col-md-12  mb-3">
-                <textarea id="inputDireccion" name="inputDireccion" class="form-control" placeholder="Dirección"
-                    aria-label="With textarea"></textarea>
+                <textarea id="inputDireccion" name="inputDireccion" type="text" class="form-control"
+                    placeholder="Dirección" aria-label="With textarea" required></textarea>
             </div>
             <div class="">
                 <label for=""> Telefonos</label>
             </div>
 
             <div class="col-md-12  mb-3">
-                <input id="inputOficina" name="inputOficina" type="text" class="form-control" placeholder="Oficina">
+                <input id="inputOficina" name="inputOficina" type="number" class="form-control" placeholder="Oficina"
+                    required>
 
             </div>
             <div class="col-md-12  mb-3">
-                <input id="inputFax" name="inputFax" type="text" class="form-control" placeholder="Fax">
+                <input id="inputFax" name="inputFax" type="number" class="form-control" placeholder="Fax" required>
 
             </div>
             <div class="col-md-12  mb-3">
-                <input id="inputCelular" name="inputCelular" type="text" class="form-control" placeholder="Celular">
+                <input id="inputCelular" name="inputCelular" type="number" class="form-control" placeholder="Celular"
+                    required>
 
             </div>
 
@@ -98,6 +110,7 @@
     </div>
 
     <script>
+
         var btnInsertar = document.getElementById("btnConfirmarInsertBufet");
 
 
@@ -121,20 +134,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputCedula").value == "" || document.getElementById("inputFecha").value == ""
-                || document.getElementById("inputNombre").value == "" || document.getElementById("inputPrimerA").value == ""
-                || document.getElementById("inputSegundoA").value == "" || document.getElementById("inputCorreo").value == ""
-                || document.getElementById("inputDireccion").value == "" || document.getElementById("inputOficina").value == ""
-                || document.getElementById("inputFax").value == "" || document.getElementById("inputCelular").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../RegistroProveedores/insertarProveedor")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../RegistroProveedores/insertarProveedor")
+            btnInsertar.setAttribute("type", "submit");
+            
         }
 
     </script>
+
+    <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 
 </body>
 

@@ -26,7 +26,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarClientes @codigo = '" + codigo + "', @nombre= '" + nombre + "', @restaurante= '" + restaurante +"'", function (error, recordset) {
             if (error) {
                 console.log("wrongselect");
-                return;
+                res.render('ListaClientes', {mensaje:'Error al Filtrar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaClientes', recordset);
@@ -47,7 +47,7 @@ router.post('/eliminarClientes', function (req, res, next) {
         db.query("EXEC sp_borrarClientes @codigo = '" + codigo + "', @nombre= '" + nombre +"'", function (error, recordset) {
             if (error) {
                 console.log("wrongborr");
-                return;
+                res.render('ListaClientes', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaClientes', {mensaje:'Se elimino el registro del cliente de manera Exitosa'});

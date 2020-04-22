@@ -15,18 +15,18 @@ router.get('/listarAllPuestos', function (req, res, next) {
 });
 
 router.post('/filtrarLista', function (req, res, next) {
-    var codigo = req.body.inputCodRestPU; 
-    var nombre = req.body.inputNomRestPU; 
+    var codigo = req.body.inputCodRestPU;
+    var nombre = req.body.inputNomRestPU;
 
-    if (codigo == "" || nombre == "" ) {
+    if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaPuestos', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaPuestos', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
         db.query("EXEC sp_listarPuestos @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaPuestos', { mensaje: 'Error al Filtrar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaPuestos', recordset);
@@ -39,18 +39,18 @@ router.post('/filtrarLista', function (req, res, next) {
 router.post('/eliminarPuestos', function (req, res, next) {
     var codigo = req.body.inputCodRestPU;
     var nombre = req.body.inputNomRestPU;
-    if (codigo == "" || nombre == "" ) {
+    if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
-        res.render('ListaPuestos', {mensaje:'Debe llenar toda la Información!!!'});
+        res.render('ListaPuestos', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
-        db.query("EXEC sp_borrarPuestos  @codigo = '" + codigo + "', @nombre = '" + nombre + "'",  function (error, recordset) {
+        db.query("EXEC sp_borrarPuestos  @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                return;
+                res.render('ListaPuestos', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaPuestos', {mensaje:'Se elimino el puesto de manera Exitosa'});
+                res.render('ListaPuestos', { mensaje: 'Se elimino el puesto de manera Exitosa' });
             }
         });
     }

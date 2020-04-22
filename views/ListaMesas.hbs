@@ -40,7 +40,7 @@
                         <a href="/VentanaAdministracion"><button class="marginIconos"><img
                                     style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg" alt=""></button>
                         </a>
-                        <a href="/RegistroMesas">
+                        <a href="/RegistroMesas/listarInfoDropMenus">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
                         </a>
@@ -103,7 +103,7 @@
             <div id="bodyListSection" class="overflow-auto">
 
                 <div id="listViewMesas" class="border">
-                    <div id="mostrarContenidoMesas">
+                    <div id="mostrarContenidoMesas" class="overflow-auto">
                         <table class="table table-hover" style="width:100%; height:auto;">
                             <thead>
                                 <tr>
@@ -129,8 +129,9 @@
                             </tbody>
                         </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-
+                        <h1
+                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                            {{mensaje}}</h1>
                     </div>
                 </div>
             </div>
