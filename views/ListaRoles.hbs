@@ -34,26 +34,26 @@
                                 src="/images/escoba.svg" alt=""></button>
                     </div>
                     <div class="marginL">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
-                                src="/images/error.svg" alt=""></button>
+                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/error.svg"
+                                alt=""></button>
                         <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                 src="/images/confirmacion.svg" alt=""></button>
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize">
+                    <form class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodRol"
-                                        placeholder="Codigo del Rol">
+                                    <input type="number" class="form-control" id="inputCodRol"
+                                        placeholder="Codigo del Rol" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomRol"
-                                        placeholder="Nombre del Rol">
+                                        placeholder="Nombre del Rol" required>
                                 </div>
                             </div>
 
@@ -82,6 +82,8 @@
             </div>
         </div>
     </div>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

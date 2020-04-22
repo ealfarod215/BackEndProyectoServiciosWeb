@@ -26,12 +26,13 @@
         </div>
         <div id="RSectionBC" class="border">
             <div id="headerListSection" class="d-flex border">
-                <div class="displayGrid headerSideSize">
+                <div class="displayGrid ">
                     <div class="marginL">
                         <!--llama al get para recargar la informacion de la tabla-->
-                        <a href="/ListaBebidasCalientes/listarAllBebidasCalientes"><button class="marginIconos "><img
-                                    style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
-                                    alt=""></button></a>
+                        <a href="/ListaBebidasCalientes/listarAllBebidasCalientes">
+                            <button class="marginIconos "><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/recargar.svg" alt=""></button>
+                        </a>
                         <!--boton que llama a la funcion limpiar-->
                         <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
                                 style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
@@ -47,40 +48,40 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize" method="post"
-                        action="/ListaBebidasCalientes/filtrarLista">
+                    <form class="form-inline container displayGrid headerMidleSize needs-validation" method="post"
+                        action="/ListaBebidasCalientes/filtrarLista" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBC" name="inputCodBC"
-                                        placeholder="Codigo Bebida Caliente">
+                                    <input type="number" class="form-control" id="inputCodBC" name="inputCodBC"
+                                        placeholder="Codigo Bebida Caliente" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomBC" name="inputNomBC"
-                                        placeholder="Nombre de la Bebida">
+                                        placeholder="Nombre de la Bebida" required>
                                 </div>
                             </div>
+                            <div class="displayGrid">
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
 
-                            <!--llama al post para realizar busqueda-->
-                            <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
-                                    style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
-                                    alt=""></button>
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+                            </div>
 
-                            <!--Cargar post para eliminar registro de buffet-->
-                            <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
-                                class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                                    alt=""></button>
                         </div>
                     </form>
                 </div>
 
             </div>
             <div id="bodyListSection" class="overflow-auto">
-
-
                 <table class="table table-hover" style="width:100%; height:auto;">
                     <thead>
                         <tr>
@@ -112,7 +113,6 @@
 
 
         <script>
-            var formulario = document.getElementById("frmBufete");
             var btnEliminar = document.getElementById("btnEliminar");
 
             function limpiarInputs() {
@@ -123,18 +123,14 @@
 
             function llamadoEliminarFunction() {
 
-
-                if (document.getElementById("inputCodBC").value == "" || document.getElementById("inputNomBC").value == "") {
-                    alert("Debe llenar toda la informacion!!!");
-                } else {
-                    btnEliminar.setAttribute("formaction", "../ListaBebidasCalientes/eliminarRestRegistro")
-                    btnEliminar.setAttribute("type", "submit");
-
-                }
+                btnEliminar.setAttribute("formaction", "../ListaBebidasCalientes/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
             }
 
 
         </script>
+
+        <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

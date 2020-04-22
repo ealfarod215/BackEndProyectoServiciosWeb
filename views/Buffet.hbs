@@ -50,24 +50,20 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmBufete" method="post" action="/Buffet/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
+
                                 <div class="form-group  ">
-                                    <label for="" class="">Codigo del la Comida</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodigo" name="inputCodigo"
-                                        placeholder="Digite el Codigo">
+                                    <input type="number" class="form-control" id="inputCodigo" name="inputCodigo"
+                                        placeholder="Digite el Codigo" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
-                                <div class="form-group  ">
-                                    <label for="" class="">Nombre del la Comida</label>
-                                </div>
+
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNombre" name="inputNombre"
-                                        placeholder="Digite el Nombre">
+                                        placeholder="Digite el Nombre" required>
                                 </div>
                             </div>
 
@@ -88,44 +84,41 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewComidaBufet" class="border">
-                    <div id="mostrarContenidoLR" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Tipo</th>
-                                    <th>Unidad de Medida</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}}</td>
-                                    <td>BUF-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{precio}}</td>
-                                    <td>{{tipo}}</td>
-                                    <td>{{unidad}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Tipo</th>
+                            <th>Unidad de Medida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}}</td>
+                            <td>BUF-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{precio}}</td>
+                            <td>{{tipo}}</td>
+                            <td>{{unidad}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
+
     </div>
+
 
 
     <script>
@@ -140,19 +133,15 @@
 
         function llamadoEliminarFunction() {
 
+            btnEliminar.setAttribute("formaction", "../Buffet/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputCodigo").value == "" || document.getElementById("inputNombre").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../Buffet/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
         }
 
 
     </script>
 
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

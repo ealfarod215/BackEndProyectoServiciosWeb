@@ -43,18 +43,18 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmCajas" method="post" action="/ListaCajas/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex MAXWandH">
                             <div class="marginIconos">
                                 <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputCodRegistro"
-                                        name="inputCodRegistro" placeholder="Codigo del Registro">
+                                    <input type="number" class="form-control" id="inputCodRegistro"
+                                        name="inputCodRegistro" placeholder="Codigo del Registro" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="input-group input-group-sm mb-3  ">
                                     <input type="text" class="form-control" id="inputNomRestaurante"
-                                        name="inputNomRestaurante" placeholder="Nombre del Restaurante">
+                                        name="inputNomRestaurante" placeholder="Nombre del Restaurante" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -70,45 +70,42 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
-                <div id="listViewCajas" class="border">
-                    <div id="mostrarContenidoCajas" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Consecutivo</th>
-                                    <th>Fecha</th>
-                                    <th>Descripcion</th>
-                                    <th>Apertura</th>
-                                    <th>Cierre</th>
-                                    <th>Restaurante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>CAJ-{{consecutivo}}</td>
-                                    <td>{{fechaRegistro}}</td>
-                                    <td>{{descripcion}}</td>
-                                    <td>{{aperturaCaja}}</td>
-                                    <td>{{cierreCaja}}</td>
-                                    <td>{{restaurante}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
+            <div id="bodyListSection" class="overflow-auto">
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Consecutivo</th>
+                            <th>Fecha</th>
+                            <th>Descripcion</th>
+                            <th>Apertura</th>
+                            <th>Cierre</th>
+                            <th>Restaurante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>CAJ-{{consecutivo}}</td>
+                            <td>{{fechaRegistro}}</td>
+                            <td>{{descripcion}}</td>
+                            <td>{{aperturaCaja}}</td>
+                            <td>{{cierreCaja}}</td>
+                            <td>{{restaurante}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                </div>
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
+
         </div>
     </div>
+
 
     <script>
         var formulario = document.getElementById("frmCajas");
@@ -123,6 +120,7 @@
 
     </script>
 
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

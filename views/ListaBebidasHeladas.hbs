@@ -44,40 +44,41 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize" method="post"
-                        action="/ListaBebidasHeladas/filtrarLista">
+                    <form class="form-inline container displayGrid headerMidleSize needs-validation" method="post"
+                        action="/ListaBebidasHeladas/filtrarLista" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBH" name="inputCodBH"
-                                        placeholder="Codigo de la Bebida">
+                                    <input type="number" class="form-control" id="inputCodBH" name="inputCodBH"
+                                        placeholder="Codigo de la Bebida" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomBH" name="inputNomBH"
-                                        placeholder="Nombre de la Bebida">
+                                        placeholder="Nombre de la Bebida" required>
                                 </div>
                             </div>
-                            <!--llama al post para realizar busqueda-->
-                            <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
-                                    style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
-                                    alt=""></button>
+                            <div class="displayGrid">
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
 
-                            <!--Cargar post para eliminar registro de buffet-->
-                            <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
-                                class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                                    alt=""></button>
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+                            </div>
+
                         </div>
                     </form>
                 </div>
 
             </div>
             <div id="bodyListSection" class="overflow-auto">
-
-
                 <table class="table table-hover" style="width:100%; height:auto;">
                     <thead>
                         <tr>
@@ -118,18 +119,15 @@
 
             function llamadoEliminarFunction() {
 
+                btnEliminar.setAttribute("formaction", "../ListaBebidasHeladas/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
 
-                if (document.getElementById("inputCodBH").value == "" || document.getElementById("inputNomBH").value == "") {
-                    alert("Debe llenar toda la informacion!!!");
-                } else {
-                    btnEliminar.setAttribute("formaction", "../ListaBebidasHeladas/eliminarRestRegistro")
-                    btnEliminar.setAttribute("type", "submit");
-
-                }
             }
 
 
         </script>
+
+        <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

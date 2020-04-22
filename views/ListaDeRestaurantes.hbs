@@ -42,30 +42,30 @@
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/error.svg" alt=""></button>
                         </a>
-
+                        <!--Cargar render al formulario para ingresar restaurantes-->
+                        <a href="/RestaurantesRegistro">
+                            <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                    src="/images/mas.svg" alt=""></button>
+                        </a>
 
                     </div>
                 </div>
                 <div id="littleForm">
                     <form id="frmLRestaurantes" method="post" action="/ListaDeRestaurantes/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
+
                                 <div class="form-group  ">
-                                    <label for="" class="">Codigo del Restaurante</label>
-                                </div>
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodRest" name="inputCodRest"
-                                        placeholder="Digite el Codigo">
+                                    <input type="number" class="form-control" id="inputCodRest" name="inputCodRest"
+                                        placeholder="Digite el Codigo" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
-                                <div class="form-group  ">
-                                    <label for="" class="">Nombre del Restaurante</label>
-                                </div>
+
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomRest" name="inputNomRest"
-                                        placeholder="Digite el Nombre">
+                                        placeholder="Digite el Nombre" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -86,53 +86,43 @@
                         </div>
                     </form>
                 </div>
-                <div class="displayGrid ">
-                    <!--Cargar render al formulario para ingresar restaurantes-->
-                    <a href="/RestaurantesRegistro">
-                        <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/mas.svg"
-                                alt=""></button>
-                    </a>
-                </div>
+
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoLR" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Direccion</th>
-                                    <th>Especialidad</th>
-                                    <th>Telefono</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>RES-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{direccion}}</td>
-                                    <td>{{especialidad}}</td>
-                                    <td>{{telefono}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Especialidad</th>
+                            <th>Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>RES-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{direccion}}</td>
+                            <td>{{especialidad}}</td>
+                            <td>{{telefono}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
 
     </div>
+
 
 
 
@@ -148,18 +138,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodRest").value == "" || document.getElementById("inputNomRest").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaDeRestaurantes/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaDeRestaurantes/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

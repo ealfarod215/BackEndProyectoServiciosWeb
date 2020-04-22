@@ -17,14 +17,14 @@
     <title>Lista de Usuarios</title>
 </head>
 
-<body class="container-fluid">
+<body>
     <div id="SeccionPrincipalUsuarios" class="container d-flex border">
         <div id="LSectionUsuarios" class="">
             <img class="LogoUsuarios" src="/images/usuario.svg" alt="">
         </div>
         <div id="RSectionUsuarios" class="border">
             <div id="headerListSection" class="d-flex border">
-                <div class="displayGrid headerSideSize d-flex border">
+                <div class="displayGrid headerSideSize d-flex ">
                     <div class="marginL">
                         <!--llama al get para recargar la informacion de la tabla-->
                         <a href="/ListaUsuarios/listarAllUsuarios">
@@ -47,32 +47,38 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmUsuarios" method="post" action="/ListaUsuarios/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex MAXWandH">
-                            <div class="marginIconos">
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputCodUsuario" name="inputCodUsuario"
-                                        placeholder="Codigo del Usuario">
+                            <div class="displayGrid">
+                                <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="number" class="form-control" id="inputCodUsuario"
+                                            name="inputCodUsuario" placeholder="Codigo del Usuario" required>
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control" id="inputNomUsuario"
+                                            name="inputNomUsuario" placeholder="Nombre del Usuario" required>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="marginIconos">
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputNomUsuario" name="inputNomUsuario"
-                                        placeholder="Nombre del Usuario">
+                            <div class="displayGrid">
+                                <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control" id="inputNickNameUsuario"
+                                            name="inputNickNameUsuario" placeholder="Usuario" required>
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="number" class="form-control" id="inputPrivilegios"
+                                            name="inputPrivilegios" placeholder="Privilegios" required>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="marginIconos">
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputNickNameUsuario"
-                                        name="inputNickNameUsuario" placeholder="Usuario">
-                                </div>
-                            </div>
-                            <div class="marginIconos">
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputPrivilegios"
-                                        name="inputPrivilegios" placeholder="Privilegios">
-                                </div>
-                            </div>
+
+
                             <div class="displayGrid">
 
                                 <!--llama al post para realizar busqueda-->
@@ -90,50 +96,47 @@
                 </div>
             </div>
             <div id="bodyListSection" class="overflow-auto">
-                <div id="listViewUsuarios" class="border">
-                    <div id="mostrarContenidoUsuarios" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Primer Apellido</th>
-                                    <th>Segundo Apellido</th>
-                                    <th>Telefono Fijo</th>
-                                    <th>Telefono Celular</th>
-                                    <th>Privilegios</th>
-                                    <th>Usuario</th>
-                                    <th>Contraseña</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>USU-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{apellidoUno}}</td>
-                                    <td>{{apellidoDos}}</td>
-                                    <td>{{telefonoFijo}}</td>
-                                    <td>{{telefonoCelular}}</td>
-                                    <td>{{privilegios}}</td>
-                                    <td>{{loginUsuario}}</td>
-                                    <td>{{contrasena}}</td>
 
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Telefono Fijo</th>
+                            <th>Telefono Celular</th>
+                            <th>Privilegios</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>USU-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{apellidoUno}}</td>
+                            <td>{{apellidoDos}}</td>
+                            <td>{{telefonoFijo}}</td>
+                            <td>{{telefonoCelular}}</td>
+                            <td>{{privilegios}}</td>
+                            <td>{{loginUsuario}}</td>
+                            <td>{{contrasena}}</td>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
     </div>
+
 
     <script>
         var formulario = document.getElementById("frmUsuarios");
@@ -148,20 +151,15 @@
         }
 
         function llamadoEliminarFunction() {
-            if (document.getElementById("inputCodUsuario").value == ""
-                || document.getElementById("inputNomUsuario").value == ""
-                || document.getElementById("inputNickNameUsuario").value == ""
-                || document.getElementById("inputPrivilegios").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaUsuarios/eliminarUsuarios")
-                btnEliminar.setAttribute("type", "submit");
 
-            }
+            btnEliminar.setAttribute("formaction", "../ListaUsuarios/eliminarUsuarios")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

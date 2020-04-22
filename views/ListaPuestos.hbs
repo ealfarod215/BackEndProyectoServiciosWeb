@@ -48,18 +48,18 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmPuestos" method="post" action="/ListaPuestos/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodRestPU" name="inputCodRestPU"
-                                        placeholder="Codigo">
+                                    <input type="number" class="form-control" id="inputCodRestPU" name="inputCodRestPU"
+                                        placeholder="Codigo" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomRestPU" name="inputNomRestPU"
-                                        placeholder="Nombre del Puesto">
+                                        placeholder="Nombre del Puesto" required>
                                 </div>
                             </div>
 
@@ -81,44 +81,41 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Rol</th>
-                                    <th>Interno al Restaurante</th>
-                                    <th>Externo al Restaurante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>PU-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{rol}}</td>
-                                    <td>{{internoalRestaurante}}</td>
-                                    <td>{{externoalRestaurante}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
+            <div id="bodyListSection" class="overflow-auto">
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Interno al Restaurante</th>
+                            <th>Externo al Restaurante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>PU-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{rol}}</td>
+                            <td>{{internoalRestaurante}}</td>
+                            <td>{{externoalRestaurante}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                    </div>
-                </div>
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
 
             </div>
         </div>
+
     </div>
+
     <script>
         var formulario = document.getElementById("frmPuestos");
         var btnEliminar = document.getElementById("btnEliminar");
@@ -131,18 +128,15 @@
 
         function llamadoEliminarFunction() {
 
+            btnEliminar.setAttribute("formaction", "../ListaPuestos/eliminarPuestos")
+            btnEliminar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputCodRestPU").value == "" || document.getElementById("inputNomRestPU").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaPuestos/eliminarPuestos")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

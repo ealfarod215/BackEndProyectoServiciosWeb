@@ -46,18 +46,18 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmEspeciales" method="post" action="/ListaEspeciales/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodEsp" name="inputCodEsp"
-                                        placeholder="Codigo Especialidades">
+                                    <input type="number" class="form-control" id="inputCodEsp" name="inputCodEsp"
+                                        placeholder="Codigo Especialidades" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomEsp" name="inputNomEsp"
-                                        placeholder="Nombre Especialidades">
+                                        placeholder="Nombre Especialidades" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -78,42 +78,39 @@
             </div>
             <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewEsp" class="border">
-                    <div id="mostrarContenidoEsp" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre del Platillo</th>
-                                    <th>Ingredientes</th>
-                                    <th>Precio</th>
-                                    <th>Detalle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>ESP-{{consecutivo}}</td>
-                                    <td>{{nombrePlatillo}}</td>
-                                    <td>{{ingredientes}}</td>
-                                    <td>{{precio}}</td>
-                                    <td>{{detalle}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre del Platillo</th>
+                            <th>Ingredientes</th>
+                            <th>Precio</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>ESP-{{consecutivo}}</td>
+                            <td>{{nombrePlatillo}}</td>
+                            <td>{{ingredientes}}</td>
+                            <td>{{precio}}</td>
+                            <td>{{detalle}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
-                    </div>
-                </div>
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
+
             </div>
         </div>
     </div>
+
 
 
     <script>
@@ -128,18 +125,15 @@
 
         function llamadoEliminarFunction() {
 
+            btnEliminar.setAttribute("formaction", "../ListaEspeciales/eliminarEspeciales")
+            btnEliminar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputCodEsp").value == "" || document.getElementById("inputNomEsp").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaEspeciales/eliminarEspeciales")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>
