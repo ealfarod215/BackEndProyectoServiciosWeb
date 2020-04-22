@@ -31,7 +31,7 @@
             {{messages.exitoRegistro}}
         </h1>
     </div>
-    <form class="MAXWandH" method="post" action="">
+    <form class="MAXWandH needs-validation" method="post" action="" novalidate>
 
         <div id="SeccionPrincipalLR" class="container d-flex border">
             <div id="LSectionListaComidaBufet" class="">
@@ -40,50 +40,50 @@
             <div id="RSectionListaComidaBufet" class="border d-flex">
                 <div id="datosCliente" class="d-block ">
                     <div class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" id="inputCedCliente" name="inputCedCliente"
-                            placeholder="Cedula del Cliente">
+                        <input type="number" class="form-control" id="inputCedCliente" name="inputCedCliente"
+                            placeholder="Cedula del Cliente" required>
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <input type="text" class="form-control" id="inputNomCliente" name="inputNomCliente"
-                            placeholder="Nombre del Cliente">
+                            placeholder="Nombre del Cliente" required>
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <input type="text" class="form-control" id="inputApClienteUno" name="inputApClienteUno"
-                            placeholder="Apellido Uno">
+                            placeholder="Apellido Uno" required>
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <input type="text" class="form-control" id="inputApClienteDos" name="inputApClienteDos"
-                            placeholder="Apellido Dos">
+                            placeholder="Apellido Dos" required>
                     </div>
                     <div class="input-group input-group-sm mb-3">
-                        <input type="text" class="form-control" id="inputMontoPago" name="inputMontoPago"
-                            placeholder="Monto de Pago">
+                        <input type="number" class="form-control" id="inputMontoPago" name="inputMontoPago"
+                            placeholder="Monto de Pago" required>
                     </div>
                     <div class="input-group input-group-sm mb-3">
-                        <textarea id="inputDetalle" name="inputDetalle" class="form-control" placeholder="Detalle"
-                            aria-label="With textarea"></textarea>
+                        <textarea id="inputDetalle" name="inputDetalle" type="text" class="form-control"
+                            placeholder="Detalle" aria-label="With textarea" required></textarea>
                     </div>
                     <div class="input-group input-group-sm mb-3">
-                        <input type="date" class="form-control" id="inputFecha" name="inputFecha">
+                        <input type="date" class="form-control" id="inputFecha" name="inputFecha" required>
                     </div>
                     <div class="input-group input-group-sm mb-3">
-                        <select class="custom-select" id="inputReservacion" name="inputReservacion">
-                            <option selected>Reservacion ?</option>
+                        <select class="custom-select" id="inputReservacion" name="inputReservacion" required>
+                            <option value="">Reservacion ?</option>
                             <option value="Si">Si</option>
                             <option value="No">No</option>
                         </select>
                     </div>
                     <div class="input-group input-group-sm mb-3">
-                        <select class="custom-select" id="inputBarra" name="inputBarra">
-                            <option selected>Barra ?</option>
+                        <select class="custom-select" id="inputBarra" name="inputBarra" required>
+                            <option value="">Barra ?</option>
                             <option value="Si">Si</option>
                             <option value="No">No</option>
                         </select>
                     </div>
 
 
-                    <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                        <option selected>Restaurante</option>
+                    <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                        <option value="">Restaurante</option>
                         {{#each restaurante}}
                         <option value="{{codRes}}">{{nomRes}}</option>
                         {{/each}}
@@ -91,8 +91,8 @@
 
                     <!--Para reservacion-->
                     <div class="input-group input-group-sm mb-3">
-                        <select class="custom-select" id="inputSelectNomMesa" name="inputSelectNomMesa">
-                            <option selected>Nombre de la Mesa</option>
+                        <select class="custom-select" id="inputSelectNomMesa" name="inputSelectNomMesa" required>
+                            <option value="">Nombre de la Mesa</option>
                             <option value="1">Mesa 1</option>
                             <option value="2">Mesa 2</option>
                             <option value="3">Mesa 3</option>
@@ -195,23 +195,15 @@
 
         function llamadoInsertarFunction() {
 
-            if (document.getElementById("inputCedCliente").value == "" || document.getElementById("inputNomCliente").value == ""
-                || document.getElementById("inputApClienteUno").value == "" || document.getElementById("inputApClienteDos").value == ""
-                || document.getElementById("inputSelectNomMesa").value == "" || document.getElementById("inputMontoPago").value == ""
-                || document.getElementById("inputDetalle").value == "" || document.getElementById("inputFecha").value == ""
-                || document.getElementById("inputReservacion").value == "" || document.getElementById("inputNombreRest").value == ""
-                || document.getElementById("inputBarra").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                alert("Realizo el post");
-                btnInsertar.setAttribute("formaction", "../ClientesMesas/insertarCliente")
-                btnInsertar.setAttribute("type", "submit");
-            }
+            btnInsertar.setAttribute("formaction", "../ClientesMesas/insertarCliente")
+            btnInsertar.setAttribute("type", "submit");
+
         }
 
     </script>
 
     <script src="/javascripts/alertas.js"></script>
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>
