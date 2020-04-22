@@ -26,7 +26,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarPais @codigo = '" + codigo + "', @nombre = '" + nombre + "'",  function (error, recordset) {
             if (error) {
                 console.log("wrongselect");
-                return;
+                res.render('ListaPaises', {mensaje:'Error al Filtrar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaPaises', recordset);
@@ -48,7 +48,7 @@ router.post('/eliminarPaises', function (req, res, next) {
         db.query("EXEC sp_borrarPais  @codigo = '" + codigo + "', @nombre = '"+nombre+ "'",  function (error, recordset) {
             if (error) {
                 console.log("wrongborr");
-                return;
+                res.render('ListaPaises', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaPaises', {mensaje:'Se elimino el pais de manera exitosa'});

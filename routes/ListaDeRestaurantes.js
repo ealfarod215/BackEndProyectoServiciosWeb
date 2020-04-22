@@ -25,7 +25,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarRestaurantes @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                res.render('ListaDeRestaurantes', { mensaje: 'Erro al Filtrar la Información!!!' });
+                res.render('ListaDeRestaurantes', { mensaje: 'Error al Filtrar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaDeRestaurantes', recordset);

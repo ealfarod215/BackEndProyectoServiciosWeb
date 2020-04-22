@@ -28,7 +28,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarUsuarios @codigo = '" + codigo + "', @nombre = '" + nombre +  "',@loginUsuario= '" + loginUsuario  +  "',@privilegios= '" + privilegios + "'", function (error, recordset) {
             if (error) {
                 console.log("wrongselect");
-                return;
+                res.render('ListaUsuarios', {mensaje:'Error al Filtrar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaUsuarios', recordset);
@@ -52,7 +52,7 @@ router.post('/eliminarUsuarios', function (req, res, next) {
         db.query("EXEC sp_borrarUsuarios @codigo = '" + codigo + "', @nombre = '" + nombre +  "',@loginUsuario= '" + loginUsuario  +  "',@privilegios= '" + privilegios + "'",  function (error, recordset) {
             if (error) {
                 console.log("wrongborrar");
-                return;
+                res.render('ListaUsuarios', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaUsuarios', {mensaje:'Se elimino el puesto de manera exitosa'});

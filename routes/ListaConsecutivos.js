@@ -25,7 +25,8 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarConsecutivos @idConsecutivos = '" + codigo + "', @descripcion= '" + descripcion + "'", function (error, recordset) {
             if (error) {
                 console.log("wrongselec");
-                return;
+                res.render('ListaConsecutivos', {mensaje:'Error al Filtrar la Información!!!'});
+
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaConsecutivos', recordset);
@@ -46,7 +47,7 @@ router.post('/eliminarConsecutivos', function (req, res, next) {
         db.query("EXEC sp_borrarConsecutivos @idConsecutivos = '" + codigo + "', @descripcion= '" + descripcion + "'", function (error, recordset) {
             if (error) {
                 console.log("wrongborr");
-                res.render('ListaConsecutivos', {mensaje:'Error al Eliminar el consecutivo de manera exitosa'});
+                res.render('ListaConsecutivos', {mensaje:'Error al Eliminar el consecutivo'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaConsecutivos', {mensaje:'Se elimino el consecutivo de manera exitosa'});
