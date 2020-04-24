@@ -65,20 +65,20 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container d-flex headerMidleSize" method="post"
-                        action="/ListaClientesBarras/filtrarLista">
+                    <form class="form-inline container d-flex headerMidleSize needs-validation" method="post"
+                        action="/ListaClientesBarras/filtrarLista" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodCliBarra"
-                                        name="inputCodCliBarra" placeholder="Codigo del Cliente">
+                                    <input type="number" class="form-control" id="inputCodCliBarra"
+                                        name="inputCodCliBarra" placeholder="Codigo del Cliente" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomCliBarra"
-                                        name="inputNomCliBarra" placeholder="Nombre del Cliente">
+                                        name="inputNomCliBarra" placeholder="Nombre del Cliente" required>
                                 </div>
                             </div>
 
@@ -102,46 +102,45 @@
             </div>
             <div id="bodyListSection">
 
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Monto Pagado</th>
-                                    <th>Detalle</th>
-                                    <th>Fecha</th>
-                                    <th>Reservación</th>
-                                    <th>Barra</th>
-                                    <th>Restaurante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>CLI-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{montoPagado}}</td>
-                                    <td>{{detalle}}</td>
-                                    <td>{{fecha}}</td>
-                                    <td>{{reservacion}}</td>
-                                    <td>{{barra}}</td>
-                                    <td>{{restaurante}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1 style="text-align: center; color: red;">{{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Monto Pagado</th>
+                            <th>Detalle</th>
+                            <th>Fecha</th>
+                            <th>Reservación</th>
+                            <th>Barra</th>
+                            <th>Restaurante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>CLI-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{montoPagado}}</td>
+                            <td>{{detalle}}</td>
+                            <td>{{fecha}}</td>
+                            <td>{{reservacion}}</td>
+                            <td>{{barra}}</td>
+                            <td>{{restaurante}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
+
     </div>
+
 
 
     <script>
@@ -155,19 +154,15 @@
 
         function llamadoEliminarFunction() {
 
+            btnEliminar.setAttribute("formaction", "../ListaClientesBarras/eliminarClientes")
+            btnEliminar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputCodCliBarra").value == "" || document.getElementById("inputNomCliBarra").value == ""
-            ) {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaClientesBarras/eliminarClientes")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>
