@@ -50,29 +50,29 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize" method="post"
-                        action="/ListaProveedores/filtrarLista">
+                    <form class="form-inline container displayGrid headerMidleSize needs-validation" method="post"
+                        action="/ListaProveedores/filtrarLista" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodProveedor"
-                                        name="inputCodProveedor" placeholder="Digite el Codigo">
+                                    <input type="number" class="form-control" id="inputCodProveedor"
+                                        name="inputCodProveedor" placeholder="Digite el Codigo" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomProveedor"
-                                        name="inputNomProveedor" placeholder="Digite el Nombre">
+                                        name="inputNomProveedor" placeholder="Digite el Nombre" required>
                                 </div>
                             </div>
 
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCedProveedor"
-                                        name="inputCedProveedor" placeholder="Digite la cédula">
+                                    <input type="number" class="form-control" id="inputCedProveedor"
+                                        name="inputCedProveedor" placeholder="Digite la cédula" required>
                                 </div>
                             </div>
 
@@ -93,50 +93,47 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Cedula</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido 1</th>
-                                    <th>Apellido 2</th>
-                                    <th>Oficina</th>
-                                    <th>Fax</th>
-                                    <th>Celular</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>PRO-{{consecutivo}}</td>
-                                    <td>{{cedula}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{apellidoUno}}</td>
-                                    <td>{{apellidoDos}}</td>
-                                    <td>{{oficina}}</td>
-                                    <td>{{fax}}</td>
-                                    <td>{{celular}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Cedula</th>
+                            <th>Nombre</th>
+                            <th>Apellido 1</th>
+                            <th>Apellido 2</th>
+                            <th>Oficina</th>
+                            <th>Fax</th>
+                            <th>Celular</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>PRO-{{consecutivo}}</td>
+                            <td>{{cedula}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{apellidoUno}}</td>
+                            <td>{{apellidoDos}}</td>
+                            <td>{{oficina}}</td>
+                            <td>{{fax}}</td>
+                            <td>{{celular}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
+
     </div>
+
 
     <script>
         var btnEliminar = document.getElementById("btnEliminar");
@@ -150,18 +147,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodProveedor").value == "" || document.getElementById("inputNomProveedor").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaProveedores/eliminarRestRegistro");
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaProveedores/eliminarRestRegistro");
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

@@ -28,7 +28,7 @@
         <div id="RSectionBC" class="border">
             <div id="headerListSection" class="d-flex border">
                 <div class="displayGrid headerSideSize">
-                    <div class="marginL d-flex">
+                    <div class=" d-flex">
                         <!--llama al get para recargar la informacion de la tabla-->
                         <a href="/ListaEquiposyUtensilios/listarAllEquiUten"><button class="marginIconos "><img
                                     style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
@@ -37,7 +37,7 @@
                         <button id="btnLimpiar" onclick="limpiarInputs()" class="marginIconos"><img
                                 style="width: 2.5rem; height: 2.5rem;" src="/images/escoba.svg" alt=""></button>
                     </div>
-                    <div class="marginL d-flex">
+                    <div class=" d-flex">
                         <a href="/RegistroEquiposyUtencilios/listarInfoDropMenus">
                             <button class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
                                     src="/images/mas.svg" alt=""></button>
@@ -50,28 +50,28 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize" method="post"
-                        action="/ListaEquiposyUtensilios/filtrarLista">
+                    <form class="form-inline container displayGrid headerMidleSize needs-validation" method="post"
+                        action="/ListaEquiposyUtensilios/filtrarLista" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodEyU" name="inputCodEyU"
-                                        placeholder="Digite el Codigo">
+                                    <input type="number" class="form-control" id="inputCodEyU" name="inputCodEyU"
+                                        placeholder="Digite el Codigo" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomEyU" name="inputNomEyU"
-                                        placeholder="Digite el Nombre">
+                                        placeholder="Digite el Nombre" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomEyURes" name="inputNomEyURes"
-                                        placeholder="Nombre del Restaurante">
+                                        placeholder="Nombre del Restaurante" required>
                                 </div>
                             </div>
                             <div class="displayGrid ">
@@ -91,42 +91,39 @@
                 </form>
             </div>
 
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewRest" class="border">
-                    <div id="mostrarContenidoBC" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
-                                    <th>Restaurante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>EU-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{cantidad}}</td>
-                                    <td>{{restaurante}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Restaurante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>EU-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{cantidad}}</td>
+                            <td>{{restaurante}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
+
     </div>
+
 
     <script>
         var btnEliminar = document.getElementById("btnEliminar");
@@ -140,18 +137,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodEyU").value == "" || document.getElementById("inputNomEyU").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaEquiposyUtensilios/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaEquiposyUtensilios/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

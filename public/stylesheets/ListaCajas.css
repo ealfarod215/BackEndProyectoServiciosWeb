@@ -49,16 +49,6 @@
 
 #bodyListSection {
     width : 100%;
-    height: 100%;
+    height: 85%;
 }
 
-#listViewCajas {
-    width : 100%;
-    height: 100%;
-}
-
-#mostrarContenidoCajas {
-    width           : 100%;
-    height          : 100%;
-    background-color: cornsilk;
-}

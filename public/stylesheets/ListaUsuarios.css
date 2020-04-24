@@ -50,16 +50,5 @@
 
 #bodyListSection {
     width : 100%;
-    height: 80%;
-}
-
-#listViewUsuarios {
-    width : 110%;
-    height: 100%;
-}
-
-#mostrarContenidoUsuarios {
-    width           : 100%;
-    height          : 100%;
-    background-color: cornsilk;
+    height: 85%;
 }

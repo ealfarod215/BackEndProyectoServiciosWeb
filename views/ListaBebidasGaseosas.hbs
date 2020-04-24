@@ -24,8 +24,8 @@
         </div>
         <div id="RSectionBG" class="border">
             <div id="headerListSection" class="d-flex border">
-                <div class="displayGrid headerSideSize">
-                    <div class="">
+                <div class="displayGrid ">
+                    <div class="displayGrid">
                         <!--llama al get para recargar la informacion de la tabla-->
                         <a href="/ListaBebidasGaseosas/listarAllBebidasGaseosas"><button class="marginIconos "><img
                                     style="width: 2.5rem; height: 2.5rem;" src="/images/recargar.svg"
@@ -36,28 +36,28 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid headerMidleSize" method="post"
-                        action="/ListaBebidasGaseosas/filtrarLista">
+                    <form class="form-inline container displayGrid headerMidleSize needs-validation" method="post"
+                        action="/ListaBebidasGaseosas/filtrarLista" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodBH" name="inputCodBH"
-                                        placeholder="Codigo de la Gaseosa">
+                                    <input type="number" class="form-control" id="inputCodBH" name="inputCodBH"
+                                        placeholder="Codigo de la Gaseosa" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomBH" name="inputNomBH"
-                                        placeholder="Nombre de la Gaseosa">
+                                        placeholder="Nombre de la Gaseosa" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                        <option selected>Restaurante</option>
+                                    <select class="custom-select" id="inputNombreRest" name="inputNombreRest" required>
+                                        <option value="">Restaurante</option>
                                         {{#each restaurante}}
                                         <option value="{{codRes}}">{{nomRes}}</option>
 
@@ -65,15 +65,18 @@
                                     </select>
                                 </div>
                             </div>
-                            <!--llama al post para realizar busqueda-->
-                            <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
-                                    style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
-                                    alt=""></button>
+                            <div class="displayGrid">
+                                <!--llama al post para realizar busqueda-->
+                                <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
+                                        style="width: 2.5rem; height: 2.5rem;" src="/images/confirmacion.svg"
+                                        alt=""></button>
 
-                            <!--Cargar post para eliminar registro de buffet-->
-                            <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
-                                class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;" src="/images/menos.svg"
-                                    alt=""></button>
+                                <!--Cargar post para eliminar registro de buffet-->
+                                <button id="btnEliminar" type="button" onclick="llamadoEliminarFunction()"
+                                    class="marginIconos"><img style="width: 2.5rem; height: 2.5rem;"
+                                        src="/images/menos.svg" alt=""></button>
+                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -128,18 +131,15 @@
 
             function llamadoEliminarFunction() {
 
+                btnEliminar.setAttribute("formaction", "../ListaBebidasGaseosas/eliminarRestRegistro")
+                btnEliminar.setAttribute("type", "submit");
 
-                if (document.getElementById("inputCodBH").value == "" || document.getElementById("inputNomBH").value == "") {
-                    alert("Debe llenar toda la informacion!!!");
-                } else {
-                    btnEliminar.setAttribute("formaction", "../ListaBebidasGaseosas/eliminarRestRegistro")
-                    btnEliminar.setAttribute("type", "submit");
-
-                }
             }
 
 
         </script>
+
+        <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

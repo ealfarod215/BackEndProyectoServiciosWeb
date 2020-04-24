@@ -25,28 +25,29 @@
         <div id="RSectionVinos" class="border">
             <div id="headerListSection" class="d-block border">
                 <div id="littleForm">
-                    <form class="form-inline container displayGrid " method="post" action="/ListaVinos/filtrarLista">
+                    <form class="form-inline container displayGrid needs-validation" method="post"
+                        action="/ListaVinos/filtrarLista" novalidate>
                         <div class="d-flex MAXWandH">
                             <div class="displayGrid ">
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" id="inputCodVino" name="inputCodVino"
-                                            placeholder="Codigo del Vino">
+                                        <input type="number" class="form-control" id="inputCodVino" name="inputCodVino"
+                                            placeholder="Codigo del Vino" required>
                                     </div>
                                 </div>
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputNomVino" name="inputNomVino"
-                                            placeholder="Nombre del Vino">
+                                            placeholder="Nombre del Vino" required>
                                     </div>
                                 </div>
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
-                                        <input type="text" class="form-control" id="inputYearVino" name="inputYearVino"
-                                            placeholder="Año">
+                                        <input type="number" class="form-control" id="inputYearVino"
+                                            name="inputYearVino" placeholder="Año" required>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +56,8 @@
 
                                     <div class="input-group input-group-sm mb-3  ">
                                         <select class="custom-select" id="inputSelectNacionalidad"
-                                            name="inputSelectNacionalidad">
-                                            <option selected>Nacionalidad</option>
+                                            name="inputSelectNacionalidad" required>
+                                            <option value="">Nacionalidad</option>
                                             {{#each nacionalidad}}
                                             <option value="{{codPais}}">{{nomPais}}</option>
 
@@ -68,8 +69,9 @@
                                 <div class="marginIconos">
 
                                     <div class="input-group input-group-sm mb-3  ">
-                                        <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                            <option selected>Restaurante</option>
+                                        <select class="custom-select" id="inputNombreRest" name="inputNombreRest"
+                                            required>
+                                            <option value="">Restaurante</option>
                                             {{#each restaurante}}
                                             <option value="{{codRes}}">{{nomRes}}</option>
 
@@ -81,7 +83,7 @@
 
                                     <div class="input-group input-group-sm mb-3  ">
                                         <input type="text" class="form-control" id="inputPrecioVino"
-                                            name="inputPrecioVino" placeholder="Precio">
+                                            name="inputPrecioVino" placeholder="Precio" required>
                                     </div>
                                 </div>
                             </div>
@@ -133,40 +135,37 @@
         </div>
         <div id="bodyListSection">
 
-            <div id="listViewVinos" class="border">
-                <div id="mostrarContenidoVinos" class="overflow-auto">
-                    <table class="table table-hover" style="width:100%; height:auto;">
-                        <thead>
-                            <tr>
-                                <th>Codígo</th>
-                                <th>Consecutivo</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Nacionalidad</th>
-                                <th>Cosecha</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each Bebidas}}
-                            <tr>
-                                <td>{{codigo}} </td>
-                                <td>BE-{{consecutivo}}</td>
-                                <td>{{nombre}}</td>
-                                <td>{{precioBotella}}</td>
-                                <td>{{pais}}</td>
-                                <td>{{yearCosecha}}</td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
 
-                    <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                        {{mensaje}}</h1>
-                </div>
-            </div>
+            <table class="table table-hover" style="width:100%; height:auto;">
+                <thead>
+                    <tr>
+                        <th>Codígo</th>
+                        <th>Consecutivo</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Nacionalidad</th>
+                        <th>Cosecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Bebidas}}
+                    <tr>
+                        <td>{{codigo}} </td>
+                        <td>BE-{{consecutivo}}</td>
+                        <td>{{nombre}}</td>
+                        <td>{{precioBotella}}</td>
+                        <td>{{pais}}</td>
+                        <td>{{yearCosecha}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                {{mensaje}}</h1>
         </div>
     </div>
-    </div>
+
     <script>
         var btnEliminar = document.getElementById("btnEliminar");
 
@@ -183,20 +182,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodVino").value == "" || document.getElementById("inputNomVino").value == "" ||
-                document.getElementById("inputYearVino").value == "" || document.getElementById("inputSelectNacionalidad").value == "" ||
-                document.getElementById("inputNombreRest").value == "" || document.getElementById("inputPrecioVino").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaVinos/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaVinos/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

@@ -26,7 +26,7 @@ router.post('/filtrarLista', function (req, res, next) {
         res.render('ListaBebidasGaseosas', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
-        db.query("EXEC sp_listarBebidasGaseosas @codigo = '" + codigo + "', @nombre = '" + nombre + "', @restaurante = '" + codigoRest + "'", function (error, rows) {
+        db.query("EXEC sp_listarBebidasGaseosas @codigo = '" + codigo + "', @nombre = '" + nombre + "'", function (error, rows) {
             if (error) {
                 console.log("wrong");
                 res.render('ListaBebidasGaseosas', { mensaje: 'Error al Filtrar la Información!!!' });

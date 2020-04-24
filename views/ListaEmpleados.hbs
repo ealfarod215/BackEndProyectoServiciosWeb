@@ -49,23 +49,21 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmEmpleados" method="post" action="/ListaEmpleados/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
-                                <label for="" class="">Codigo del Empleado</label>
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodEmpl" name="inputCodEmpl"
-                                        placeholder="Codigo del Empleado">
+                                    <input type="number" class="form-control" id="inputCodEmpl" name="inputCodEmpl"
+                                        placeholder="Codigo del Empleado" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
-                                <label for="" class="">Nombre del Empleado</label>
 
                                 <div class="form-group  ">
                                     <input type="text" class="form-control" id="inputNomEmpl" name="inputNomEmpl"
-                                        placeholder="Nombre del Empleado">
+                                        placeholder="Nombre del Empleado" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -88,42 +86,39 @@
                     </form>
                 </div>
             </div>
-            <div id="bodyListSection">
-                <div id="listViewEmpl" class="border">
-                    <div id="mostrarContenidoEmpl" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Cédula</th>
-                                    <th>Nombre</th>
-                                    <th>Primer Apellido</th>
-                                    <th>Segundo Apellido</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>EMP-{{consecutivo}}</td>
-                                    <td>{{cedula}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{apellidoUno}}</td>
-                                    <td>{{apellidoDos}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
+            <div id="bodyListSection" class="overflow-auto">
 
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Cédula</th>
+                            <th>Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>EMP-{{consecutivo}}</td>
+                            <td>{{cedula}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{apellidoUno}}</td>
+                            <td>{{apellidoDos}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
+
         </div>
     </div>
+
     <script>
         var formulario = document.getElementById("frmEmpleados");
         var btnEliminar = document.getElementById("btnEliminar");
@@ -136,18 +131,14 @@
 
         function llamadoEliminarFunction() {
 
-
-            if (document.getElementById("inputCodEmpl").value == "" || document.getElementById("inputNomEmpl").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaEmpleados/eliminarEmpleados")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaEmpleados/eliminarEmpleados")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

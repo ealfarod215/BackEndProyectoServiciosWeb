@@ -24,20 +24,19 @@ router.get('/listarAllLicores', function (req, res, next) {
 router.post('/filtrarLista', function (req, res, next) {
     var codigo = req.body.inputCodLicor;
     var nombre = req.body.inputNomLicor;
-    var pais = req.body.inputSelectNacionalidad;
-    var restaurante = req.body.inputNombreRest;
+    
     if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
         res.render('ListaLicores', { mensaje: 'Debe llenar toda la Información!!!' });
 
     } else {
-        db.query("EXEC sp_listarLicores @codigo= '" + codigo + "', @nombre = '" + nombre + "', @nacionalidad = '" + pais + "', @restaurante = '" + restaurante + "'", function (error, rows) {
+        db.query("EXEC sp_listarLicores @codigo= '" + codigo + "', @nombre = '" + nombre + "'", function (error, rows) {
             if (error) {
                 console.log("wrong");
                 res.render('ListaLicores', { mensaje: 'Error al Filtrar la Información!!!' });
             } else {
                 console.log(rows.recordset);
-                res.render('ListaLicores', {Bebidas: rows.recordset});
+                res.render('ListaLicores', { Bebidas: rows.recordset });
             }
         });
     }

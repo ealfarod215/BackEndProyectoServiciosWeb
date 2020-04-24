@@ -47,19 +47,19 @@
                 </div>
                 <div id="littleForm">
                     <form id="frmPaises" method="post" action="/ListaPaises/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" id="inputCodPais" name="inputCodPais"
-                                        placeholder="Codigo del Pais">
+                                    <input type="number" class="form-control" id="inputCodPais" name="inputCodPais"
+                                        placeholder="Codigo del Pais" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="input-group input-group-sm mb-3">
                                     <input type="text" class="form-control" id="inputNomPais" name="inputNomPais"
-                                        placeholder="Nombre del Pais">
+                                        placeholder="Nombre del Pais" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -77,35 +77,32 @@
                 </div>
             </div>
             <div id="bodyListSection" class="overflow-auto">
-                <div id="listViewPais" class="border">
-                    <div id="mostrarContenidoPais" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Pais</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>P-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Pais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>P-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
     </div>
+
 
     <script>
         var formulario = document.getElementById("frmPaises");
@@ -118,18 +115,15 @@
         }
 
         function llamadoEliminarFunction() {
-            if (document.getElementById("inputCodPais").value == ""
-                || document.getElementById("inputNomPais").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaPaises/eliminarPaises")
-                btnEliminar.setAttribute("type", "submit");
 
-            }
+            btnEliminar.setAttribute("formaction", "../ListaPaises/eliminarPaises")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>

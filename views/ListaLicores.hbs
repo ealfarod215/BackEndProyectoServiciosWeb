@@ -22,53 +22,59 @@
         <div id="LSectionLicor" class="">
             <img class="LogoLicor" src="/images/licor.svg" alt="">
         </div>
-        <div id="RSectionLicor" class="border">
+        <div id="RSectionLicor" class="border ">
             <div id="headerListSection" class="d-block border">
                 <div id="littleForm" class="d-flex">
-                    <form class="form-inline container displayGrid headerMidleSize" method="post"
-                        action="/ListaLicores/filtrarLista">
-                        <div class="d-flex headerMidleSize">
-                            <div class="marginIconos">
-
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodLicor" name="inputCodLicor"
-                                        placeholder="Digite el Codigo">
-                                </div>
-                            </div>
-                            <div class="marginIconos">
-
-                                <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomLicor" name="inputNomLicor"
-                                        placeholder="Digite el Nombre">
-                                </div>
-                            </div>
-                            <div class="marginIconos">
-
-                                <div class="form-group  ">
-                                    <select class="custom-select" id="inputSelectNacionalidad"
-                                        name="inputSelectNacionalidad">
-                                        <option selected>Nacionalidad</option>
-                                        {{#each nacionalidad}}
-                                        <option value="{{codPais}}">{{nomPais}}</option>
-
-                                        {{/each}}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="marginIconos">
-
-                                <div class="form-group  ">
-                                    <select class="custom-select" id="inputNombreRest" name="inputNombreRest">
-                                        <option selected>Restaurante</option>
-                                        {{#each restaurante}}
-                                        <option value="{{codRes}}">{{nomRes}}</option>
-
-                                        {{/each}}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                    <form class="form-inline container displayGrid  needs-validation" method="post"
+                        action="/ListaLicores/filtrarLista" novalidate>
                         <div class="d-flex ">
+                            <div class="displayGrid">
+                                <div class="marginIconos">
+                                    <div class="form-group  ">
+                                        <input type="number" class="form-control" id="inputCodLicor"
+                                            name="inputCodLicor" placeholder="Digite el Codigo" required>
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+
+                                    <div class="form-group  ">
+                                        <input type="text" class="form-control" id="inputNomLicor" name="inputNomLicor"
+                                            placeholder="Digite el Nombre" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayGrid">
+                                <div class="marginIconos">
+
+                                    <div class="form-group  ">
+                                        <select class="custom-select" id="inputSelectNacionalidad"
+                                            name="inputSelectNacionalidad" required>
+                                            <option value="">Nacionalidad</option>
+                                            {{#each nacionalidad}}
+                                            <option value="{{codPais}}">{{nomPais}}</option>
+
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="marginIconos">
+
+                                    <div class="form-group  ">
+                                        <select class="custom-select" id="inputNombreRest" name="inputNombreRest"
+                                            required>
+                                            <option value="">Restaurante</option>
+                                            {{#each restaurante}}
+                                            <option value="{{codRes}}">{{nomRes}}</option>
+
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="displayGrid ">
 
                             <!--llama al post para realizar busqueda-->
                             <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
@@ -104,40 +110,37 @@
                 </div>
 
             </div>
-            <div id="bodyListSection">
+            <div id="bodyListSection" class="overflow-auto">
 
-                <div id="listViewLicores" class="border">
-                    <div id="mostrarContenidoBG" class="overflow-auto">
-                        <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codígo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio</th>
-                                    <th>Nacionalidad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each Bebidas}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>BE-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                    <td>{{cantidad}}</td>
-                                    <td>{{preciobotella}}</td>
-                                    <td>{{pais}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codígo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Nacionalidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each Bebidas}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>BE-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                            <td>{{cantidad}}</td>
+                            <td>{{preciobotella}}</td>
+                            <td>{{pais}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
+
             </div>
         </div>
     </div>
@@ -153,18 +156,15 @@
 
         function llamadoEliminarFunction() {
 
+            btnEliminar.setAttribute("formaction", "../ListaLicores/eliminarRestRegistro")
+            btnEliminar.setAttribute("type", "submit");
 
-            if (document.getElementById("inputCodLicor").value == "" || document.getElementById("inputNomLicor").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaLicores/eliminarRestRegistro")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
         }
 
 
     </script>
+
+    <script src="/javascripts/validaciones.js"></script>
 </body>
 
 </html>
