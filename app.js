@@ -64,6 +64,10 @@ var registroNacionRouter = require("./routes/RegistroNacion");
 var ListaCajasRouter = require("./routes/ListaCajas");
 var registroClientesMesasRouter = require("./routes/ClientesMesas");
 var ListaClientesBarraRouter = require("./routes/ListaClientesBarras");
+var ListaRolesRouter = require("./routes/ListaRoles");
+var registroRolesRouter = require("./routes/RegistroRoles");
+var ListaUnidadesMedidaRouter = require("./routes/ListaUnidadesMedida");
+var registroUnidadMedidaRouter = require("./routes/RegistroUnidadMedida");
 
 var RestPiccolaStellaRouter = require("./routes/RestPiccolaStella");
 var ReporteEntornoDeRestauranteMesasPiccolaRouter = require("./routes/ReporteEntornoDeRestauranteMesasPiccola");
@@ -174,6 +178,10 @@ app.use('/RegistroNacion', registroNacionRouter);
 app.use('/ListaCajas', ListaCajasRouter);
 app.use('/ClientesMesas', registroClientesMesasRouter);
 app.use('/ListaClientesBarras', ListaClientesBarraRouter);
+app.use('/ListaRoles', ListaRolesRouter);
+app.use('/RegistroRoles', registroRolesRouter);
+app.use('/ListaUnidadesMedida',ListaUnidadesMedidaRouter);
+app.use('/RegistroUnidadMedida',registroUnidadMedidaRouter);
 
 app.use('/RestPiccolaStella', RestPiccolaStellaRouter);
 app.use('/ReporteEntornoDeRestauranteMesasPiccola', ReporteEntornoDeRestauranteMesasPiccolaRouter);
