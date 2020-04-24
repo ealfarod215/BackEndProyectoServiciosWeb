@@ -9,7 +9,5 @@ document.addEventListener('DOMContentLoaded', function () {
         errorRegistro.style.border = "1px solid #b33636";
 
 
-    } else {
-        error.style.padding = "0px 0px 0px 0px"
     }
 }, false);
