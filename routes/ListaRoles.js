@@ -51,7 +51,7 @@ router.post('/eliminarRoles', function (req, res, next) {
                 res.render('ListaRoles', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaRoles', {mensaje:'Se elimino de manera exitosa'});
+                res.render('ListaRoles', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }

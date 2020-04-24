@@ -50,7 +50,7 @@ router.post('/eliminarEmpleados', function (req, res, next) {
                 res.render('ListaEmpleados', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaEmpleados', { mensaje: 'Se elimino el empleado de manera Exitosa' });
+                res.render('ListaEmpleados', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

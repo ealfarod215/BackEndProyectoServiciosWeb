@@ -49,7 +49,7 @@ router.post('/eliminarClientes', function (req, res, next) {
                 res.render('ListaClientesBarras', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaClientesBarras', { mensaje: 'Se elimino el registro del cliente de manera Exitosa' });
+                res.render('ListaClientesBarras', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

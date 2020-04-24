@@ -53,7 +53,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaEquiposyUtensilios', { mensaje: 'Error al borrar Registro!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaEquiposyUtensilios', { mensaje: 'Se elimino el Registro de manera Exitosa' });
+                res.render('ListaEquiposyUtensilios', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

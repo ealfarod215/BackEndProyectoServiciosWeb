@@ -51,7 +51,7 @@ router.post('/eliminarUnidadesMedida', function (req, res, next) {
                 res.render('ListaUnidadesMedida', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaUnidadesMedida', {mensaje:'Se elimino de manera exitosa'});
+                res.render('ListaUnidadesMedida', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }

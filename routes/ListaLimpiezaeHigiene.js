@@ -53,7 +53,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaLimpiezaeHigiene', { mensaje: 'Error al Borrar!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaLimpiezaeHigiene', { mensaje: 'Se elimino el Registro de manera Exitosa' });
+                res.render('ListaLimpiezaeHigiene', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

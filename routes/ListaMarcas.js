@@ -50,7 +50,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaMarcas', { mensaje: 'Error, No se pudo eliminar el registro' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaMarcas', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('ListaMarcas', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

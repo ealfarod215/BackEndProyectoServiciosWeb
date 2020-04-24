@@ -49,7 +49,7 @@ router.post('/eliminarEspeciales', function (req, res, next) {
                 res.render('ListaEspeciales', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaEspeciales', {mensaje:'Se elimino el Especial de manera Exitosa'});
+                res.render('ListaEspeciales', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }

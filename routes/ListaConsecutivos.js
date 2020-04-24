@@ -50,7 +50,7 @@ router.post('/eliminarConsecutivos', function (req, res, next) {
                 res.render('ListaConsecutivos', {mensaje:'Error al Eliminar el consecutivo'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaConsecutivos', {mensaje:'Se elimino el consecutivo de manera exitosa'});
+                res.render('ListaConsecutivos', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }

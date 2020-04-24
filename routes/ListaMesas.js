@@ -54,7 +54,7 @@ router.post('/eliminarMesas', function (req, res, next) {
                 res.render('ListaMesas', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaMesas', {mensaje:'Se elimino la mesa de manera Exitosa'});
+                res.render('ListaMesas', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }

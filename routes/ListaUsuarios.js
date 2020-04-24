@@ -55,7 +55,7 @@ router.post('/eliminarUsuarios', function (req, res, next) {
                 res.render('ListaUsuarios', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaUsuarios', {mensaje:'Se elimino el puesto de manera exitosa'});
+                res.render('ListaUsuarios', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }
