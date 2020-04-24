@@ -24,7 +24,7 @@ router.post('/insertarUnidadMedida', function (req, res, next) {
     var simbolo = req.body.inputSimboloUniMed;
     var simbologia = req.body.inputSimbologiaUniMed;
 
-    db.query("EXEC sp_insertarEquiposUtencilio @unidad = '" + unidad + "',@escala= '" + escala + "',@detalle = '" + detalle + "',@simbolo = '" + simbolo + "',@simbologia = '" + simbologia + "'", function (error, recordset) {
+    db.query("EXEC sp_insertarUnidadesDeMedida @unidad = '" + unidad + "',@escala= '" + escala + "',@detalle = '" + detalle + "',@simbolo = '" + simbolo + "',@simbologia = '" + simbologia + "'", function (error, recordset) {
         if (error) {
             console.log("wrong");
             req.flash('errorRegistro', 'Error al realizar el Registro!!!');
