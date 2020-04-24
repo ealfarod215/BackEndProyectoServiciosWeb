@@ -26,7 +26,7 @@
         </div>
         <div id="RSectionRol" class="border">
             <div id="headerListSection" class="d-flex border">
-              <div class="displayGrid headerSideSize">
+                <div class="displayGrid headerSideSize">
                     <div class="marginL">
                         <!--llama al get para recargar la informacion de la tabla-->
                         <a href="/ListaRoles/listarAllRoles">
@@ -47,20 +47,20 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                   <form id="frmRoles" method="post" action="/ListaRoles/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                    <form id="frmRoles" method="post" action="/ListaRoles/filtrarLista"
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodRol"
-                                       name="inputCodRol" placeholder="Codigo del Rol">
+                                    <input type="number" class="form-control" id="inputCodRol" name="inputCodRol"
+                                        placeholder="Codigo del Rol" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomRol"
-                                       name="inputNomRol" placeholder="Nombre del Rol">
+                                    <input type="text" class="form-control" id="inputNomRol" name="inputNomRol"
+                                        placeholder="Nombre del Rol" required>
                                 </div>
                             </div>
                             <div class="displayGrid">
@@ -82,38 +82,34 @@
                 </div>
             </div>
             <div id="bodyListSection" class="overflow-auto">
-                <div id="listViewRol" class="border">
-                    <div id="mostrarContenidoRol" class="overflow-auto">
-                            <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Nombre del Rol</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>EVE-{{consecutivo}}</td>
-                                    <td>{{nombre}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Nombre del Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>EVE-{{consecutivo}}</td>
+                            <td>{{nombre}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
+
     </div>
-     <script>
-        var formulario = document.getElementById("frmRoles");
+
+    <script>
         var btnEliminar = document.getElementById("btnEliminar");
 
         function limpiarInputs() {
@@ -123,19 +119,13 @@
         }
 
         function llamadoEliminarFunction() {
-            if (document.getElementById("inputCodRol").value == ""
-                || document.getElementById("inputNomRol").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaRoles/eliminarRoles")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaRoles/eliminarRoles")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
-    
+
     <script src="/javascripts/validaciones.js"></script>
 </body>
 

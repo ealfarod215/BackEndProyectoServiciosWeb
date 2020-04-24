@@ -26,7 +26,7 @@
         </div>
         <div id="RSectionUniMed" class="border">
             <div id="headerListSection" class="d-flex border">
-                 <div class="displayGrid headerSideSize">
+                <div class="displayGrid headerSideSize">
                     <div class="marginL">
                         <!--llama al get para recargar la informacion de la tabla-->
                         <a href="/ListaUnidadesMedida/listarAllListaUnidadesMedida">
@@ -47,23 +47,23 @@
                     </div>
                 </div>
                 <div id="littleForm">
-                     <form id="frmUnidadesMedida" method="post" action="/ListaUnidadesMedida/filtrarLista"
-                        class="form-inline container displayGrid headerMidleSize">
+                    <form id="frmUnidadesMedida" method="post" action="/ListaUnidadesMedida/filtrarLista"
+                        class="form-inline container displayGrid headerMidleSize needs-validation" novalidate>
                         <div class="d-flex headerMidleSize">
                             <div class="marginIconos">
 
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputCodUniMed"
-                                        name="inputCodUniMed" placeholder="Codigo Unidad">
+                                    <input type="number" class="form-control" id="inputCodUniMed" name="inputCodUniMed"
+                                        placeholder="Codigo Unidad" required>
                                 </div>
                             </div>
                             <div class="marginIconos">
                                 <div class="form-group  ">
-                                    <input type="text" class="form-control" id="inputNomUniMed"
-                                       name="inputNomUniMed" placeholder="Nombre Unidad">
+                                    <input type="text" class="form-control" id="inputNomUniMed" name="inputNomUniMed"
+                                        placeholder="Nombre Unidad" required>
                                 </div>
                             </div>
-                                <div class="displayGrid">
+                            <div class="displayGrid">
 
                                 <!--llama al post para realizar busqueda-->
                                 <button id="btnRealizarBusqueda" type="submit" class="marginIconos"><img
@@ -81,45 +81,42 @@
                 </div>
             </div>
             <div id="bodyListSection" class="overflow-auto">
-                <div id="listViewUniMed" class="border">
-                    <div id="mostrarContenidoUniMed" class="overflow-auto">
-                         <table class="table table-hover" style="width:100%; height:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Codigo</th>
-                                    <th>Consecutivo</th>
-                                    <th>Unidad de Medida</th>
-                                    <th>Escala</th>
-                                    <th>Detalle</th>
-                                    <th>Simbología</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each recordset}}
-                                <tr>
-                                    <td>{{codigo}} </td>
-                                    <td>UM-{{consecutivo}}</td>
-                                    <td>{{unidad}}</td>
-                                    <td>{{escala}}</td>
-                                    <td>{{detalle}}</td>
-                                    <td>{{simbologia}}</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
 
-                        <h1
-                            style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
-                            {{mensaje}}</h1>
-                    </div>
-                </div>
+                <table class="table table-hover" style="width:100%; height:auto;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Consecutivo</th>
+                            <th>Unidad de Medida</th>
+                            <th>Escala</th>
+                            <th>Detalle</th>
+                            <th>Simbología</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each recordset}}
+                        <tr>
+                            <td>{{codigo}} </td>
+                            <td>UM-{{consecutivo}}</td>
+                            <td>{{unidad}}</td>
+                            <td>{{escala}}</td>
+                            <td>{{detalle}}</td>
+                            <td>{{simbologia}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
 
+                <h1 style="text-align: center; color: #A94442; border-radius: 1rem; background-color: #F3DEDE; ">
+                    {{mensaje}}</h1>
             </div>
         </div>
-   </div>
 
-   <script>
-        var formulario = document.getElementById("frmUnidadesMedida");
+    </div>
+    </div>
+    </div>
+
+    <script>
         var btnEliminar = document.getElementById("btnEliminar");
 
         function limpiarInputs() {
@@ -129,19 +126,13 @@
         }
 
         function llamadoEliminarFunction() {
-            if (document.getElementById("inputCodUniMed").value == ""
-                || document.getElementById("inputNomUniMed").value == "") {
-                alert("Debe llenar toda la informacion!!!");
-            } else {
-                btnEliminar.setAttribute("formaction", "../ListaUnidadesMedida/eliminarUnidadesMedida")
-                btnEliminar.setAttribute("type", "submit");
-
-            }
+            btnEliminar.setAttribute("formaction", "../ListaUnidadesMedida/eliminarUnidadesMedida")
+            btnEliminar.setAttribute("type", "submit");
         }
 
 
     </script>
-    
+
     <script src="/javascripts/validaciones.js"></script>
 </body>
 
