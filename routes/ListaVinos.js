@@ -71,7 +71,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaVinos', { mensaje: 'Error al Filtrar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaVinos', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('ListaVinos', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

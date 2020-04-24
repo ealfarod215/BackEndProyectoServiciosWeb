@@ -53,7 +53,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaComestibles', { mensaje: 'Error al tratar de borrar.' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaComestibles', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('ListaComestibles', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

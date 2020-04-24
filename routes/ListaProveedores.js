@@ -53,7 +53,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaProveedores', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaProveedores', { mensaje: 'Se elimino el Registro de manera Exitosa' });
+                res.render('ListaProveedores', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

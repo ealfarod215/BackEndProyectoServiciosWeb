@@ -19,7 +19,5 @@ document.addEventListener('DOMContentLoaded', function () {
         exitoRegistro.style.border = "1px solid #b33636";
         exitoRegistro.style.marginTop = "25px";
 
-    } else {
-        error.style.padding = "0px 0px 0px 0px"
     }
 }, false);

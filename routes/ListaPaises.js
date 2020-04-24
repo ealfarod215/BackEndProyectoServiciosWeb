@@ -51,7 +51,7 @@ router.post('/eliminarPaises', function (req, res, next) {
                 res.render('ListaPaises', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaPaises', {mensaje:'Se elimino el pais de manera exitosa'});
+                res.render('ListaPaises', {mensaje:'Se eliminó de manera Exitosa'});
             }
         });
     }

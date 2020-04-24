@@ -50,7 +50,7 @@ router.post('/eliminarPuestos', function (req, res, next) {
                 res.render('ListaPuestos', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaPuestos', { mensaje: 'Se elimino el puesto de manera Exitosa' });
+                res.render('ListaPuestos', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

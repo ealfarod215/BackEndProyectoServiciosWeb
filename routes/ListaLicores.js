@@ -60,7 +60,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaLicores', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaLicores', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('ListaLicores', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

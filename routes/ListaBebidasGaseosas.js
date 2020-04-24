@@ -55,7 +55,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
 
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaBebidasGaseosas', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('ListaBebidasGaseosas', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

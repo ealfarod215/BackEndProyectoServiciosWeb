@@ -53,7 +53,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('ListaDesechablesEmpaques', { mensaje: 'Error al eliminar Registro' });
             } else {
                 console.log(recordset.recordset);
-                res.render('ListaDesechablesEmpaques', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('ListaDesechablesEmpaques', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }

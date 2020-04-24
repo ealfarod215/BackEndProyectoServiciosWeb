@@ -49,7 +49,7 @@ router.post('/eliminarRestRegistro', function (req, res, next) {
                 res.render('Buffet', { mensaje: 'Error al Eliminar la Información!!!' });
             } else {
                 console.log(recordset.recordset);
-                res.render('Buffet', { mensaje: 'Se elimino el Restaurante de manera Exitosa' });
+                res.render('Buffet', { mensaje: 'Se eliminó de manera Exitosa' });
             }
         });
     }
