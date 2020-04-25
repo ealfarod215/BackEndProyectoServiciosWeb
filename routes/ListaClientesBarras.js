@@ -36,8 +36,8 @@ router.post('/filtrarLista', function (req, res, next) {
 });
 
 router.post('/eliminarClientes', function (req, res, next) {
-    var codigo = req.body.inputCodC;
-    var nombre = req.body.inputNomC;
+    var codigo = req.body.inputCodCliBarra;
+    var nombre = req.body.inputNomCliBarra;
     if (codigo == "" || nombre == "") {
         console.log("Debe llenar todos los campos");
         res.render('ListaClientesBarras', { mensaje: 'Debe llenar toda la Información!!!' });

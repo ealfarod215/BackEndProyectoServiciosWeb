@@ -28,7 +28,7 @@ router.post('/filtrarLista', function (req, res, next) {
         db.query("EXEC sp_listarMesas @codigo = '" + codigo + "', @nombre = '" + nombre + "', @restaurante = '" + restaurante + "', @cantidadSillas = '" + cantidadSillas + "'",  function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                res.render('ListaMesas', {mensaje:'Erro al Filtrar la Información!!!'});
+                res.render('ListaMesas', {mensaje:'Error al Filtrar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaMesas', recordset);
@@ -51,7 +51,7 @@ router.post('/eliminarMesas', function (req, res, next) {
         db.query("EXEC sp_borrarMesas  @codigo = '" + codigo + "', @restaurante = '"+restaurante+"' ,@nombre = '" + nombre + "',@cantidadSillas = '" + cantidadSillas + "'",  function (error, recordset) {
             if (error) {
                 console.log("wrong");
-                res.render('ListaMesas', {mensaje:'Erro al Eliminar la Información!!!'});
+                res.render('ListaMesas', {mensaje:'Error al Eliminar la Información!!!'});
             } else {
                 console.log(recordset.recordset);
                 res.render('ListaMesas', {mensaje:'Se eliminó de manera Exitosa'});
